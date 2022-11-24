@@ -1,0 +1,14 @@
+.parrafo{
+     display: flex;
+     align-items: center;
+
+}
+
+p{
+     font-size: 22px;
+}
+
+.parrafo img{
+     margin: 30px;
+     width: 400px;
+}
