@@ -1,0 +1,37 @@
+.navbar{
+     background-color: #009c86 !important;
+}
+
+#navbarNavAltMarkup{
+     justify-content: flex-end !important;
+}
+
+.navbar-nav a{
+     font-size: 20px;
+}
+
+.active-link{
+     color: white;
+}
+
+.active-link a{
+     color: green !important;
+     ;
+}
+
+.container-fluid{
+     padding: 0px 12% 0px 12%;
+}
+
+.navbar-brand{
+     color: white !important;
+     font-size: 30px;
+}
+
+.icon {
+     width: 70px;
+     margin-right: 10px;
+}
+
+
+
