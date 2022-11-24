@@ -1,0 +1,65 @@
+.home{
+     height: 90vh;
+     /* background-color: gray; */
+     background-image: url('../../../assets/images/home.jpg');
+     background-position: top right;
+     background-repeat: no-repeat;
+     background-size: 35rem;
+     background-position-y: 50px;
+     
+}
+
+.texto{
+     padding-top: 150px;
+}
+
+.home h1{
+     font-size: 60px;
+}
+
+.btn{
+     background-color: #385A64;
+     color: white;
+     font-size: 25px;
+     padding: 0 30px 0 30px;
+     margin-left: 15%;
+}
+
+/* Pantallas de anchura 480 px y inferior */
+@media (max-width: 480px) {
+     .home {
+          background-size: 13rem;
+          background-position: center right;
+          text-align: center;
+     }
+
+     .texto{
+          padding-top: 20px;
+     }
+
+     .home h1{
+          font-size: 40px;
+     }
+
+     .home h2 {
+          font-size: 20px;
+     }
+
+     .btn{
+          margin: 0px;
+     }
+}
+
+ /* Pantallas de anchura 768 px y inferior */
+@media (max-width: 768px) {
+     .home {
+          background-size:20rem;
+     }
+}
+
+ /* Pantallas de anchura 1200 px y inferior */
+/* @media (min-width: 1200px) {
+     home {
+          background-size: 13rem;
+     }
+} */
