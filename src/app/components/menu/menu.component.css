@@ -8,16 +8,25 @@
 
 .navbar-nav a{
      font-size: 20px;
+     color: white;
+     margin: 0 10px 0 10px;
 }
 
 .active-link{
      color: white;
 }
 
-.active-link a{
-     color: green !important;
-     ;
+
+
+
+
+.active-link {
+     /* background: #265301; */
+     outline: none;
+     border-bottom: 3px solid white;
 }
+
+
 
 .container-fluid{
      padding: 0px 12% 0px 12%;
@@ -31,6 +40,22 @@
 .icon {
      width: 70px;
      margin-right: 10px;
+}
+
+
+@media (max-width: 480px) {
+     .navbar-brand{
+          font-size: 25px;
+     }
+
+     .icon {
+          width: 30px;
+          /* margin-right: 10px; */
+     }
+
+     .container-fluid{
+          padding: 0px 20px 0px 20px;
+     }
 }
 
 
