@@ -1,11 +1,12 @@
+/* INDICADORES SUPERIORES ======================================================= */
+
 .d-flex{
      padding-top: 20px;
 }
 
-
 .form{
-     font-size: 20px;
-     margin-right: 40px;
+     font-size: 15px;
+     margin-right: 20px;
      padding: 3px 10px;
      border: transparent 5px solid;
      border-top-right-radius: 20px;
@@ -15,8 +16,8 @@
 .flujo{background-color: #5dc460; font-weight: bold;}
 
 .disable{
-     font-size: 20px;
-     margin-right: 40px;
+     font-size: 15px;
+     margin-right: 20px;
      padding: 3px 10px;
      border: transparent 5px solid;
      background-color: #eaeaea;
@@ -25,14 +26,68 @@
 }
 
 
+/* FORMULARIO ======================================================= */
 
+
+.body{
+     padding-top: 70px;
+}
+
+.formulario{
+     width: 35%;
+     padding-right: 50px;
+     /* background-color: #5dc460; */
+}
+
+.columna{
+     width: 160px;
+}
+
+.div-titulo{
+     text-align: center;
+     font-size: 20px;
+     font-weight: bold;
+}
+
+input{
+     border-radius: 50px;
+     border: 1px solid;
+     margin-bottom: 7px;
+}
+
+.div-boton{
+     text-align: right;
+}
+
+.btn-datos{
+     background-color: #5dc460 !important;
+     margin-left: 10px;
+     padding: 0px 10px 0px 10px;
+}
+
+
+
+/* TABLA ======================================================= */
+
+.tabla {
+     width: 70%;
+     padding-left: 50px;
+     /* background-color: aqua; */
+}
+
+.div-depreciacion{
+     text-align: right;
+     font-size: 15px;
+     font-weight: bold;
+}
+
+
+/* BOTONES INFERIORES ======================================================= */
 
 .botones{
      padding-left: 50vw;
      position:fixed;
      bottom:0;
-     /* z-index:9999; */
-     /* background-color: #385A64 !important; */
 }
 
 .contenedor{
@@ -40,11 +95,28 @@
      padding-bottom: 50px;
 }
 
-.btn{
+.btn-opciones{
      width: 200px;
      background-color: #385A64;
      color: white;
      font-size: 20px;
      margin: 0px 5px 0 5px;
      padding: 1px 20px 1px 20px;
+}
+
+/* ======================================================= */
+
+
+
+
+
+@media (max-width: 1280px){
+     .form{
+          font-size: 14px;
+     }
+     
+     
+     .disable{
+          font-size: 14px;
+     }
 }
