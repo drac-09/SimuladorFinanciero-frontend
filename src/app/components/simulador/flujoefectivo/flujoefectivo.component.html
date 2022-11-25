@@ -5,10 +5,70 @@
      <div class="disable" >4. Tabla pago a Préstamo</div>
 </div>
 
+<div class="d-flex body">
+     <div class="formulario">
+          <div class="div-titulo">
+               <p>Ingresar Datos</p>
+          </div>
+          <form [formGroup]="datos">
+               <div>
+                    <table>
+                         <tbody>
+                              <tr>
+                                   <td class="columna" scope="row">Inversion:</td>
+                                   <td class="columna"><input formControlName="inversion" type="text" id="inversion"></td>
+                              </tr>
+                              <tr>
+                                   <td class="columna" scope="row">Ingresos:</td>
+                                   <td class="columna"><input formControlName="ingresos" type="text" id="ingresos"></td>
+                              </tr>
+                              <tr>
+                                   <td class="columna" scope="row">Costo/produccion:</td>
+                                   <td class="columna"><input formControlName="costoProduccion" type="text" id="costoProduccion"></td>
+                              </tr>
+                              <tr>
+                                   <td class="columna" scope="row">Años:</td>
+                                   <td class="columna"><input formControlName="anios" type="text" id="anios"></td>
+                              </tr>
+                              <tr>
+                                   <td class="columna" scope="row">Valor Salvamento:</td>
+                                   <td class="columna"><input formControlName="valorSalvamento" type="text" id="valorSalvamento"></td>
+                              </tr>
+                              <tr>
+                                   <td class="columna" scope="row">Impuestos:</td>
+                                   <td class="columna"><input formControlName="impuestos" type="text" id="impuestos"></td>
+                              </tr>
+                              <tr>
+                                   <td class="columna" scope="row">TMAR:</td>
+                                   <td class="columna"><input formControlName="TMAR" type="text" id="TMAR"></td>
+                              </tr>
+                              <tr>
+                                   <td></td>
+                                   <td class="columna div-boton"><br>
+                                        <button class=" btn btn-datos" (click)="limpiar()">Limpiar</button>
+                                        <button class=" btn btn-datos" (click)="calcular()">Calcular</button>
+                                   </td>
+                              </tr>
+                         </tbody>
+                    </table>
+               </div>
+          </form><br><br>
+          <p>Observaciones:</p>
+          <p>■ TMAR (tasa mínima aceptable de rendimiento)</p>
+     </div>
+
+     <div class="tabla">
+          <div class="div-depreciacion">
+               Depreciación: L. 00.00
+          </div>
+          Tabla
+     </div>
+</div>
+
 <div class="botones">
      <div class="contenedor">
-          <button class="btn" routerLink="/costo-beneficio">Siguiente >> </button>
-          <button class="btn" routerLink="/home">Cancelar</button>
+          <button class="btn btn-opciones" routerLink="/costo-beneficio">Siguiente >> </button>
+          <button class="btn btn-opciones" routerLink="/home">Cancelar</button>
      </div>
 </div>
 
