@@ -8,6 +8,10 @@ import { DocumentacionComponent } from './components/documentacion/documentacion
 import { AcercadeComponent } from './components/acercade/acercade.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { FlujoefectivoComponent } from './components/simulador/flujoefectivo/flujoefectivo.component';
+import { CostobeneficioComponent } from './components/simulador/costobeneficio/costobeneficio.component';
+import { PeriodorecuperacionComponent } from './components/simulador/periodorecuperacion/periodorecuperacion.component';
+import { PagoprestamoComponent } from './components/simulador/pagoprestamo/pagoprestamo.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     DocumentacionComponent,
     AcercadeComponent,
     MenuComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    FlujoefectivoComponent,
+    CostobeneficioComponent,
+    PeriodorecuperacionComponent,
+    PagoprestamoComponent
   ],
   imports: [
     BrowserModule,
