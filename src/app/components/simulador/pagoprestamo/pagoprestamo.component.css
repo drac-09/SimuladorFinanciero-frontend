@@ -1,0 +1,51 @@
+.d-flex{
+     padding-top: 20px;
+}
+
+
+.form{
+     font-size: 20px;
+     margin-right: 40px;
+     padding: 3px 10px;
+     border: transparent 5px solid;
+     border-top-right-radius: 20px;
+     border-bottom-right-radius: 20px;
+}
+
+.flujo{background-color: #5dc460;}
+.costo{background-color: #77dd77;}
+.periodo{background-color: #a5eea0;}
+.pago{background-color: #cfffca; font-weight: bold;}
+
+.disable{
+     font-size: 20px;
+     margin-right: 40px;
+     padding: 3px 10px;
+     border: transparent 5px solid;
+     background-color: #eaeaea;
+     border-top-right-radius: 20px;
+     border-bottom-right-radius: 20px;
+}
+
+
+
+
+.botones{
+     padding-left:50vw;
+     position:fixed;
+     bottom:0;
+}
+
+.contenedor{
+     width: 900px;
+     padding-bottom: 50px;
+}
+
+.btn{
+     width: 200px;
+     background-color: #385A64;
+     color: white;
+     font-size: 20px;
+     margin: 0px 5px 0 5px;
+     padding: 1px 20px 1px 20px;
+}

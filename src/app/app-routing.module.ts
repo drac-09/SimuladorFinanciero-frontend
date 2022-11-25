@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'documentacion', component: DocumentacionComponent },
   {path: 'acercade', component: AcercadeComponent },
 
-  {path: 'flujoe-fectivo', component: FlujoefectivoComponent },
+  {path: 'flujo-efectivo', component: FlujoefectivoComponent },
   {path: 'costo-beneficio', component: CostobeneficioComponent },
   {path: 'periodo-recuperacion', component: PeriodorecuperacionComponent },
   {path: 'pago-prestamo', component: PagoprestamoComponent },
