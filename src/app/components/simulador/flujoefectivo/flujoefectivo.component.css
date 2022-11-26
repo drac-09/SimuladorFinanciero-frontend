@@ -118,17 +118,29 @@
      color:green
 }
 
+.div-resultado{
+     display: flex;
+     width: 500px;
+}
+
+.div-resultado p, label{
+     margin-right: 15px;
+}
 
 /* BOTONES INFERIORES ======================================================= */
 
 .botones{
-     padding-left: 50vw;
+     /* padding-left: 50vw; */
+     display: flex;
+     justify-content: flex-end;
      position:fixed;
      bottom:0;
+     width: 70vw;
+     /* background-color: #5dc460; */
 }
 
 .contenedor{
-     width: 500px;
+     /* width: 500px; */
      padding-bottom: 50px;
 }
 
@@ -138,7 +150,7 @@
      color: white;
      font-size: 20px;
      margin: 0px 5px 0 5px;
-     padding: 1px 20px 1px 20px;
+     /* padding: 1px 20px 1px 20px; */
 }
 
 

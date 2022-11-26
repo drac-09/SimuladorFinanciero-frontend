@@ -115,9 +115,17 @@
                          <td>= FNE </td>
                          <td  *ngFor="let a of flujo; ">{{a.fne}}</td>
                     </tr>
-               </tbody>
+               </tbody><br>
+               <!-- <div class="div-resultado">
+                    <p>Valor Actual Neto (VAN):</p>
+                    <label>L. {{van}}.00</label>
+                    <div>Aceptado</div>
+               </div><br> -->
                </table>
+               
           </div>
+
+
 
 
      </div>
@@ -125,10 +133,11 @@
 
 <div class="botones">
      <div class="contenedor">
-          <button class="btn btn-opciones" routerLink="/costo-beneficio">Siguiente >> </button>
-          <button class="btn btn-opciones" routerLink="/home">Cancelar</button>
+          <button *ngIf="siguiente" class="btn btn-opciones" routerLink="/costo-beneficio">Siguiente >> </button>
+          <button class="btn btn-opciones" routerLink="/home" (click)="cancelar()">Cancelar</button>
      </div>
 </div>
+
 
 <!-- Button trigger modal -->
 <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
