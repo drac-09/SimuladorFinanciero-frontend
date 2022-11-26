@@ -1,4 +1,4 @@
-<div class="d-flex">
+<div class="etiquetas-flex">
      <div class="form flujo" >1. Flujo Neto de Efectivo</div>
      <div class="disable" >2. Relación Costo-Beneficio</div>
      <div class="disable" >3. Periodo de Recuperación</div>
@@ -10,58 +10,116 @@
           <div class="div-titulo">
                <p>Ingresar Datos</p>
           </div>
-          <form [formGroup]="datos">
+          <form [formGroup]="formularioDatos">
+               <div class="flex">
+                    <h1>inv</h1>
+                    <h2>L.</h2>
+                    <input formControlName="inversion" type="number" id="inversion" oninput="this.value = Math.max(this.value)" required>
+               </div>
+
+               <div class="flex">
+                    <h1>Ingresos:</h1>
+                    <h2>L.</h2>
+                    <input formControlName="ingresos" type="number" value="" id="ingresos" oninput="this.value = Math.max(this.value)" required>
+               </div>
+
+               <div class="flex">
+                    <h1>Costos:</h1>
+                    <h2>L.</h2>
+                    <input formControlName="costo" type="number" value="" id="costo" oninput="this.value = Math.max(this.value)" required>
+               </div>
+
+               <div class="flex">
+                    <h1>Años:</h1>
+                    <h2>N</h2>
+                    <input formControlName="anios" type="number" value="" id="anios" oninput="this.value = Math.max(this.value)" required>
+               </div>
+
+               <div class="flex">
+                    <h1>VS:</h1>
+                    <h2>L.</h2>
+                    <input formControlName="valorsalvamento" type="number" value="" id="valorsalvamento" oninput="this.value = Math.max(this.value)" required>
+               </div>
+
+               <div class="flex">
+                    <h1>Impuestos:</h1>
+                    <h2>%</h2>
+                    <input formControlName="impuestos" type="number" value="" id="impuestoss" oninput="this.value = Math.max(this.value)" required>
+               </div>
+               
+               <div class="flex">
+                    <h1>TMAR:</h1>
+                    <h2>%</h2>
+                    <input formControlName="tmar" type="number" value="" id="tmar" oninput="this.value = Math.max(this.value)" required>
+               </div>
                <div>
-                    <table>
-                         <tbody>
-                              <tr>
-                                   <td class="columna" scope="row">Inversion:</td>
-                                   <td class="columna"><input formControlName="inversion" type="text" id="inversion"></td>
-                              </tr>
-                              <tr>
-                                   <td class="columna" scope="row">Ingresos:</td>
-                                   <td class="columna"><input formControlName="ingresos" type="text" id="ingresos"></td>
-                              </tr>
-                              <tr>
-                                   <td class="columna" scope="row">Costo/produccion:</td>
-                                   <td class="columna"><input formControlName="costoProduccion" type="text" id="costoProduccion"></td>
-                              </tr>
-                              <tr>
-                                   <td class="columna" scope="row">Años:</td>
-                                   <td class="columna"><input formControlName="anios" type="text" id="anios"></td>
-                              </tr>
-                              <tr>
-                                   <td class="columna" scope="row">Valor Salvamento:</td>
-                                   <td class="columna"><input formControlName="valorSalvamento" type="text" id="valorSalvamento"></td>
-                              </tr>
-                              <tr>
-                                   <td class="columna" scope="row">Impuestos:</td>
-                                   <td class="columna"><input formControlName="impuestos" type="text" id="impuestos"></td>
-                              </tr>
-                              <tr>
-                                   <td class="columna" scope="row">TMAR:</td>
-                                   <td class="columna"><input formControlName="TMAR" type="text" id="TMAR"></td>
-                              </tr>
-                              <tr>
-                                   <td></td>
-                                   <td class="columna div-boton"><br>
-                                        <button class=" btn btn-datos" (click)="limpiar()">Limpiar</button>
-                                        <button class=" btn btn-datos" (click)="calcular()">Calcular</button>
-                                   </td>
-                              </tr>
-                         </tbody>
-                    </table>
+                    <div class="columna div-boton"><br>
+                         <button class=" btn btn-datos" (click)="limpiar()">Limpiar</button>
+                         <button id="calcular" class=" btn btn-datos" (click)="calcular()">Calcular</button>
+                    </div>
                </div>
           </form><br><br>
-          <p>Observaciones:</p>
-          <p>■ TMAR (tasa mínima aceptable de rendimiento)</p>
+          <div class="div-observaciones">
+               <p>Observaciones:</p>
+               <p>• VS (valor de salvamento o valor de rescate)</p>
+               <p>• TMAR (tasa mínima aceptable de rendimiento)</p><br>
+               <p>• UAI (utilidad antes del impuesto)</p>
+               <p>• UDI (utilidad despues del impuesto)</p>
+               <p>• FNE (flujo neto de efectivo)</p>
+          </div>
      </div>
 
      <div class="tabla">
           <div class="div-depreciacion">
-               Depreciación: L. 00.00
+               Depreciación: L. {{depreciacion}}.00 
+          </div><br>
+
+          <div>
+               <table class="table" *ngIf="flujo.length!=0">
+                    <thead>
+                         <tr>
+                              <td></td>
+                              <td *ngFor="let a of flujo; ">Año {{a.anio}}</td>
+                         </tr>
+                    </thead>
+               <tbody>
+                    <tr>
+                         <td class="verde">+ Ingresos</td>
+                         <td  *ngFor="let a of flujo; ">{{a.ingresos}}</td>
+                    </tr>
+                    <tr>
+                         <td class="rojo">- Costos</td>
+                         <td  *ngFor="let a of flujo; ">{{a.costosTotales}}</td>
+                    </tr>
+                    <tr>
+                         <td class="rojo">- Depreciación</td>
+                         <td  *ngFor="let a of flujo; ">{{a.depreciacion}}</td>
+                    </tr>
+                    <tr>
+                         <td>= UAI</td>
+                         <td  *ngFor="let a of flujo; ">{{a.uai}}</td>
+                    </tr>
+                    <tr>
+                         <td class="rojo">- Impuestos</td>
+                         <td  *ngFor="let a of flujo; ">{{a.impuestos}}</td>
+                    </tr>
+                    <tr>
+                         <td>= UDI</td>
+                         <td  *ngFor="let a of flujo; ">{{a.udi}}</td>
+                    </tr>
+                    <tr>
+                         <td class="verde">+ Depreciación</td>
+                         <td  *ngFor="let a of flujo; ">{{a.depreciacion}}</td>
+                    </tr>
+                    <tr>
+                         <td>= FNE </td>
+                         <td  *ngFor="let a of flujo; ">{{a.fne}}</td>
+                    </tr>
+               </tbody>
+               </table>
           </div>
-          Tabla
+
+
      </div>
 </div>
 
@@ -72,3 +130,20 @@
      </div>
 </div>
 
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+     Launch demo modal
+</button> -->
+
+<!-- Modal - ERROR -->
+<!-- <div class="modal fade" id="exampleModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+          <div class="modal-header">
+               <i class="fa-solid fa-triangle-exclamation"></i>
+               <h5>Error! - Ingrese todos los datos</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          </div>
+     </div>
+</div> -->

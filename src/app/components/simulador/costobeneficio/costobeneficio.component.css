@@ -1,11 +1,12 @@
-.d-flex{
+/* INDICADORES SUPERIORES ======================================================= */
+.etiquetas-flex{
+     display: flex;
      padding-top: 20px;
 }
 
-
 .form{
-     font-size: 20px;
-     margin-right: 40px;
+     font-size: 15px;
+     margin-right: 20px;
      padding: 3px 10px;
      border: transparent 5px solid;
      border-top-right-radius: 20px;
@@ -16,8 +17,8 @@
 .costo{background-color: #77dd77; font-weight: bold;}
 
 .disable{
-     font-size: 20px;
-     margin-right: 40px;
+     font-size: 15px;
+     margin-right: 20px;
      padding: 3px 10px;
      border: transparent 5px solid;
      background-color: #eaeaea;
@@ -28,8 +29,68 @@
 
 
 
+/* FORMULARIO ======================================================= */
+
+
+.body{
+     padding-top: 70px;
+}
+
+.formulario{
+     /* width: 35%; */
+     padding-right: 50px;
+     /* background-color: #5dc460; */
+}
+
+.flex{
+     display: flex
+     /* padding-top: 0px; */
+     /* width: 160px; */
+}
+
+.flex h1{
+     width: 170px;
+     font-size: 16px;
+
+}
+
+.flex h2{
+     width: 25px;
+     font-size: 16px;
+
+}
+
+.flex input{
+     width: 180px;
+     font-size: 16px;
+     border-radius: 50px;
+     border: 1px solid;
+     margin-bottom: 7px;
+     padding: 0px 10px 0px 10px;
+     text-align: right;
+
+}
+.div-titulo{
+     text-align: center;
+     font-size: 20px;
+     font-weight: bold;
+}
+
+.div-boton{
+     text-align: right;
+}
+
+.btn-datos{
+     background-color: #5dc460 !important;
+     margin-left: 10px;
+     padding: 0px 10px 0px 10px;
+}
+
+
+/* BOTONES INFERIORES ======================================================= */
+
 .botones{
-     padding-left:39vw;
+     padding-left: 39vw;
      position:fixed;
      bottom:0;
 }
@@ -39,7 +100,7 @@
      padding-bottom: 50px;
 }
 
-.btn{
+.btn-opciones{
      width: 200px;
      background-color: #385A64;
      color: white;
