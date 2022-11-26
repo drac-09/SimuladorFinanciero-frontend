@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';                                       // Fromularios Reactivos
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';                                    
+                                       // Fromularios Reactivos
 
 @Component({
   selector: 'app-flujoefectivo',
@@ -25,7 +27,9 @@ export class FlujoefectivoComponent implements OnInit {
   });
   
 
-  constructor() {
+  constructor(
+    private router: Router,
+  ) {
     this.formularioDatos.get('inversion')?.setValue(12000000)
     this.formularioDatos.get('ingresos')?.setValue(24000000)
     this.formularioDatos.get('costo')?.setValue(18000000)
@@ -113,6 +117,7 @@ export class FlujoefectivoComponent implements OnInit {
 
   limpiar(){
     this.formularioDatos.reset()
+    this.flujo=[]
   }
 
 }
