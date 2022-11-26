@@ -17,16 +17,16 @@ import { PagoprestamoComponent } from './components/simulador/pagoprestamo/pagop
 
 // Rutas de Nevegacion
 const routes: Routes = [
-  {path: ' ', redirectTo: '/home', pathMatch: 'full' },
   {path: 'home', component: HomeComponent },
   {path: 'documentacion', component: DocumentacionComponent },
   {path: 'acercade', component: AcercadeComponent },
-
+  
   {path: 'flujo-efectivo', component: FlujoefectivoComponent },
   {path: 'costo-beneficio', component: CostobeneficioComponent },
   {path: 'periodo-recuperacion', component: PeriodorecuperacionComponent },
   {path: 'pago-prestamo', component: PagoprestamoComponent },
   
+  {path: '', redirectTo: '/home', pathMatch: 'full' },
   {path: '**', component: PagenotfoundComponent },
 ];
 
