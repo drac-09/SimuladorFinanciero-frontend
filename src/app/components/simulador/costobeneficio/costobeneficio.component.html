@@ -1,14 +1,48 @@
-<div class="d-flex">
+<div class="etiquetas-flex">
      <div class="form flujo" >1. Flujo Neto de Efectivo</div>
      <div class="form costo" >2. Relación Costo-Beneficio</div>
      <div class="disable" >3. Periodo de Recuperación</div>
      <div class="disable" >4. Tabla pago a Préstamo</div>
 </div>
 
+<div class="d-flex body">
+     <div class="formulario">
+          <div class="div-titulo">
+               <p>Ingresar Datos</p>
+          </div>
+          <form [formGroup]="formularioDatos">
+               <div class="flex">
+                    <h1>WACC:</h1>
+                    <h2>L.</h2>
+                    <input formControlName="wacc" type="number" id="wacc" oninput="this.value = Math.max(this.value)" required>
+               </div>
+
+               
+          </form><br><br>
+          <div class="div-observaciones">
+               <p>Observaciones:</p>
+               <p>■ VS (valor de salvamento o valor de rescate)</p>
+               <p>■ TMAR (tasa mínima aceptable de rendimiento)</p>
+          </div>
+     </div>
+
+     <div class="tabla">
+          <div class="div-depreciacion">
+          </div>
+
+          <div>
+          
+          </div>
+
+
+     </div>
+</div>
+
+
 <div class="botones">
      <div class="contenedor">
-          <button class="btn" routerLink="/flujo-efectivo"> << Anterior</button>
-          <button class="btn" routerLink="/periodo-recuperacion">Siguiente >> </button>
-          <button class="btn" routerLink="/home">Cancelar</button>
+          <button class="btn btn-opciones" routerLink="/flujo-efectivo"> << Anterior</button>
+          <button class="btn btn-opciones" routerLink="/periodo-recuperacion">Siguiente >> </button>
+          <button class="btn btn-opciones" routerLink="/home">Cancelar</button>
      </div>
 </div>

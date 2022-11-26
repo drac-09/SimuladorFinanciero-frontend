@@ -1,6 +1,6 @@
 /* INDICADORES SUPERIORES ======================================================= */
-
-.d-flex{
+.etiquetas-flex{
+     display: flex;
      padding-top: 20px;
 }
 
@@ -34,25 +34,43 @@
 }
 
 .formulario{
-     width: 35%;
+     /* width: 35%; */
      padding-right: 50px;
      /* background-color: #5dc460; */
 }
 
-.columna{
-     width: 160px;
+.flex{
+     display: flex
+     /* padding-top: 0px; */
+     /* width: 160px; */
 }
 
+.flex h1{
+     width: 170px;
+     font-size: 16px;
+
+}
+
+.flex h2{
+     width: 25px;
+     font-size: 16px;
+
+}
+
+.flex input{
+     width: 180px;
+     font-size: 16px;
+     border-radius: 50px;
+     border: 1px solid;
+     margin-bottom: 7px;
+     padding: 0px 10px 0px 10px;
+     text-align: right;
+
+}
 .div-titulo{
      text-align: center;
      font-size: 20px;
      font-weight: bold;
-}
-
-input{
-     border-radius: 50px;
-     border: 1px solid;
-     margin-bottom: 7px;
 }
 
 .div-boton{
@@ -81,6 +99,25 @@ input{
      font-weight: bold;
 }
 
+.div-observaciones p{
+     margin: 0;
+
+}
+
+.t-fila{
+     width: 250px;
+     /* display: flex; */
+     /* flex-direction: column; */
+}
+
+.rojo{
+     color: red;
+}
+
+.verde{
+     color:green
+}
+
 
 /* BOTONES INFERIORES ======================================================= */
 
@@ -104,6 +141,32 @@ input{
      padding: 1px 20px 1px 20px;
 }
 
+
+/* MODAL ======================================================= */
+
+.modal-flex{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+}
+
+.mensaje-flex{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin-bottom: 20px;
+}
+
+.modal-header i{
+     font-size: 25px;
+     color: orangered;
+     margin-right: 10px;
+}
+
+.modal-header h5 {
+     padding: 0;
+     margin: 0;
+}
 /* ======================================================= */
 
 
