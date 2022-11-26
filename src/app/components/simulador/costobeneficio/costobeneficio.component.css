@@ -86,17 +86,80 @@
      padding: 0px 10px 0px 10px;
 }
 
+/* TABLA ======================================================= */
+
+.tabla {
+     width: 70%;
+     padding-left: 50px;
+     /* background-color: aqua; */
+}
+
+.div-depreciacion{
+     text-align: right;
+     font-size: 15px;
+     font-weight: bold;
+}
+
+.div-observaciones p{
+     margin: 0;
+
+}
+
+.t-fila{
+     width: 250px;
+     /* display: flex; */
+     /* flex-direction: column; */
+}
+
+
+.div-resultado{
+     display: flex;
+     width: 500px;
+}
+
+.div-resultado h5{
+     margin-right: 15px;
+}
+
+.msj{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     font-size: 35px;
+}
+
+.aprobado{
+     color: green;
+}
+
+.aprobado p{
+     margin: 0 0 0 10px;
+}
+
+.rechazado{
+     color: red;
+}
+
+.rechazado p{
+     margin: 0 0 0 10px;
+}
 
 /* BOTONES INFERIORES ======================================================= */
 
 .botones{
-     padding-left: 39vw;
+     /* padding-left: 50vw; */
+     display: flex;
+     justify-content: flex-end;
      position:fixed;
      bottom:0;
+     width: 70vw;
+     /* background-color: #5dc460; */
+     
 }
 
 .contenedor{
-     width: 900px;
+     /* width: 500px; */
      padding-bottom: 50px;
 }
 
@@ -106,5 +169,5 @@
      color: white;
      font-size: 20px;
      margin: 0px 5px 0 5px;
-     padding: 1px 20px 1px 20px;
+     /* padding: 1px 20px 1px 20px; */
 }
