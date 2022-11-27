@@ -36,7 +36,14 @@ export class CostobeneficioComponent implements OnInit {
       this.formularioDatos.get('vpe')?.setValue(RCB.vpe)
       this.formularioDatos.get('rcb')?.setValue(RCB.rcb)
 
-      if (this.formularioDatos.get('rcb')?.value >= 1) {this.aprobado=true} else {this.rechazado=true}
+      if (this.formularioDatos.get('rcb')?.value >= 1) {
+        this.aprobado=true
+        this.rechazado=false
+      }
+      if (this.formularioDatos.get('rcb')?.value < 1) {
+        this.aprobado=false
+        this.rechazado=true
+      }
     } 
 
     let flujoResumen:any = JSON.parse(String(localStorage.getItem('fne')));
@@ -103,7 +110,14 @@ export class CostobeneficioComponent implements OnInit {
 
 
         // Mensaje
-        if (this.formularioDatos.get('rcb')?.value >= 1) {this.aprobado=true} else {this.rechazado=true}
+        if (this.formularioDatos.get('rcb')?.value >= 1) {
+          this.aprobado=true
+          this.rechazado=false
+        }
+        if (this.formularioDatos.get('rcb')?.value < 1) {
+          this.aprobado=false
+          this.rechazado=true
+        }
 
         this.siguiente=true
         localStorage.setItem("rcb",JSON.stringify(this.formularioDatos.value))
