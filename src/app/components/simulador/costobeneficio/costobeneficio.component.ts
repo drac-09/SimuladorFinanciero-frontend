@@ -79,7 +79,7 @@ export class CostobeneficioComponent implements OnInit {
       
 
         // VPI = inversion - Flujo1 + Flujo2 + Flujo3 + .... FlujoN
-        // Flujos =  (flujo neto de efectivo) / (1 + ccpp)^Periodo]
+        // Flujos =  (flujo neto de efectivo) / [(1 + ccpp)^Periodo]
         // obs:
         // CCPP ó Tasa de descuento
         // Perido ó Año
@@ -92,7 +92,7 @@ export class CostobeneficioComponent implements OnInit {
         // Suma de Periodos
         for (let f = 1; f < this.flujo.length; f++) {               // Recorremos el arreglo
           const element = this.flujo[f];                            // Obtenemos 
-          let fne = element.fne                                     //  Obtenemos el flujo neto de efectivo de cada periodo
+          let fne = element.fne                                     // Obtenemos el flujo neto de efectivo de cada periodo
           let periodo = element.anio                                // Obtenermos el numero de año de cada periodo
           
           flujo = fne/(Math.pow(1 + td,periodo))                    // Calculamos el flujo
