@@ -55,6 +55,7 @@ export class FlujoefectivoComponent implements OnInit {
       }
 
       if (localStorage.getItem('fne') !== null){
+        this.depreciacion =  JSON.parse(String(localStorage.getItem('depreciacion')))
         let fneLS = localStorage.getItem('fne')
         // console.log(fneLS)
         this.flujo = JSON.parse(String(fneLS))
@@ -129,6 +130,7 @@ export class FlujoefectivoComponent implements OnInit {
 
       localStorage.setItem("fne",JSON.stringify(this.flujo))
       localStorage.setItem("form-fne",JSON.stringify(this.formularioDatos.value))
+      localStorage.setItem("depreciacion", JSON.stringify(this.depreciacion))
       this.siguiente=true
     }
 }
