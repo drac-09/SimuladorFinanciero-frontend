@@ -35,7 +35,7 @@ export class PeriodorecuperacionComponent implements OnInit {
     this.acumulado[0]='‎';
     this.acumulado[1]=flujoResumen[1].fne
     for (let i = 2; i < this.flujo.length; i++) {
-      this.acumulado[i] = this.acumulado[i-1] + this.flujo[i].fne
+      this.acumulado[i] = (parseInt(this.acumulado[i-1]) + parseInt(this.flujo[i].fne)).toFixed(2)
     }
 
     // Obteniendo valores para calcular el año donde recupera la inversion.

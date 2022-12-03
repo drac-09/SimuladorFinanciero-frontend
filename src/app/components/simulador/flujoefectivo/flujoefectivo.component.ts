@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';                                    
+import { Router } from '@angular/router';
                                        // Fromularios Reactivos
 
 @Component({
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class FlujoefectivoComponent implements OnInit {
   siguiente=false                                                 // habilitar boton siguiente
   depreciacion:number= 0                                          // guarda valor del calculo de la depreciacion
+  mostrarDepreciacion:any
   flujo:any=[]                                                    // Arreglo de los flunos netos de efectivo
 
   formularioDatos = new FormGroup({
@@ -24,13 +25,13 @@ export class FlujoefectivoComponent implements OnInit {
 
     // depreciacion: new FormControl(this.dep)
   });
-  
+
 
   constructor(
     private router: Router,
     ) {
 
-      if (localStorage.getItem('form-fne') !== null){                                 
+      if (localStorage.getItem('form-fne') !== null){
         let form = JSON.parse(String(localStorage.getItem('form-fne')));
         this.formularioDatos.get('inversion')?.setValue(form.inversion)
         this.formularioDatos.get('ingresos')?.setValue(form.ingresos)
@@ -41,9 +42,9 @@ export class FlujoefectivoComponent implements OnInit {
         this.formularioDatos.get('tmar')?.setValue(form.tmar)
         this.siguiente = true
       }
-  
+
       if (localStorage.getItem('form-fne') == null){
-        console.log("llenar con local")
+        // console.log("llenar con local")
         this.formularioDatos.get('inversion')?.setValue(12000000)
         this.formularioDatos.get('ingresos')?.setValue(24000000)
         this.formularioDatos.get('costo')?.setValue(18000000)
@@ -78,54 +79,54 @@ export class FlujoefectivoComponent implements OnInit {
       let inversion = this.formularioDatos.get('inversion')?.value                          // Obtenemos el valor de la inversion
       let valorsalvamento = this.formularioDatos.get('valorsalvamento')?.value              // Obtenemos el valor del valor de salvamento
       let anios = this.formularioDatos.get('anios')?.value                                  // Obtenemos los años
-      this.depreciacion = (inversion - valorsalvamento)/anios                               // Depreciacion = (inversion - Valor Salvamento)/años
-
+      this.depreciacion = ((inversion - valorsalvamento)/anios)                             // Depreciacion = (inversion - Valor Salvamento)/años
+      this.mostrarDepreciacion = this.depreciacion.toFixed(2)
 
       // Calculamos en Año=0
       this.flujo[0]={
         "anio":0,
-        "fne":-(this.formularioDatos.get('inversion')?.value)
+        "fne":-(this.formularioDatos.get('inversion')?.value).toFixed(2)
       }
 
       // Obtenemos los sifuientes datos del formulario
-      let F_INGRESOS = this.formularioDatos.get('ingresos')?.value                          // Ingresos                          
+      let F_INGRESOS = this.formularioDatos.get('ingresos')?.value                          // Ingresos
       let F_COSTOS = this.formularioDatos.get('costo')?.value                               // Costos
       let F_ISV = this.formularioDatos.get('impuestos')?.value                              // Impuesto
       let F_VS = this.formularioDatos.get('valorsalvamento')?.value                         // Valor de salvamento
-      
+
       // Con los datos obtenidos calculamos
-      let f_uai = (F_INGRESOS - F_COSTOS - this.depreciacion)                               // Utilidad antes del Impuesto         
+      let f_uai = (F_INGRESOS - F_COSTOS - this.depreciacion)                               // Utilidad antes del Impuesto
       let f_isv = f_uai*(F_ISV/100)                                                         // Impuesto
       let f_udi = (f_uai - f_isv)                                                           // Utilidad despues del impuesto
-      let f_fne = f_udi + this.depreciacion                                                 // Flujo neto de efectivo    
-      
+      let f_fne = f_udi + this.depreciacion                                                 // Flujo neto de efectivo
+
 
       let a = this.formularioDatos.get('anios')?.value                                      // Obtenemos los años del formulario
 
       // Ingresamos los datos al arreglo "flujo"
-      for (let i = 1; i <= a; i++) {                                                      
+      for (let i = 1; i <= a; i++) {
         this.flujo[i]={
           "anio":i,
-          "ingresos": F_INGRESOS,
-          "costosTotales": F_COSTOS,
-          "depreciacion": this.depreciacion,
-          "uai": f_uai,
-          "impuestos":f_isv,
-          "udi": f_udi,
-          "fne": f_fne
+          "ingresos": F_INGRESOS.toFixed(2),
+          "costosTotales": F_COSTOS.toFixed(2),
+          "depreciacion": this.depreciacion.toFixed(2),
+          "uai": f_uai.toFixed(2),
+          "impuestos":f_isv.toFixed(2),
+          "udi": f_udi.toFixed(2),
+          "fne": f_fne.toFixed(2)
         }
       }
 
       // Calculando el ultimo año
       this.flujo[(a)]={
         "anio":(a),
-        "ingresos": F_INGRESOS,
-        "costosTotales": F_COSTOS,
-        "depreciacion": this.depreciacion,
-        "uai": f_uai,
-        "impuestos":f_isv,
-        "udi": f_udi,
-        "fne": f_fne + F_VS
+        "ingresos": F_INGRESOS.toFixed(2),
+        "costosTotales": F_COSTOS.toFixed(2),
+        "depreciacion": this.depreciacion.toFixed(2),
+        "uai": f_uai.toFixed(2),
+        "impuestos":f_isv.toFixed(2),
+        "udi": f_udi.toFixed(2),
+        "fne": (f_fne + F_VS).toFixed(2)
       }
 
       localStorage.setItem("fne",JSON.stringify(this.flujo))
