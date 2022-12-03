@@ -94,10 +94,19 @@
 }
 
 /* TABLA ======================================================= */
+.contenedor-t{
+  display: flex;
+  flex-direction: column !important;
+}
+
 
 .tabla {
   width: 70%;
   padding-left: 50px;
+  padding-right: 20px;
+  overflow:scroll;
+  /* height:500px; */
+  width:65%;
   /* background-color: aqua; */
 }
 
@@ -150,6 +159,13 @@
 
 .rechazado p {
   margin: 0 0 0 10px;
+}
+
+.respuesta{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #5dc460; */
 }
 
 /* BOTONES INFERIORES ======================================================= */

@@ -79,7 +79,7 @@ export class FlujoefectivoComponent implements OnInit {
       let inversion = this.formularioDatos.get('inversion')?.value                          // Obtenemos el valor de la inversion
       let valorsalvamento = this.formularioDatos.get('valorsalvamento')?.value              // Obtenemos el valor del valor de salvamento
       let anios = this.formularioDatos.get('anios')?.value                                  // Obtenemos los años
-      this.depreciacion = ((inversion - valorsalvamento)/anios)                  // Depreciacion = (inversion - Valor Salvamento)/años
+      this.depreciacion = ((inversion - valorsalvamento)/anios)                             // Depreciacion = (inversion - Valor Salvamento)/años
       this.mostrarDepreciacion = this.depreciacion.toFixed(2)
 
       // Calculamos en Año=0
