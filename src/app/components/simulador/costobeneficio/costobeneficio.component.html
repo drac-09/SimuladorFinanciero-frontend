@@ -1,90 +1,96 @@
 <div class="etiquetas-flex">
-     <div class="form flujo" >1. Flujo Neto de Efectivo</div>
-     <div class="form costo" >2. Relación Costo-Beneficio</div>
-     <div class="disable" >3. Periodo de Recuperación</div>
-     <div class="disable" >4. Tabla pago a Préstamo</div>
+  <div class="form flujo">1. Flujo Neto de Efectivo</div>
+  <div class="form costo">2. Relación Costo-Beneficio</div>
+  <div class="disable">3. Periodo de Recuperación</div>
+  <div class="disable">4. Tabla pago a Préstamo</div>
 </div>
 
 <div class="d-flex body">
-     <div class="formulario">
-          <div class="div-titulo">
-               <p>Ingresar Datos</p>
-          </div>
-          <form [formGroup]="formularioDatos">
-               <div class="flex">
-                    <h1>CCPP:</h1>
-                    <h2>%</h2>
-                    <input formControlName="ccpp" type="number" id="ccpp" oninput="this.value = Math.max(this.value)" required>
-               </div>
-               <div>
-                    <div class="columna div-boton"><br>
-                         <button class=" btn btn-datos" (click)="limpiar()">Limpiar</button>
-                         <button id="calcular" class=" btn btn-datos" (click)="calcular()">Calcular</button>
-                    </div>
-               </div>
-          </form><br><br>
+  <div class="formulario">
+    <div class="div-titulo">
+      <p>Ingresar Datos</p>
+    </div>
+    <form [formGroup]="formularioDatos">
+      <div class="flex">
+        <h1>CCPP:</h1>
+        <h2>%</h2>
+        <input
+          formControlName="ccpp"
+          type="number"
+          id="ccpp"
+          oninput="this.value = Math.max(this.value)"
+          required
+        />
+      </div>
+      <div>
+        <div class="columna div-boton">
+          <br />
+          <button class="btn btn-datos" (click)="limpiar()">Limpiar</button>
+          <button id="calcular" class="btn btn-datos" (click)="calcular()">Calcular</button>
+        </div>
+      </div>
+    </form>
+    <br /><br />
 
-          <div class="div-observaciones">
-               <p>Observaciones:</p>
-               <p>• CCPP (costo capital promedio ponderado o Tasa de Descuento)</p>
-               <p>• VPI (valor presente de ingresos)</p>
-               <p>• VPE (valor presente de egresos)</p>
-               <p>• RCB (relación costo-beneficio)</p>
+    <div class="div-observaciones">
+      <p>Observaciones:</p>
+      <p>• CCPP (costo capital promedio ponderado o Tasa de Descuento)</p>
+      <p>• VPI (valor presente de ingresos)</p>
+      <p>• VPE (valor presente de egresos)</p>
+      <p>• RCB (relación costo-beneficio)</p>
+    </div>
+  </div>
 
-          </div>
-     </div>
+  <div class="tabla">
+    <div>
+      <table class="table" *ngIf="flujo.length != 0">
+        <thead>
+          <tr>
+            <td></td>
+            <td *ngFor="let a of flujo">Año {{ a.anio }}</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>FNE</td>
+            <td *ngFor="let a of flujo">{{ a.fne }}</td>
+          </tr>
+        </tbody>
+        <br />
+      </table>
 
-     <div class="tabla">
-          <div>
-               <table class="table" *ngIf="flujo.length!=0">
-                    <thead>
-                         <tr>
-                              <td></td>
-                              <td *ngFor="let a of flujo; ">Año {{a.anio}}</td>
-                         </tr>
-                    </thead>
-                    <tbody>
-                         <tr>
-                              <td>FNE </td>
-                              <td  *ngFor="let a of flujo; ">{{a.fne}}</td>
-                         </tr>
-                    </tbody><br>
-               </table>
+      <form [formGroup]="formularioDatos">
+        <div class="div-resultado">
+          <h5>VPI:</h5>
+          <h5>{{ formularioDatos.value.vpi }}</h5>
+        </div>
+        <div class="div-resultado">
+          <h5>VPE:</h5>
+          <h5>{{ formularioDatos.value.vpe }}</h5>
+        </div>
+        <div class="div-resultado">
+          <h5>RCB:</h5>
+          <h5>{{ formularioDatos.value.rcb }}</h5>
+        </div>
+        <br /><br />
 
-               <form [formGroup]="formularioDatos">
+        <div *ngIf="aprobado" class="msj aprobado">
+          <i class="fa-solid fa-circle-check"></i>
+          <p>Propuesta Aprobada</p>
+        </div>
+        <div *ngIf="rechazado" class="msj rechazado">
+          <i class="fa-solid fa-circle-xmark"></i>
+          <p>Propuesta Rechazada</p>
+        </div>
+      </form>
+    </div>
+  </div>
 
-                    <div class="div-resultado">
-                         <h5>VPI:</h5>
-                         <h5>{{formularioDatos.value.vpi}}</h5>
-                    </div>
-                    <div class="div-resultado">
-                         <h5>VPE:</h5>
-                         <h5>{{formularioDatos.value.vpe}}</h5>
-                    </div>
-                    <div class="div-resultado">
-                         <h5>RCB:</h5>
-                         <h5>{{formularioDatos.value.rcb}}</h5>
-                    </div ><br><br>
-
-                    <div *ngIf="aprobado" class="msj aprobado">
-                         <i class="fa-solid fa-circle-check"></i>
-                         <p>Propuesta Aprobada</p>
-                    </div>
-                    <div *ngIf="rechazado" class=" msj rechazado">
-                         <i class="fa-solid fa-circle-xmark"></i>
-                         <p>Propuesta Rechazada</p>
-                    </div>
-               </form>
-
-          </div>
-     </div>
-
-
-     <div class="botones">
-          <div class="contenedor">
-               <button class="btn btn-opciones" routerLink="/flujo-efectivo"> << Anterior</button>
-               <button *ngIf="siguiente" class="btn btn-opciones" routerLink="/periodo-recuperacion">Siguiente >> </button>
-               <button class="btn btn-opciones" routerLink="/home" (click)="cancelar()">Cancelar</button>
-          </div>
-     </div>
+  <div class="botones">
+    <div class="contenedor">
+      <button class="btn btn-opciones" routerLink="/flujo-efectivo"><< Anterior</button>
+      <button *ngIf="siguiente" class="btn btn-opciones" routerLink="/periodo-recuperacion">Siguiente >></button>
+      <button class="btn btn-opciones" routerLink="/home" (click)="cancelar()">Cancelar</button>
+    </div>
+  </div>
 </div>
