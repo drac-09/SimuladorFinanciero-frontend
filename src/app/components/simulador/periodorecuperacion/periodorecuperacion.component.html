@@ -57,7 +57,7 @@
     <div class="contenedor">
       <button class="btn btn-opciones" routerLink="/costo-beneficio"><< Anterior</button>
       <button *ngIf="siguiente" class="btn btn-opciones" routerLink="/pago-prestamo">Siguiente >></button>
-      <button class="btn btn-opciones" routerLink="/home">Cancelar</button>
+      <button class="btn btn-opciones" routerLink="/home" (click)="cancelar()">Cancelar</button>
     </div>
   </div>
 </div>
