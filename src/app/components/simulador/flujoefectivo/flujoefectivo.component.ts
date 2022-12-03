@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class FlujoefectivoComponent implements OnInit {
   siguiente=false                                                 // habilitar boton siguiente
   depreciacion:number= 0                                          // guarda valor del calculo de la depreciacion
+  mostrarDepreciacion:any
   flujo:any=[]                                                    // Arreglo de los flunos netos de efectivo
 
   formularioDatos = new FormGroup({
@@ -78,13 +79,13 @@ export class FlujoefectivoComponent implements OnInit {
       let inversion = this.formularioDatos.get('inversion')?.value                          // Obtenemos el valor de la inversion
       let valorsalvamento = this.formularioDatos.get('valorsalvamento')?.value              // Obtenemos el valor del valor de salvamento
       let anios = this.formularioDatos.get('anios')?.value                                  // Obtenemos los años
-      this.depreciacion = (inversion - valorsalvamento)/anios                               // Depreciacion = (inversion - Valor Salvamento)/años
-
+      this.depreciacion = ((inversion - valorsalvamento)/anios)                  // Depreciacion = (inversion - Valor Salvamento)/años
+      this.mostrarDepreciacion = this.depreciacion.toFixed(2)
 
       // Calculamos en Año=0
       this.flujo[0]={
         "anio":0,
-        "fne":-(this.formularioDatos.get('inversion')?.value)
+        "fne":-(this.formularioDatos.get('inversion')?.value).toFixed(2)
       }
 
       // Obtenemos los sifuientes datos del formulario
@@ -106,26 +107,26 @@ export class FlujoefectivoComponent implements OnInit {
       for (let i = 1; i <= a; i++) {
         this.flujo[i]={
           "anio":i,
-          "ingresos": F_INGRESOS,
-          "costosTotales": F_COSTOS,
-          "depreciacion": this.depreciacion,
-          "uai": f_uai,
-          "impuestos":f_isv,
-          "udi": f_udi,
-          "fne": f_fne
+          "ingresos": F_INGRESOS.toFixed(2),
+          "costosTotales": F_COSTOS.toFixed(2),
+          "depreciacion": this.depreciacion.toFixed(2),
+          "uai": f_uai.toFixed(2),
+          "impuestos":f_isv.toFixed(2),
+          "udi": f_udi.toFixed(2),
+          "fne": f_fne.toFixed(2)
         }
       }
 
       // Calculando el ultimo año
       this.flujo[(a)]={
         "anio":(a),
-        "ingresos": F_INGRESOS,
-        "costosTotales": F_COSTOS,
-        "depreciacion": this.depreciacion,
-        "uai": f_uai,
-        "impuestos":f_isv,
-        "udi": f_udi,
-        "fne": f_fne + F_VS
+        "ingresos": F_INGRESOS.toFixed(2),
+        "costosTotales": F_COSTOS.toFixed(2),
+        "depreciacion": this.depreciacion.toFixed(2),
+        "uai": f_uai.toFixed(2),
+        "impuestos":f_isv.toFixed(2),
+        "udi": f_udi.toFixed(2),
+        "fne": (f_fne + F_VS).toFixed(2)
       }
 
       localStorage.setItem("fne",JSON.stringify(this.flujo))

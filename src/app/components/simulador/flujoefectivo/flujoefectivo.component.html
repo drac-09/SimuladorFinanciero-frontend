@@ -71,7 +71,7 @@
 
     <div class="tabla" *ngIf="flujo.length!=0">
         <div class="div-depreciacion">
-            Depreciación: L. {{depreciacion}}.00
+            Depreciación: L. {{mostrarDepreciacion}}
         </div><br>
 
         <div>
@@ -79,7 +79,7 @@
             <thead>
               <tr>
                 <td></td>
-                <td *ngFor="let a of flujo; ">Año {{a.anio}}</td>
+                <td *ngFor="let a of flujo;" style="text-align: center;">Año {{a.anio}}</td>
               </tr>
             </thead>
             <tbody>
