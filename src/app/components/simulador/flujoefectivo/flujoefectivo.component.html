@@ -69,61 +69,63 @@
       </div>
     </div>
 
-    <div class="tabla" *ngIf="flujo.length!=0">
-        <div class="div-depreciacion">
-            Depreciación: L. {{mostrarDepreciacion}}
-        </div><br>
+    <div class="div-contenido"  *ngIf="flujo.length!=0">
+      <div class="div-depreciacion">
+          Depreciación: L. {{mostrarDepreciacion}}
+      </div><br>
 
-        <div>
-          <table class="table" *ngIf="flujo.length!=0">
-            <thead>
-              <tr>
-                <td></td>
-                <td *ngFor="let a of flujo;" style="text-align: center;">Año {{a.anio}}</td>
-              </tr>
-            </thead>
-            <tbody>
-                <tr>
-                  <td class="verde">+ Ingresos</td>
-                  <td  *ngFor="let a of flujo; ">{{a.ingresos}}</td>
-                </tr>
-                <tr>
-                  <td class="rojo">- Costos</td>
-                  <td  *ngFor="let a of flujo; ">{{a.costosTotales}}</td>
-                </tr>
-                <tr>
-                  <td class="rojo">- Depreciación</td>
-                  <td  *ngFor="let a of flujo; ">{{a.depreciacion}}</td>
-                </tr>
-                <tr>
-                  <td>= UAI</td>
-                  <td  *ngFor="let a of flujo; ">{{a.uai}}</td>
-                </tr>
-                <tr>
-                  <td class="rojo">- Impuestos</td>
-                  <td  *ngFor="let a of flujo; ">{{a.impuestos}}</td>
-                </tr>
-                <tr>
-                  <td>= UDI</td>
-                  <td  *ngFor="let a of flujo; ">{{a.udi}}</td>
-                </tr>
-                <tr>
-                  <td class="verde">+ Depreciación</td>
-                  <td  *ngFor="let a of flujo; ">{{a.depreciacion}}</td>
-                </tr>
-                <tr>
-                  <td>= FNE </td>
-                  <td  *ngFor="let a of flujo; ">{{a.fne}}</td>
-                </tr>
-            </tbody><br>
-            <!-- <div class="div-resultado">
-                  <p>Valor Actual Neto (VAN):</p>
-                  <label>L. {{van}}.00</label>
-                  <div>Aceptado</div>
-            </div><br> -->
-          </table>
+        <div class="tabla">
+            <div>
+              <table class="table" *ngIf="flujo.length!=0">
+                <thead>
+                  <tr>
+                    <td></td>
+                    <td *ngFor="let a of flujo;" style="text-align: center;">Año {{a.anio}}</td>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td class="verde" style="width: 250pxs;">+ Ingresos</td>
+                      <td  *ngFor="let a of flujo; ">{{a.ingresos}}</td>
+                    </tr>
+                    <tr>
+                      <td class="rojo">- Costos</td>
+                      <td  *ngFor="let a of flujo; ">{{a.costosTotales}}</td>
+                    </tr>
+                    <tr>
+                      <td class="rojo">- Depreciación</td>
+                      <td  *ngFor="let a of flujo; ">{{a.depreciacion}}</td>
+                    </tr>
+                    <tr>
+                      <td>= UAI</td>
+                      <td  *ngFor="let a of flujo; ">{{a.uai}}</td>
+                    </tr>
+                    <tr>
+                      <td class="rojo">- Impuestos</td>
+                      <td  *ngFor="let a of flujo; ">{{a.impuestos}}</td>
+                    </tr>
+                    <tr>
+                      <td>= UDI</td>
+                      <td  *ngFor="let a of flujo; ">{{a.udi}}</td>
+                    </tr>
+                    <tr>
+                      <td class="verde">+ Depreciación</td>
+                      <td  *ngFor="let a of flujo; ">{{a.depreciacion}}</td>
+                    </tr>
+                    <tr>
+                      <td>= FNE </td>
+                      <td  *ngFor="let a of flujo; ">{{a.fne}}</td>
+                    </tr>
+                </tbody><br>
+                <!-- <div class="div-resultado">
+                      <p>Valor Actual Neto (VAN):</p>
+                      <label>L. {{van}}.00</label>
+                      <div>Aceptado</div>
+                </div><br> -->
+              </table>
+            </div>
         </div>
-    </div>
+      </div>
 </div>
 
 <div class="botones">

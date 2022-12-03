@@ -40,6 +40,7 @@ export class FlujoefectivoComponent implements OnInit {
         this.formularioDatos.get('valorsalvamento')?.setValue(form.valorsalvamento)
         this.formularioDatos.get('impuestos')?.setValue(form.impuestos)
         this.formularioDatos.get('tmar')?.setValue(form.tmar)
+        // console.log(JSON.parse(String(localStorage.getItem('depreciacion'))))
         this.siguiente = true
       }
 
@@ -57,6 +58,7 @@ export class FlujoefectivoComponent implements OnInit {
 
       if (localStorage.getItem('fne') !== null){
         this.depreciacion =  JSON.parse(String(localStorage.getItem('depreciacion')))
+        this.mostrarDepreciacion =  JSON.parse(String(localStorage.getItem('depreciacion')))
         let fneLS = localStorage.getItem('fne')
         // console.log(fneLS)
         this.flujo = JSON.parse(String(fneLS))
