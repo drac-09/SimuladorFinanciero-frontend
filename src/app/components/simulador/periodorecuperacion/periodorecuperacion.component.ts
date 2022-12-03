@@ -12,7 +12,12 @@ export class PeriodorecuperacionComponent implements OnInit {
   acumulado:any=[]                                                      // Almacenar el resultado del calculo "acumulado"
 
   constructor() {
-
+    if (localStorage.getItem('PR-flujo') !== null){
+      this.flujo = JSON.parse(String(localStorage.getItem('PR-flujo')));
+      this.aRecuperacion = JSON.parse(String(localStorage.getItem('PR-Recuperacion')));
+      this.acumulado = JSON.parse(String(localStorage.getItem('PR-acumulado')));
+      this.siguiente = true;
+    }
   }
 
   ngOnInit(): void {
@@ -56,7 +61,9 @@ export class PeriodorecuperacionComponent implements OnInit {
     this.aRecuperacion = recuperado.toFixed(2)
 
     this.siguiente=true
-    localStorage.setItem("aRecuperacion",JSON.stringify(this.aRecuperacion))
+    localStorage.setItem("PR-flujo",JSON.stringify(this.flujo))
+    localStorage.setItem("PR-acumulado",JSON.stringify(this.acumulado))
+    localStorage.setItem("PR-Recuperacion",JSON.stringify(this.aRecuperacion))
   }
 
   cancelar(){

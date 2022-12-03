@@ -44,7 +44,7 @@ export class CostobeneficioComponent implements OnInit {
         this.aprobado=false
         this.rechazado=true
       }
-    } 
+    }
 
     let flujoResumen:any = JSON.parse(String(localStorage.getItem('fne')));
     this.inversion = -(flujoResumen[0].fne)
@@ -64,7 +64,7 @@ export class CostobeneficioComponent implements OnInit {
       // console.log(JSON.parse(String(this.flujo))  )
       // console.log(JSON.parse(String(flujoResumen))  )
 
-      
+
   }
 
   ngOnInit(): void {
@@ -76,7 +76,7 @@ export class CostobeneficioComponent implements OnInit {
         alert('Error, Ingrese el Costo capital promedio ponderado o Tasa de Descuento')
 
     } else {
-      
+
 
         // VPI = inversion - Flujo1 + Flujo2 + Flujo3 + .... FlujoN
         // Flujos =  (flujo neto de efectivo) / [(1 + ccpp)^Periodo]
@@ -88,13 +88,13 @@ export class CostobeneficioComponent implements OnInit {
         let flujo                                                   // Almacenara cada flujo de cada periodo (año)
         let flujos:number=0                                         // Almacenara la sumatoria de los flujos
         let td = (this.formularioDatos.get('ccpp')?.value/100)      // Tasa de descuento
-        
+
         // Suma de Periodos
         for (let f = 1; f < this.flujo.length; f++) {               // Recorremos el arreglo
-          const element = this.flujo[f];                            // Obtenemos 
+          const element = this.flujo[f];                            // Obtenemos
           let fne = element.fne                                     // Obtenemos el flujo neto de efectivo de cada periodo
           let periodo = element.anio                                // Obtenermos el numero de año de cada periodo
-          
+
           flujo = fne/(Math.pow(1 + td,periodo))                    // Calculamos el flujo
           flujos += flujo                                           // Sumamos los flujos
         }
@@ -106,7 +106,7 @@ export class CostobeneficioComponent implements OnInit {
 
 
         let RCB = VPI / VPE
-        this.formularioDatos.get("rcb")?.setValue(RCB.toFixed(2))  
+        this.formularioDatos.get("rcb")?.setValue(RCB.toFixed(2))
 
 
         // Mensaje
