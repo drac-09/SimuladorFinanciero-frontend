@@ -1,50 +1,112 @@
-.d-flex{
-     padding-top: 20px;
+/* INDICADORES SUPERIORES ======================================================= */
+.etiquetas-flex {
+  display: flex;
+  padding-top: 20px;
 }
 
 
-.form{
-     font-size: 20px;
-     margin-right: 40px;
-     padding: 3px 10px;
-     border: transparent 5px solid;
-     border-top-right-radius: 20px;
-     border-bottom-right-radius: 20px;
+.form {
+  font-size: 15px;
+  margin-right: 20px;
+  padding: 3px 10px;
+  border: transparent 5px solid;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
-.flujo{background-color: #5dc460;}
-.costo{background-color: #77dd77;}
-.periodo{background-color: #a5eea0; font-weight: bold;}
+.flujo {
+  background-color: #5dc460;
+}
 
-.disable{
-     font-size: 20px;
-     margin-right: 40px;
-     padding: 3px 10px;
-     border: transparent 5px solid;
-     background-color: #eaeaea;
-     border-top-right-radius: 20px;
-     border-bottom-right-radius: 20px;
+.costo {
+  background-color: #77dd77;
+}
+
+.periodo {
+  background-color: #a5eea0;
+  font-weight: bold;
+}
+
+.disable {
+  font-size: 15px;
+  margin-right: 20px;
+  padding: 3px 10px;
+  border: transparent 5px solid;
+  background-color: #eaeaea;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+
+/* FORMULARIO ======================================================= */
+
+.body {
+  padding-top: 70px;
+}
+
+.formulario {
+  width: 280px;
+  /* padding-right: 50px; */
+  margin-right: 150px;
+  /* background-color: #5dc460; */
+}
+
+.div-titulo {
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.div-boton {
+  text-align: right;
+  /* padding-right: 40px; */
+}
+
+.btn-datos {
+  background-color: #5dc460 !important;
+  margin-left: 10px;
+  padding: 0px 10px 0px 10px;
+}
+
+
+/* TABLA ======================================================= */
+
+.tabla {
+  width: 70%;
+  /* padding-left: 50px; */
+  /* background-color: aqua; */
+}
+
+
+.table tr {
+  text-align: center;
 }
 
 
 
+/* BOTONES INFERIORES ======================================================= */
 
-.botones{
-     padding-left:39vw;
-     position:fixed;
-     bottom:0;
+.botones {
+  /* padding-left: 50vw; */
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 0;
+  width: 70vw;
+  /* background-color: #5dc460; */
+
 }
 
-.contenedor{
-     width: 900px;
-     padding-bottom: 50px;
+.contenedor {
+  /* width: 500px; */
+  padding-bottom: 50px;
 }
 
-.btn{
-     width: 200px;
-     background-color: #385A64;
-     color: white;
-     font-size: 20px;
-     margin: 0px 5px 0 5px;
-     padding: 1px 20px 1px 20px;
+.btn-opciones {
+  width: 200px;
+  background-color: #385A64;
+  color: white;
+  font-size: 20px;
+  margin: 0px 5px 0 5px;
+  /* padding: 1px 20px 1px 20px; */
 }

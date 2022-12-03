@@ -1,15 +1,64 @@
-<div class="d-flex">
-     <div class="form flujo" >1. Flujo Neto de Efectivo</div>
-     <div class="form costo" >2. Relación Costo-Beneficio</div>
-     <div class="form periodo" >3. Periodo de Recuperación</div>
-     <div class="disable" >4. Tabla pago a Préstamo</div>
+<div class="etiquetas-flex">
+  <div class="form flujo">1. Flujo Neto de Efectivo</div>
+  <div class="form costo">2. Relación Costo-Beneficio</div>
+  <div class="form periodo">3. Periodo de Recuperación</div>
+  <div class="disable">4. Tabla pago a Préstamo</div>
 </div>
 
-<div class="botones">
-     <div class="contenedor">
-          <button class="btn" routerLink="/costo-beneficio"> << Anterior</button>
-          <button class="btn" routerLink="/pago-prestamo">Siguiente >> </button>
-          <button class="btn" routerLink="/home">Cancelar</button>
-     </div>
+<div class="d-flex body">
+  <div class="formulario">
+
+    <div class="div-titulo">
+      <p>Datos Obtenidos del Inciso 1</p>
+    </div>
+
+    <p>■ Años</p>
+    <p>■ Flujo Neto de Efectivo</p>
+
+    <div class="columna div-boton">
+      <br />
+      <button id="calcular" class="btn btn-datos" (click)="calcular()">Calcular</button>
+    </div>
+  </div>
+
+  <div class="Tabla" *ngIf="flujo.length != 0">
+    <div class="d-flex">
+      <table class="table">
+        <thead>
+          <tr>
+            <th id="anio" scope="col">Años</th>
+            <th scope="col">Flujo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let f of flujo">
+            <td>{{ f.anio }}</td>
+            <td>{{ f.fne }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table" *ngIf="acumulado.length != 0">
+        <thead>
+          <tr>
+            <th scope="col">Acumulado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of acumulado">
+            <td>{{ a }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="div-titulo">Periodo de recuperación = {{aRecuperacion}} Años</p>
+  </div>
+
+  <div class="botones">
+    <div class="contenedor">
+      <button class="btn btn-opciones" routerLink="/costo-beneficio"><< Anterior</button>
+      <button *ngIf="siguiente" class="btn btn-opciones" routerLink="/pago-prestamo">Siguiente >></button>
+      <button class="btn btn-opciones" routerLink="/home">Cancelar</button>
+    </div>
+  </div>
 </div>
 
