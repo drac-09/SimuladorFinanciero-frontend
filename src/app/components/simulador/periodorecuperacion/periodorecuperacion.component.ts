@@ -12,10 +12,10 @@ export class PeriodorecuperacionComponent implements OnInit {
   acumulado:any=[]                                                      // Almacenar el resultado del calculo "acumulado"
 
   constructor() {
-    if (localStorage.getItem('PR-flujo') !== null){
-      this.flujo = JSON.parse(String(localStorage.getItem('PR-flujo')));
-      this.aRecuperacion = JSON.parse(String(localStorage.getItem('PR-Recuperacion')));
-      this.acumulado = JSON.parse(String(localStorage.getItem('PR-acumulado')));
+    if (localStorage.getItem('pr_flujo') !== null){
+      this.flujo = JSON.parse(String(localStorage.getItem('pr_flujo')));
+      this.aRecuperacion = JSON.parse(String(localStorage.getItem('pr_Recuperacion')));
+      this.acumulado = JSON.parse(String(localStorage.getItem('pr_acumulado')));
       this.siguiente = true;
     }
   }
@@ -25,7 +25,7 @@ export class PeriodorecuperacionComponent implements OnInit {
   }
 
   calcular (){
-    let flujoResumen:any = JSON.parse(String(localStorage.getItem('FE-flujos')));
+    let flujoResumen:any = JSON.parse(String(localStorage.getItem('fe_flujos')));
     for (let f = 0; f < flujoResumen.length; f++) {
         const element = flujoResumen[f];
         this.flujo[f]={
@@ -59,9 +59,9 @@ export class PeriodorecuperacionComponent implements OnInit {
     this.aRecuperacion = recuperado.toFixed(2)
 
     this.siguiente=true
-    localStorage.setItem("PR-flujo",JSON.stringify(this.flujo))
-    localStorage.setItem("PR-acumulado",JSON.stringify(this.acumulado))
-    localStorage.setItem("PR-Recuperacion",JSON.stringify(this.aRecuperacion))
+    localStorage.setItem("pr_flujo",JSON.stringify(this.flujo))
+    localStorage.setItem("pr_acumulado",JSON.stringify(this.acumulado))
+    localStorage.setItem("pr_Recuperacion",JSON.stringify(this.aRecuperacion))
   }
 
   cancelar(){
