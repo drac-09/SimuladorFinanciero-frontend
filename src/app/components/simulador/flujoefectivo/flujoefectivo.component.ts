@@ -29,8 +29,8 @@ export class FlujoefectivoComponent implements OnInit {
   constructor(
     private router: Router,) {
 
-      if (localStorage.getItem('FE-datos') !== null){
-        let form = JSON.parse(String(localStorage.getItem('FE-datos')));
+      if (localStorage.getItem('fe_datos') !== null){
+        let form = JSON.parse(String(localStorage.getItem('fe_datos')));
         this.formularioDatos.get('inversion')?.setValue(form.inversion)
         this.formularioDatos.get('ingresos')?.setValue(form.ingresos)
         this.formularioDatos.get('costo')?.setValue(form.costo)
@@ -40,13 +40,13 @@ export class FlujoefectivoComponent implements OnInit {
         this.formularioDatos.get('tmar')?.setValue(form.tmar)
         this.siguiente = true
 
-        this.depreciacion =  JSON.parse(String(localStorage.getItem('FE-depreciacion')))
-        this.mostrarDepreciacion =  JSON.parse(String(localStorage.getItem('FE-depreciacion')))
-        let fneLS = localStorage.getItem('FE-flujos')
+        this.depreciacion =  JSON.parse(String(localStorage.getItem('fe_depreciacion')))
+        this.mostrarDepreciacion =  JSON.parse(String(localStorage.getItem('fe_depreciacion')))
+        let fneLS = localStorage.getItem('fe_flujos')
         this.flujo = JSON.parse(String(fneLS))
       }
 
-      // if (localStorage.getItem('FE-flujos') == null){
+      // if (localStorage.getItem('fe_flujos') == null){
       //   // console.log("llenar con local")
       //   this.formularioDatos.get('inversion')?.setValue(12000000)
       //   this.formularioDatos.get('ingresos')?.setValue(24000000)
@@ -125,9 +125,9 @@ export class FlujoefectivoComponent implements OnInit {
       }
 
       // Hacemos uns copia de los datos en el localStorange
-      localStorage.setItem("FE-datos",JSON.stringify(this.formularioDatos.value))           // Datos ingresados por el usuario
-      localStorage.setItem("FE-flujos",JSON.stringify(this.flujo))                          // Flujos de efectivo
-      localStorage.setItem("FE-depreciacion", JSON.stringify(this.depreciacion))            // La depreciacion
+      localStorage.setItem("fe_datos",JSON.stringify(this.formularioDatos.value))           // Datos ingresados por el usuario
+      localStorage.setItem("fe_flujos",JSON.stringify(this.flujo))                          // Flujos de efectivo
+      localStorage.setItem("fe_depreciacion", JSON.stringify(this.depreciacion))            // La depreciacion
       this.siguiente=true
     }
 }

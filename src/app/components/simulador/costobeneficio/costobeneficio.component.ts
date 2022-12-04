@@ -1,9 +1,5 @@
 import { Component, forwardRef, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';                                       // Fromularios Reactivos
-import { fork } from 'child_process';
-import { Console } from 'console';
-import { SSL_OP_NO_QUERY_MTU } from 'constants';
-import { forkJoin } from 'rxjs';
 
 
 @Component({
@@ -29,13 +25,13 @@ export class CostobeneficioComponent implements OnInit {
 
   constructor() {
     // Obtenermos los flujos encontrados en el inciso 1
-    let flujoResumen:any = JSON.parse(String(localStorage.getItem('FE-flujos')));
+    let flujoResumen:any = JSON.parse(String(localStorage.getItem('fe_flujos')));
 
     // Valor del valor presente de ingresos = -(inversion)
     this.formularioDatos.get('vpe')?.setValue(-(flujoResumen[0].fne))
 
     // ingresamos al arreflo de flujo los flujos ontenidos en el inciso 1
-    if (localStorage.getItem('FE-flujos') !== null) {
+    if (localStorage.getItem('fe_flujos') !== null) {
         for (let f = 0; f < flujoResumen.length; f++) {
             const element = flujoResumen[f];
             this.flujo[f]={
@@ -46,8 +42,8 @@ export class CostobeneficioComponent implements OnInit {
       }
 
     // Verificamos si hay datos guardados en el localStorange
-    if (localStorage.getItem('RCB-datos') !== null) {
-      let RCB = JSON.parse(String(localStorage.getItem('RCB-datos')));
+    if (localStorage.getItem('rcb_datos') !== null) {
+      let RCB = JSON.parse(String(localStorage.getItem('rcb_datos')));
       this.siguiente = true
 
       // Obtenemos los datos del formulario y los cargamos
@@ -122,7 +118,7 @@ export class CostobeneficioComponent implements OnInit {
         }
 
         this.siguiente=true
-        localStorage.setItem("RCB-datos",JSON.stringify(this.formularioDatos.value))
+        localStorage.setItem("rcb_datos",JSON.stringify(this.formularioDatos.value))
     }
   }
 

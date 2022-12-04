@@ -19,14 +19,14 @@ export class PagoprestamoComponent implements OnInit {
   });
 
   constructor() {
-    if (localStorage.getItem('PP_datos') !== null){
-      let dat = JSON.parse(String(localStorage.getItem('PP_datos')));
+    if (localStorage.getItem('pp_datos') !== null){
+      let dat = JSON.parse(String(localStorage.getItem('pp_datos')));
       this.formularioDatos.get('credito')?.setValue(dat.credito)
       this.formularioDatos.get('tasa')?.setValue(dat.tasa)
       this.formularioDatos.get('plazo')?.setValue(dat.plazo)
       this.formularioDatos.get('cuota')?.setValue(dat.cuota)
 
-      let tb = JSON.parse(String(localStorage.getItem('PP_tabla')));
+      let tb = JSON.parse(String(localStorage.getItem('pp_tabla')));
       this.tabla = tb
     }
   }
@@ -70,8 +70,8 @@ export class PagoprestamoComponent implements OnInit {
           "saldo": t_saldo.toFixed(2)
         }
 
-      localStorage.setItem("PP_tabla",JSON.stringify(this.tabla))
-      localStorage.setItem("PP_datos",JSON.stringify(this.formularioDatos.value))
+      localStorage.setItem("pp_tabla",JSON.stringify(this.tabla))
+      localStorage.setItem("pp_datos",JSON.stringify(this.formularioDatos.value))
       console.log(this.tabla)
 
       }
@@ -84,7 +84,7 @@ export class PagoprestamoComponent implements OnInit {
     this.formularioDatos.get('plazo')?.reset()
   }
 
-  cancelar(){
+  salir(){
     localStorage.clear();
   }
 
