@@ -12,13 +12,14 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./costobeneficio.component.css']
 })
 export class CostobeneficioComponent implements OnInit {
-  siguiente=false
-  aprobado=false
-  rechazado=false
+  siguiente=false                                                               // habilitar boton siguiente
+  aprobado=false                                                                // Estado del mensaje APROBADO
+  rechazado=false                                                               // Estado del mensaje RECHAZADO
 
-  inversion=0
-  flujo:any=[]
+  inversion=0                                                                   // Alamacenamos la inversion
+  flujo:any=[]                                                                  // Alamcenamos los flunos de efectivos encontrados en el inciso 1
 
+  // Formulario para capturar los datos de los imput
   formularioDatos = new FormGroup({
     ccpp: new FormControl('',[Validators.required]),
     vpi: new FormControl('',),
@@ -27,10 +28,29 @@ export class CostobeneficioComponent implements OnInit {
   });
 
   constructor() {
-    if (localStorage.getItem('rcb') !== null) {
-      let RCB = JSON.parse(String(localStorage.getItem('rcb')));
+    // Obtenermos los flujos encontrados en el inciso 1
+    let flujoResumen:any = JSON.parse(String(localStorage.getItem('FE-flujos')));
+
+    // Valor del valor presente de ingresos = -(inversion)
+    this.formularioDatos.get('vpe')?.setValue(-(flujoResumen[0].fne))
+
+    // ingresamos al arreflo de flujo los flujos ontenidos en el inciso 1
+    if (localStorage.getItem('FE-flujos') !== null) {
+        for (let f = 0; f < flujoResumen.length; f++) {
+            const element = flujoResumen[f];
+            this.flujo[f]={
+              "anio":element.anio,
+              "fne": element.fne
+            }
+        }
+      }
+
+    // Verificamos si hay datos guardados en el localStorange
+    if (localStorage.getItem('RCB-datos') !== null) {
+      let RCB = JSON.parse(String(localStorage.getItem('RCB-datos')));
       this.siguiente = true
 
+      // Obtenemos los datos del formulario y los cargamos
       this.formularioDatos.get('ccpp')?.setValue(RCB.ccpp)
       this.formularioDatos.get('vpi')?.setValue(RCB.vpi)
       this.formularioDatos.get('vpe')?.setValue(RCB.vpe)
@@ -45,24 +65,6 @@ export class CostobeneficioComponent implements OnInit {
         this.rechazado=true
       }
     }
-
-    let flujoResumen:any = JSON.parse(String(localStorage.getItem('fne')));
-    this.inversion = -(flujoResumen[0].fne)
-
-    this.formularioDatos.get('ccpp')?.setValue(10)
-    this.formularioDatos.get('vpe')?.setValue(this.inversion)
-
-    if (localStorage.getItem('fne') !== null) {
-        for (let f = 0; f < flujoResumen.length; f++) {
-            const element = flujoResumen[f];
-            this.flujo[f]={
-              "anio":element.anio,
-              "fne": element.fne
-            }
-        }
-      }
-      // console.log(JSON.parse(String(this.flujo))  )
-      // console.log(JSON.parse(String(flujoResumen))  )
 
 
   }
@@ -120,7 +122,7 @@ export class CostobeneficioComponent implements OnInit {
         }
 
         this.siguiente=true
-        localStorage.setItem("rcb",JSON.stringify(this.formularioDatos.value))
+        localStorage.setItem("RCB-datos",JSON.stringify(this.formularioDatos.value))
     }
   }
 
