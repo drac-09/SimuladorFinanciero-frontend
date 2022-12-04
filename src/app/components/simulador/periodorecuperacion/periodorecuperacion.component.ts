@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./periodorecuperacion.component.css']
 })
 export class PeriodorecuperacionComponent implements OnInit {
-  siguiente=false
-  aRecuperacion:any = 0
+  siguiente=false                                                       // habilitar boton siguiente
+  aRecuperacion:any = 0                                                 // Almacenaremos el año de recuperacion
   flujo:any=[]                                                          // Almacenar el FNE del LocalStorange
   acumulado:any=[]                                                      // Almacenar el resultado del calculo "acumulado"
 
@@ -25,15 +25,13 @@ export class PeriodorecuperacionComponent implements OnInit {
   }
 
   calcular (){
-    let flujoResumen:any = JSON.parse(String(localStorage.getItem('fne')));
-    if (localStorage.getItem('fne') !== null) {
-      for (let f = 0; f < flujoResumen.length; f++) {
-          const element = flujoResumen[f];
-          this.flujo[f]={
-            "anio":element.anio,
-            "fne": element.fne,
-          }
-      }
+    let flujoResumen:any = JSON.parse(String(localStorage.getItem('FE-flujos')));
+    for (let f = 0; f < flujoResumen.length; f++) {
+        const element = flujoResumen[f];
+        this.flujo[f]={
+          "anio":element.anio,
+          "fne": element.fne,
+        }
     }
 
     // Calculo "Acumulados" de los Flujos de Efectivo

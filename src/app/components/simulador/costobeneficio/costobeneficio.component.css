@@ -43,30 +43,32 @@
 }
 
 .formulario {
-  /* width: 35%; */
-  padding-right: 50px;
+  width: 25%;
+  margin-right: 50px;
   /* background-color: #5dc460; */
 }
 
-.flex {
-  display: flex
+.flex-datos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
     /* padding-top: 0px; */
     /* width: 160px; */
 }
 
-.flex h1 {
+.flex-datos h1 {
   width: 170px;
   font-size: 16px;
 
 }
 
-.flex h2 {
+.flex-datos h2 {
   width: 25px;
   font-size: 16px;
 
 }
 
-.flex input {
+.flex-datos input {
   width: 180px;
   font-size: 16px;
   border-radius: 50px;

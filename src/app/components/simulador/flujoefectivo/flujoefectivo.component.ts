@@ -11,9 +11,10 @@ import { Router } from '@angular/router';
 export class FlujoefectivoComponent implements OnInit {
   siguiente=false                                                 // habilitar boton siguiente
   depreciacion:number= 0                                          // guarda valor del calculo de la depreciacion
-  mostrarDepreciacion:any
+  mostrarDepreciacion:any                                         // servira para mostrar la depreciacion en el HTML
   flujo:any=[]                                                    // Arreglo de los flunos netos de efectivo
 
+  // Formulario para capturar los datos de los imput
   formularioDatos = new FormGroup({
     inversion: new FormControl('',[Validators.required]),
     ingresos: new FormControl('',[Validators.required]),
@@ -21,18 +22,15 @@ export class FlujoefectivoComponent implements OnInit {
     anios: new FormControl('',[Validators.required]),
     valorsalvamento: new FormControl('',[Validators.required]),
     impuestos: new FormControl('',[Validators.required]),
-    tmar: new FormControl('',[Validators.required]),
-
-    // depreciacion: new FormControl(this.dep)
+    tmar: new FormControl('',[Validators.required]),              // Tasa mminima aceptable de rendimiento
   });
 
 
   constructor(
-    private router: Router,
-    ) {
+    private router: Router,) {
 
-      if (localStorage.getItem('form-fne') !== null){
-        let form = JSON.parse(String(localStorage.getItem('form-fne')));
+      if (localStorage.getItem('FE-datos') !== null){
+        let form = JSON.parse(String(localStorage.getItem('FE-datos')));
         this.formularioDatos.get('inversion')?.setValue(form.inversion)
         this.formularioDatos.get('ingresos')?.setValue(form.ingresos)
         this.formularioDatos.get('costo')?.setValue(form.costo)
@@ -40,39 +38,34 @@ export class FlujoefectivoComponent implements OnInit {
         this.formularioDatos.get('valorsalvamento')?.setValue(form.valorsalvamento)
         this.formularioDatos.get('impuestos')?.setValue(form.impuestos)
         this.formularioDatos.get('tmar')?.setValue(form.tmar)
-        // console.log(JSON.parse(String(localStorage.getItem('depreciacion'))))
         this.siguiente = true
-      }
 
-      if (localStorage.getItem('form-fne') == null){
-        // console.log("llenar con local")
-        this.formularioDatos.get('inversion')?.setValue(12000000)
-        this.formularioDatos.get('ingresos')?.setValue(24000000)
-        this.formularioDatos.get('costo')?.setValue(18000000)
-        this.formularioDatos.get('anios')?.setValue(5)
-        this.formularioDatos.get('valorsalvamento')?.setValue(2000000)
-        this.formularioDatos.get('impuestos')?.setValue(30)
-        this.formularioDatos.get('tmar')?.setValue(25)
-        this.siguiente = false
-      }
-
-      if (localStorage.getItem('fne') !== null){
-        this.depreciacion =  JSON.parse(String(localStorage.getItem('depreciacion')))
-        this.mostrarDepreciacion =  JSON.parse(String(localStorage.getItem('depreciacion')))
-        let fneLS = localStorage.getItem('fne')
-        // console.log(fneLS)
+        this.depreciacion =  JSON.parse(String(localStorage.getItem('FE-depreciacion')))
+        this.mostrarDepreciacion =  JSON.parse(String(localStorage.getItem('FE-depreciacion')))
+        let fneLS = localStorage.getItem('FE-flujos')
         this.flujo = JSON.parse(String(fneLS))
       }
 
+      // if (localStorage.getItem('FE-flujos') == null){
+      //   // console.log("llenar con local")
+      //   this.formularioDatos.get('inversion')?.setValue(12000000)
+      //   this.formularioDatos.get('ingresos')?.setValue(24000000)
+      //   this.formularioDatos.get('costo')?.setValue(18000000)
+      //   this.formularioDatos.get('anios')?.setValue(5)
+      //   this.formularioDatos.get('valorsalvamento')?.setValue(2000000)
+      //   this.formularioDatos.get('impuestos')?.setValue(30)
+      //   this.formularioDatos.get('tmar')?.setValue(25)
+      //   this.siguiente = false
+      // }
   }
 
   ngOnInit(): void {
   }
 
   calcular(){
-    if (this.formularioDatos.valid == false) {
+    if (this.formularioDatos.valid == false) {                                              // Verifica el usuarios ingreso todos los datos
 
-      alert('Error, Ingresar todos los datos')
+      alert('Error, Ingresar todos los datos')                                              // Muestra una alerta
 
     } else {
 
@@ -94,7 +87,7 @@ export class FlujoefectivoComponent implements OnInit {
       let F_INGRESOS = this.formularioDatos.get('ingresos')?.value                          // Ingresos
       let F_COSTOS = this.formularioDatos.get('costo')?.value                               // Costos
       let F_ISV = this.formularioDatos.get('impuestos')?.value                              // Impuesto
-      let F_VS = this.formularioDatos.get('valorsalvamento')?.value                         // Valor de salvamento
+      let F_VS = this.formularioDatos.get('valorsalvamento')?.value                         // Valor   de salvamento
 
       // Con los datos obtenidos calculamos
       let f_uai = (F_INGRESOS - F_COSTOS - this.depreciacion)                               // Utilidad antes del Impuesto
@@ -131,9 +124,10 @@ export class FlujoefectivoComponent implements OnInit {
         "fne": (f_fne + F_VS).toFixed(2)
       }
 
-      localStorage.setItem("fne",JSON.stringify(this.flujo))
-      localStorage.setItem("form-fne",JSON.stringify(this.formularioDatos.value))
-      localStorage.setItem("depreciacion", JSON.stringify(this.depreciacion))
+      // Hacemos uns copia de los datos en el localStorange
+      localStorage.setItem("FE-datos",JSON.stringify(this.formularioDatos.value))           // Datos ingresados por el usuario
+      localStorage.setItem("FE-flujos",JSON.stringify(this.flujo))                          // Flujos de efectivo
+      localStorage.setItem("FE-depreciacion", JSON.stringify(this.depreciacion))            // La depreciacion
       this.siguiente=true
     }
 }

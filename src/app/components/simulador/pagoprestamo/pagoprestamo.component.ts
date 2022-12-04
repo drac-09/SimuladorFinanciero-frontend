@@ -8,8 +8,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class PagoprestamoComponent implements OnInit {
 
-  tabla:any=[]
+  tabla:any=[]                                                    // Guardaremos la tabla con los datos obtenidos
 
+  // Formulario para capturar los datos de los imput
   formularioDatos = new FormGroup({
     credito: new FormControl('',[Validators.required]),
     tasa: new FormControl('',[Validators.required]),
@@ -45,9 +46,8 @@ export class PagoprestamoComponent implements OnInit {
       let credito = this.formularioDatos.get('credito')?.value
       let tasa = (this.formularioDatos.get('tasa')?.value / 100)
       let plazo = this.formularioDatos.get('plazo')?.value
-      let cuota = this.formularioDatos.get('cuota')?.value
-      // console.log(credito, tasa, plazo)
 
+      //Calculamos la Cuota
       let calcular_cuota = (credito / ((1 - Math.pow((1+tasa),(-plazo)) )/tasa))
       this.formularioDatos.get('cuota')?.setValue(calcular_cuota.toFixed(2))
 

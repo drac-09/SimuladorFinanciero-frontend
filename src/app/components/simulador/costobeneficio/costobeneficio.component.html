@@ -7,36 +7,35 @@
 
 <div class="contenedor-t">
   <div class="d-flex body">
-    <div class="formulario">
 
+    <div class="formulario">
       <div class="div-titulo">
         <p>Ingresar Datos</p>
       </div>
-
       <form [formGroup]="formularioDatos">
-        <div class="flex">
+        <div class="flex-datos">
           <h1>CCPP:</h1>
-          <h2>%</h2>
-          <input formControlName="ccpp" type="number" id="ccpp" oninput="this.value = Math.max(this.value)" required/>
+          <div class="d-flex">
+            <h2>%</h2>
+            <input formControlName="ccpp" type="number" id="ccpp" oninput="this.value = Math.max(this.value)" required/>
+          </div>
         </div>
-        <div>
           <div class="columna div-boton">
             <br />
             <button class="btn btn-datos" (click)="limpiar()">Limpiar</button>
             <button id="calcular" class="btn btn-datos" (click)="calcular()">Calcular</button>
           </div>
-        </div>
       </form>
       <br/><br/>
 
-      <div class="div-observaciones">
-        <p>Observaciones:</p>
-        <p>• CCPP (costo capital promedio ponderado o Tasa de Descuento)</p>
-        <p>• VPI (valor presente de ingresos)</p>
-        <p>• VPE (valor presente de egresos)</p>
-        <p>• RCB (relación costo-beneficio)</p>
-      </div>
+    <div class="div-observaciones">
+      <p>Observaciones:</p>
+      <p>• CCPP (costo capital promedio ponderado o Tasa de Descuento)</p>
+      <p>• VPI (valor presente de ingresos)</p>
+      <p>• VPE (valor presente de egresos)</p>
+      <p>• RCB (relación costo-beneficio)</p>
     </div>
+  </div>
 
   <div class="tabla">
     <div>
