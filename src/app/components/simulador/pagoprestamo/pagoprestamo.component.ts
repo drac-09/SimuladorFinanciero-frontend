@@ -84,7 +84,7 @@ export class PagoprestamoComponent implements OnInit {
     this.formularioDatos.get('plazo')?.reset()
   }
 
-  cancelar(){
+  salir(){
     localStorage.clear();
   }
 
