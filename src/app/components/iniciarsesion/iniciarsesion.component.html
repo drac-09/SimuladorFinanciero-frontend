@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-8 mx-auto formulario" >
+    <div class="card">
+      <div class="card-header">
+        Inciar Sesión
+      </div><br>
+      <div class="card-body">
+        <form [formGroup]="formularioDatos" (submit)="login()">
+          <div class="form-group">
+            <input formControlName="correo" type="tex" name="correo" class="form-control" placeholder="correo" required autofocus>
+          </div><br>
+          <div class="form-group">
+            <input formControlName="contrasenia" type="tex" name="contrasenia" class="form-control" placeholder="contraseña" required>
+          </div><br>
+          <button type="submit" class="btn btn-outline-info">
+            Inciar Sesión
+          </button>
+          <br><br><br>
+          <div class="links">
+            <a >Inciar Sesion</a>
+            <a>|</a>
+            <a href="./registro">Registrate</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
