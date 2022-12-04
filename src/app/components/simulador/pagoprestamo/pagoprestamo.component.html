@@ -19,7 +19,7 @@
         </div>
 
         <div class="flex">
-              <h1>Tasa:</h1>
+              <h1>Tasa (mensual):</h1>
               <h2>%</h2>
               <input formControlName="tasa" type="number" value="" id="tasa" oninput="this.value = Math.max(this.value)" required>
         </div>
@@ -49,7 +49,8 @@
 
     <div *ngIf="tabla.length != 0" class="div-contenido" [formGroup]="formularioDatos">
       <div class="div-cuota">
-          Cuota Mensual: L. <input formControlName="cuota" type="number" value="" id="cuota" oninput="this.value = Math.max(this.value)" required>
+
+          <p>Cuota Mensual: L.</p><div>{{this.formularioDatos.get('cuota')?.value}}</div>
       </div><br>
 
         <div class="tabla">
