@@ -1,12 +1,12 @@
 <div class="contaider d-flex">
-  <div class="card" style="width: 14rem;">
-    <img src="..." class="card-img-top" alt="...">
+  <div class="card" style="width: 14rem;" *ngFor="let e of escenarios;" (click)="seleccionar(e)">
+    <img src="../../../assets/images/iconos/escenario.png" class="card-img-top" alt="...">
     <div class="card-body">
-      <p class="card-text">Nombre</p>
+      <p class="card-text">{{e.nombre}}</p>
     </div>
   </div>
 
-  <div class="card" style="width: 14rem;" routerLink="/flujo-efectivo">
+  <div class="card" style="width: 14rem;" data-bs-toggle="modal" data-bs-target="#modal-nuevo-escenario">
     <div class="add">
       <i class="fa-solid fa-circle-plus"></i>
     </div>
@@ -14,32 +14,20 @@
       <p class="card-text" style="text-align: center;">Añadir Escenario</p>
     </div>
   </div>
+</div>
 
-  <div class="card" style="width: 14rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-
-  <div class="card" style="width: 14rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-
-  <div class="card" style="width: 14rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-
-  <div class="card" style="width: 14rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<!--Modal nueva aplicacion-->
+<div class="modal fade" id="modal-nuevo-escenario" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <img id="formImagenApp" class="img-fluid" src="../../../assets/images/iconos/escenario.png">
+          <input class="form-control" [(ngModel)]="nombre" type="text" name="nombre" id="nombre" placeholder="Nombre del escenario">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrar()">Cerrar</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="continuar()">Continuar</button>
+      </div>
     </div>
   </div>
 </div>

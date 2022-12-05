@@ -84,6 +84,7 @@
       <div class="botones">
         <div class="contenedor">
           <button class="btn btn-opciones" routerLink="/periodo-recuperacion"><< Anterior</button>
+          <button *ngIf="autenticacion.logeado()" class="btn btn-opciones" (click)="guardar()">Guardar</button>
           <button class="btn btn-opciones" routerLink="/home" (click)="salir()">Salir</button>
         </div>
       </div>

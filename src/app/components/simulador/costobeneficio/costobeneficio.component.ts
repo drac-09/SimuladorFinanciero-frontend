@@ -129,7 +129,10 @@ export class CostobeneficioComponent implements OnInit {
   }
 
   cancelar(){
-    localStorage.clear()
+    localStorage.removeItem("fe_datos");
+    localStorage.removeItem("fe_flujos");
+    localStorage.removeItem("fe_depreciacion");
+    localStorage.removeItem("rcb_datos")
   }
 
 }

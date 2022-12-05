@@ -65,7 +65,13 @@ export class PeriodorecuperacionComponent implements OnInit {
   }
 
   cancelar(){
-    localStorage.clear()
+    localStorage.removeItem("fe_datos");
+    localStorage.removeItem("fe_flujos");
+    localStorage.removeItem("fe_depreciacion");
+    localStorage.removeItem("rcb_datos")
+    localStorage.removeItem("pr_flujo")
+    localStorage.removeItem("pr_acumulado")
+    localStorage.removeItem("pr_Recuperacion")
   }
 
 
