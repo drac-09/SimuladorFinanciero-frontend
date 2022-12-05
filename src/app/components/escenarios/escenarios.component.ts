@@ -38,16 +38,17 @@ export class EscenariosComponent implements OnInit {
   seleccionar(esc:any){
     this.limpiarLS();
 
-    localStorage.setItem("fe_datos", esc.fe_datos );
-    localStorage.setItem("fe_flujos", esc.fe_flujos );
-    localStorage.setItem("fe_depreciacion", esc.fe_depreciacion );
-    localStorage.setItem("rcb_datos", esc.rcb_datos);
-    localStorage.setItem("pr_flujo", esc.pr_flujo);
-    localStorage.setItem("pr_acumulado", esc.pr_acumulado);
-    localStorage.setItem("pr_Recuperacion", esc.pr_Recuperacion);
-    localStorage.setItem("pp_tabla", esc.pp_tabla);
-    localStorage.setItem("pp_datos", esc.pp_datos);
+    localStorage.setItem("fe_datos", JSON.stringify(esc.fe_datos) );
+    localStorage.setItem("fe_flujos", JSON.stringify(esc.fe_flujos));
+    localStorage.setItem("fe_depreciacion", JSON.stringify(esc.fe_depreciacion ));
+    localStorage.setItem("rcb_datos", JSON.stringify(esc.rcb_datos));
+    localStorage.setItem("pr_flujo", JSON.stringify(esc.pr_flujo));
+    localStorage.setItem("pr_acumulado", JSON.stringify(esc.pr_acumulado));
+    localStorage.setItem("pr_Recuperacion", JSON.stringify(esc.pr_Recuperacion));
+    localStorage.setItem("pp_tabla", JSON.stringify(esc.pp_tabla));
+    localStorage.setItem("pp_datos", JSON.stringify(esc.pp_datos));
     // console.log(esc)
+    this.route.navigate(['./flujo-efectivo'])
 
   }
 
@@ -56,13 +57,10 @@ export class EscenariosComponent implements OnInit {
   }
 
   continuar(){
-    if(this.nombre=' '){
-      alert("Ingrese un nomnbre")
-    }else{
-    console.log(this.nombre)
+    // console.log(this.nombre)
+    this.limpiarLS();
     localStorage.setItem('nombre', JSON.stringify(this.nombre))
     this.route.navigate(['./flujo-efectivo'])
-    }
   }
 
 

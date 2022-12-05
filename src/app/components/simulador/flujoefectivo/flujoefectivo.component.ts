@@ -125,6 +125,7 @@ export class FlujoefectivoComponent implements OnInit {
       }
 
       // Hacemos uns copia de los datos en el localStorange
+      this.cancelar();
       localStorage.setItem("fe_datos",JSON.stringify(this.formularioDatos.value))           // Datos ingresados por el usuario
       localStorage.setItem("fe_flujos",JSON.stringify(this.flujo))                          // Flujos de efectivo
       localStorage.setItem("fe_depreciacion", JSON.stringify(this.depreciacion))            // La depreciacion

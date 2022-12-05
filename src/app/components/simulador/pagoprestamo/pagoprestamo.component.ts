@@ -78,7 +78,7 @@ export class PagoprestamoComponent implements OnInit {
 
       localStorage.setItem("pp_tabla",JSON.stringify(this.tabla))
       localStorage.setItem("pp_datos",JSON.stringify(this.formularioDatos.value))
-      console.log(this.tabla)
+      // console.log(this.tabla)
 
       }
     }

@@ -118,6 +118,7 @@ export class CostobeneficioComponent implements OnInit {
         }
 
         this.siguiente=true
+        localStorage.removeItem("rcb_datos")
         localStorage.setItem("rcb_datos",JSON.stringify(this.formularioDatos.value))
     }
   }
