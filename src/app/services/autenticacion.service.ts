@@ -22,12 +22,21 @@ export class AutenticacionService {
     return this.http.post<any>(this.URL + '/login', user)
   }
 
+  guardar(id:any, datos:any){
+    return this.http.post<any>(this.URL + `/${id}`, datos)
+  }
+
+  obtener(id:any){
+    return this.http.get<any>(this.URL + `/${id}/escenarios`)
+  }
+
   logeado(){
     return  !!localStorage.getItem('token')
   }
 
   cerrar(){
     localStorage.removeItem('token')
+    localStorage.removeItem('id')
     this.router.navigate(['./login'])
   }
 }

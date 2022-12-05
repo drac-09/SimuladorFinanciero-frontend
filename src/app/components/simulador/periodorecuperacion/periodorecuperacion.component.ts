@@ -59,13 +59,23 @@ export class PeriodorecuperacionComponent implements OnInit {
     this.aRecuperacion = recuperado.toFixed(2)
 
     this.siguiente=true
+    localStorage.removeItem("pr_flujo")
+    localStorage.removeItem("pr_acumulado")
+    localStorage.removeItem("pr_Recuperacion")
+
     localStorage.setItem("pr_flujo",JSON.stringify(this.flujo))
     localStorage.setItem("pr_acumulado",JSON.stringify(this.acumulado))
     localStorage.setItem("pr_Recuperacion",JSON.stringify(this.aRecuperacion))
   }
 
   cancelar(){
-    localStorage.clear()
+    localStorage.removeItem("fe_datos");
+    localStorage.removeItem("fe_flujos");
+    localStorage.removeItem("fe_depreciacion");
+    localStorage.removeItem("rcb_datos")
+    localStorage.removeItem("pr_flujo")
+    localStorage.removeItem("pr_acumulado")
+    localStorage.removeItem("pr_Recuperacion")
   }
 
 

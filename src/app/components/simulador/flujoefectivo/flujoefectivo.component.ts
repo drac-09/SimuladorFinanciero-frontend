@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-                                       // Fromularios Reactivos
 
 @Component({
   selector: 'app-flujoefectivo',
@@ -46,17 +45,17 @@ export class FlujoefectivoComponent implements OnInit {
         this.flujo = JSON.parse(String(fneLS))
       }
 
-      // if (localStorage.getItem('fe_flujos') == null){
-      //   // console.log("llenar con local")
-      //   this.formularioDatos.get('inversion')?.setValue(12000000)
-      //   this.formularioDatos.get('ingresos')?.setValue(24000000)
-      //   this.formularioDatos.get('costo')?.setValue(18000000)
-      //   this.formularioDatos.get('anios')?.setValue(5)
-      //   this.formularioDatos.get('valorsalvamento')?.setValue(2000000)
-      //   this.formularioDatos.get('impuestos')?.setValue(30)
-      //   this.formularioDatos.get('tmar')?.setValue(25)
-      //   this.siguiente = false
-      // }
+      if (localStorage.getItem('fe_flujos') == null){
+        // console.log("llenar con local")
+        this.formularioDatos.get('inversion')?.setValue(12000000)
+        this.formularioDatos.get('ingresos')?.setValue(24000000)
+        this.formularioDatos.get('costo')?.setValue(18000000)
+        this.formularioDatos.get('anios')?.setValue(5)
+        this.formularioDatos.get('valorsalvamento')?.setValue(2000000)
+        this.formularioDatos.get('impuestos')?.setValue(30)
+        this.formularioDatos.get('tmar')?.setValue(25)
+        this.siguiente = false
+      }
   }
 
   ngOnInit(): void {
@@ -125,6 +124,7 @@ export class FlujoefectivoComponent implements OnInit {
       }
 
       // Hacemos uns copia de los datos en el localStorange
+      this.cancelar();
       localStorage.setItem("fe_datos",JSON.stringify(this.formularioDatos.value))           // Datos ingresados por el usuario
       localStorage.setItem("fe_flujos",JSON.stringify(this.flujo))                          // Flujos de efectivo
       localStorage.setItem("fe_depreciacion", JSON.stringify(this.depreciacion))            // La depreciacion
@@ -140,7 +140,9 @@ export class FlujoefectivoComponent implements OnInit {
   }
 
   cancelar(){
-    localStorage.clear();
+    localStorage.removeItem("fe_datos");
+    localStorage.removeItem("fe_flujos");
+    localStorage.removeItem("fe_depreciacion");
   }
 
 }

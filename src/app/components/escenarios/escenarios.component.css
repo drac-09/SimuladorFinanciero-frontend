@@ -4,6 +4,8 @@
 
 .card {
   margin: 0px 10px 20px 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 .add{
@@ -16,4 +18,9 @@
 .add i{
   font-size: 100px;
   color: #009c86;
+}
+
+
+.modal-dialog{
+  width: 250px;
 }

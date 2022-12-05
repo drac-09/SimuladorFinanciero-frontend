@@ -29,6 +29,7 @@ export class RegistroComponent implements OnInit {
     .subscribe(
       res => {
         localStorage.setItem('token',res.token)
+        localStorage.setItem('id',res.id)
         this.route.navigate(['./escenarios'])
       },
       error => {

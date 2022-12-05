@@ -118,6 +118,7 @@ export class CostobeneficioComponent implements OnInit {
         }
 
         this.siguiente=true
+        localStorage.removeItem("rcb_datos")
         localStorage.setItem("rcb_datos",JSON.stringify(this.formularioDatos.value))
     }
   }
@@ -129,7 +130,10 @@ export class CostobeneficioComponent implements OnInit {
   }
 
   cancelar(){
-    localStorage.clear()
+    localStorage.removeItem("fe_datos");
+    localStorage.removeItem("fe_flujos");
+    localStorage.removeItem("fe_depreciacion");
+    localStorage.removeItem("rcb_datos")
   }
 
 }
