@@ -54,7 +54,7 @@
 
 .navbar-brand {
   color: white !important;
-  font-size: 30px;
+  font-size: 1.5rem;
 }
 
 .icon {
@@ -73,9 +73,9 @@
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 992px) {
   .navbar-brand {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .icon {
@@ -83,7 +83,12 @@
     /* margin-right: 10px; */
   }
 
+  .icon-user{
+    display: none;
+  }
+
   .container-fluid {
     padding: 0px 20px 0px 20px;
   }
+
 }

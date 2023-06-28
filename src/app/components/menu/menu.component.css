@@ -31,10 +31,10 @@
   padding: 0px 12% 0px 12%;
 }
 
-.navbar-brand {
+/* .navbar-brand {
   color: white !important;
   font-size: 30px;
-}
+} */
 
 .icon {
   width: 70px;
@@ -56,9 +56,9 @@
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 360px) {
   .navbar-brand {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .icon {

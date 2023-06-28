@@ -1,14 +1,31 @@
 .parrafo{
-     display: flex;
-     align-items: center;
-
+    display: flex;
+    align-items: center;
 }
 
 p{
-     font-size: 22px;
+    font-size: 22px;
+    text-align: justify;
 }
 
 .parrafo img{
-     margin: 30px;
-     width: 400px;
+    margin: 30px;
+    width: 400px;
+}
+
+
+@media (max-width: 995px) {
+  .parrafo{
+    display: flex;
+    flex-direction: column;
+  }
+
+  p{
+    font-size: 16px;
+  }
+
+  .parrafo img{
+    margin: 5px;
+    width: 300px;
+  }
 }
