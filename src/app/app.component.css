@@ -2,13 +2,12 @@
   background-color: #009c86 !important;
 }
 
-.icon-user{
+.icon-user {
   display: flex;
   align-items: center;
   margin: 0px 0px 0px 50px !important;
   color: white;
   padding: 0 !important;
-
 }
 
 .btn {
@@ -16,7 +15,7 @@
   padding: 0 !important;
 }
 
-.option{
+.option {
   display: flex;
   align-items: center !important;
   color: white;
@@ -38,15 +37,11 @@
   color: white;
 }
 
-
-
 .active-link {
   /* background: #265301; */
   outline: none;
   border-bottom: 3px solid white;
 }
-
-
 
 .container-fluid {
   padding: 0px 12% 0px 12%;
@@ -62,16 +57,20 @@
   margin-right: 10px;
 }
 
-.fa-solid{
+.fa-solid {
   font-size: 30px;
 }
 
-
-.user{
+.user {
   /* background-color: blueviolet; */
   padding: 8px 0px 8px 0px !important;
 }
 
+.Flex-container {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+}
 
 @media (max-width: 992px) {
   .navbar-brand {
@@ -83,12 +82,11 @@
     /* margin-right: 10px; */
   }
 
-  .icon-user{
+  .icon-user {
     display: none;
   }
 
   .container-fluid {
     padding: 0px 20px 0px 20px;
   }
-
 }

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-8 mx-auto formulario" >
+  <div class="col-md-8 mx-auto formulario">
     <div class="card">
       <div class="card-header">
         Registro
@@ -7,10 +7,16 @@
       <div class="card-body">
         <form [formGroup]="formularioDatos" (submit)="registro()">
           <div class="form-group">
-            <input formControlName="correo" type="tex" name="correo" class="form-control" placeholder="correo" required autofocus>
+            <input formControlName="usuario" type="tex" name="usuario" class="form-control" placeholder="usuario"
+              required autofocus>
           </div><br>
           <div class="form-group">
-            <input formControlName="contrasenia" type="tex" name="contrasenia" class="form-control" placeholder="contraseña" required>
+            <input formControlName="correo" type="tex" name="correo" class="form-control" placeholder="correo" required
+              autofocus>
+          </div><br>
+          <div class="form-group">
+            <input formControlName="contrasenia" type="password" name="contrasenia" class="form-control"
+              placeholder="contraseña" required>
           </div><br>
           <button type="submit" class="btn btn-outline-info">
             Registrar

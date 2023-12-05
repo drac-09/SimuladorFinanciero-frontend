@@ -12,6 +12,7 @@ export class RegistroComponent implements OnInit {
 
   // Formulario para capturar los datos de los imput
   formularioDatos = new FormGroup({
+    usuario: new FormControl('',[Validators.required]),
     correo: new FormControl('',[Validators.required]),
     contrasenia: new FormControl('',[Validators.required]),
   });

@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http'
 })
 export class AutenticacionService {
 
-  URL = 'http://localhost:7777/usuario'
+  URL = 'http://localhost:5000/api'
 
   constructor(
     private http: HttpClient,
@@ -15,11 +15,11 @@ export class AutenticacionService {
   ) { }
 
   registro (user:any){
-    return this.http.post<any>(this.URL + '/registrar', user)
+    return this.http.post<any>(this.URL + '/registro', user)
   }
 
   login (user:any){
-    return this.http.post<any>(this.URL + '/login', user)
+    return this.http.post<any>(this.URL + '/acceso', user)
   }
 
   guardar(id:any, datos:any){

@@ -3,24 +3,23 @@
 }
 
 .card {
-  margin: 0px 10px 20px 10px;
+  margin: 20px 10px 20px 10px;
   align-items: center;
   justify-content: center;
 }
 
-.add{
+.add {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 15px;
 }
 
-.add i{
+.add i {
   font-size: 100px;
   color: #009c86;
 }
 
-
-.modal-dialog{
+.modal-dialog {
   width: 250px;
 }

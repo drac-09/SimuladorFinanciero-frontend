@@ -1,88 +1,59 @@
-.home{
-     height: 90vh;
-     /* background-color: gray; */
-     background-image: url('../../../assets/images/home.jpg');
-     background-position: top right;
-     background-repeat: no-repeat;
-     background-size: 35rem;
-     background-position-y: 50px;
-
+.Home {
+  display: flex;
+  flex-direction: row;
+  height: 80vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
 }
 
-.texto{
-     padding-top: 150px;
-}
-
-.home h1{
-     font-size: 60px;
-}
-
-.btn{
-     background-color: #385A64;
-     color: white;
-     font-size: 25px;
-     padding: 0 30px 0 30px;
-     margin-left: 15%;
-}
-
-/* Pantallas de anchura 480 px y inferior */
-/* @media (max-width: 480px) {
-     .home {
-          background-size: 13rem;
-          background-position: center right;
-          text-align: center;
-     }
-
-     .texto{
-          padding-top: 20px;
-     }
-
-     .home h1{
-          font-size: 40px;
-     }
-
-     .home h2 {
-          font-size: 20px;
-     }
-
-     .btn{
-          margin: 0px;
-     }
+/* .texto {
+  padding-top: 150px;
 } */
 
- /* Pantallas de anchura 768 px y inferior */
+img {
+  width: 500px;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+.btn {
+  background-color: #385a64;
+  color: white;
+  font-size: 25px;
+  padding: 0 30px 0 30px;
+  border-radius: 50px;
+}
+
+/* Pantallas de anchura 768 px y inferior */
 @media (max-width: 1200px) {
-    .home {
-      background-size: 20em;
-      background-position: center;
-      background-position-y: 15rem;
+  .Home {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+  }
 
-    }
+  img {
+    width: 300px;
+  }
 
-    .texto{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 0px;
-      text-align: center;
-    }
+  .texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    text-align: center;
+  }
 
-    .texto h1{
-      font-size: 2.5rem;
-    }
+  h1 {
+    font-size: 2.5rem;
+  }
 
-    .texto h2{
-      font-size: 1.5rem;
-    }
-
-    .btn{
-      margin-left: 0px;
-    }
+  h2 {
+    font-size: 1.5rem;
+  }
 }
- /* Pantallas de anchura 1200 px y inferior */
-/* @media (min-width: 1200px) {
-     home {
-          background-size: 13rem;
-     }
-} */

@@ -6,7 +6,7 @@
     </div>
   </div>
 
-  <div class="card" style="width: 14rem;" data-bs-toggle="modal" data-bs-target="#modal-nuevo-escenario">
+  <div class="card" data-bs-toggle="modal" data-bs-target="#modal-nuevo-escenario">
     <div class="add">
       <i class="fa-solid fa-circle-plus"></i>
     </div>
@@ -17,12 +17,14 @@
 </div>
 
 <!--Modal nueva aplicacion-->
-<div class="modal fade" id="modal-nuevo-escenario" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modal-nuevo-escenario" data-bs-backdrop="static" tabindex="-1" role="dialog"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-body">
-          <img id="formImagenApp" class="img-fluid" src="../../../assets/images/iconos/escenario.png">
-          <input class="form-control" [(ngModel)]="nombre" type="text" name="nombre" id="nombre" placeholder="Nombre del escenario">
+        <img id="formImagenApp" class="img-fluid" src="../../../assets/images/iconos/escenario.png">
+        <input class="form-control" [(ngModel)]="nombre" type="text" name="nombre" id="nombre"
+          placeholder="Nombre del escenario">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrar()">Cerrar</button>
