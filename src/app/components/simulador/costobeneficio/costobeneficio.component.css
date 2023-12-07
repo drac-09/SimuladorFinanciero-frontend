@@ -32,11 +32,7 @@
   border-bottom-right-radius: 20px;
 }
 
-
-
-
 /* FORMULARIO ======================================================= */
-
 
 .body {
   padding-top: 70px;
@@ -52,20 +48,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-    /* padding-top: 0px; */
-    /* width: 160px; */
+  /* padding-top: 0px; */
+  /* width: 160px; */
 }
 
 .flex-datos h1 {
   width: 170px;
   font-size: 16px;
-
 }
 
 .flex-datos h2 {
   width: 25px;
   font-size: 16px;
-
 }
 
 .flex-datos input {
@@ -76,7 +70,6 @@
   margin-bottom: 7px;
   padding: 0px 10px 0px 10px;
   text-align: right;
-
 }
 
 .div-titulo {
@@ -96,19 +89,18 @@
 }
 
 /* TABLA ======================================================= */
-.contenedor-t{
+.contenedor-t {
   display: flex;
   flex-direction: column !important;
 }
-
 
 .tabla {
   width: 70%;
   padding-left: 50px;
   padding-right: 20px;
-  overflow:scroll;
+  overflow: scroll;
   /* height:500px; */
-  width:65%;
+  width: 65%;
   /* background-color: aqua; */
 }
 
@@ -120,7 +112,7 @@
 
 .div-observaciones p {
   margin: 0;
-
+  font-size: 15px;
 }
 
 .t-fila {
@@ -128,7 +120,6 @@
   /* display: flex; */
   /* flex-direction: column; */
 }
-
 
 .div-resultado {
   display: flex;
@@ -163,7 +154,7 @@
   margin: 0 0 0 10px;
 }
 
-.respuesta{
+.respuesta {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -180,7 +171,6 @@
   bottom: 0;
   width: 70vw;
   /* background-color: #5dc460; */
-
 }
 
 .contenedor {
@@ -190,7 +180,7 @@
 
 .btn-opciones {
   width: 200px;
-  background-color: #385A64;
+  background-color: #385a64;
   color: white;
   font-size: 20px;
   margin: 0px 5px 0 5px;

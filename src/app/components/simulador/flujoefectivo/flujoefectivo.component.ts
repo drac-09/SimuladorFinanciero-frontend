@@ -45,17 +45,16 @@ export class FlujoefectivoComponent implements OnInit {
         this.flujo = JSON.parse(String(fneLS))
       }
 
-      if (localStorage.getItem('fe_flujos') == null){
-        // console.log("llenar con local")
-        this.formularioDatos.get('inversion')?.setValue(12000000)
-        this.formularioDatos.get('ingresos')?.setValue(24000000)
-        this.formularioDatos.get('costo')?.setValue(18000000)
-        this.formularioDatos.get('anios')?.setValue(5)
-        this.formularioDatos.get('valorsalvamento')?.setValue(2000000)
-        this.formularioDatos.get('impuestos')?.setValue(30)
-        this.formularioDatos.get('tmar')?.setValue(25)
-        this.siguiente = false
-      }
+      // if (localStorage.getItem('fe_flujos') == null){
+      //   this.formularioDatos.get('inversion')?.setValue(12000000)
+      //   this.formularioDatos.get('ingresos')?.setValue(24000000)
+      //   this.formularioDatos.get('costo')?.setValue(18000000)
+      //   this.formularioDatos.get('anios')?.setValue(5)
+      //   this.formularioDatos.get('valorsalvamento')?.setValue(2000000)
+      //   this.formularioDatos.get('impuestos')?.setValue(30)
+      //   this.formularioDatos.get('tmar')?.setValue(25)
+      //   this.siguiente = false
+      // }
   }
 
   ngOnInit(): void {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AutenticacionService } from '../../services/autenticacion.service';
+import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router'
 
 @Component({
@@ -18,6 +19,7 @@ export class IniciarsesionComponent implements OnInit {
 
   constructor(
     private autenticacion: AutenticacionService,
+    private cookieService: CookieService,
     private route: Router,
   ) { }
 
@@ -37,7 +39,6 @@ export class IniciarsesionComponent implements OnInit {
         }
 
       )
-  // console.log(this.formularioDatos.value)
   }
 
 

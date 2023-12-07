@@ -28,9 +28,7 @@
   border-bottom-right-radius: 20px;
 }
 
-
 /* FORMULARIO ======================================================= */
-
 
 .body {
   padding-top: 70px;
@@ -43,21 +41,19 @@
 }
 
 .flex {
-  display: flex
-    /* padding-top: 0px; */
-    /* width: 160px; */
+  display: flex;
+  /* padding-top: 0px; */
+  /* width: 160px; */
 }
 
 .flex h1 {
   width: 170px;
   font-size: 16px;
-
 }
 
 .flex h2 {
   width: 25px;
   font-size: 16px;
-
 }
 
 .flex input {
@@ -68,7 +64,6 @@
   margin-bottom: 7px;
   padding: 0px 10px 0px 10px;
   text-align: right;
-
 }
 
 .div-titulo {
@@ -87,16 +82,14 @@
   padding: 0px 10px 0px 10px;
 }
 
-
-
 /* TABLA ======================================================= */
 
 .tabla {
   margin-left: 50px;
   padding-right: 20px;
-  overflow:scroll;
+  overflow: scroll;
   /* height:500px; */
-  width:850px;
+  width: 850px;
   /* background-color: aqua; */
 }
 
@@ -105,12 +98,11 @@
   font-size: 15px;
   font-weight: bold;
   margin-left: 50px;
-
 }
 
 .div-observaciones p {
   margin: 0;
-
+  font-size: 15px;
 }
 
 .t-fila {
@@ -140,9 +132,9 @@ label {
   margin-right: 15px;
 }
 
-.div-contenido{
+.div-contenido {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items: flex-start;
 }
 /* BOTONES INFERIORES ======================================================= */
@@ -164,13 +156,12 @@ label {
 
 .btn-opciones {
   width: 200px;
-  background-color: #385A64;
+  background-color: #385a64;
   color: white;
   font-size: 20px;
   margin: 0px 5px 0 5px;
   /* padding: 1px 20px 1px 20px; */
 }
-
 
 /* MODAL ======================================================= */
 
@@ -200,15 +191,10 @@ label {
 
 /* ======================================================= */
 
-
-
-
-
 @media (max-width: 1280px) {
   .form {
     font-size: 14px;
   }
-
 
   .disable {
     font-size: 14px;
