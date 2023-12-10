@@ -52,7 +52,6 @@ export class AutenticacionService {
       document.cookie = nombre + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
     }
     // localStorage.removeItem('token')
-    // localStorage.removeItem('id')
 
     this.router.navigate(['./login'])
   }
