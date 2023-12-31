@@ -8,6 +8,7 @@ import { AppState } from 'src/app/state/app.state';
 import { iniciarSesion } from 'src/app/state/usuario.actions';
 import { UserModel } from 'src/app/models/user.interface';
 
+
 @Component({
   selector: 'app-iniciarsesion',
   templateUrl: './iniciarsesion.component.html',
@@ -35,11 +36,11 @@ export class IniciarsesionComponent implements OnInit {
     this.autenticacion.login(this.formularioDatos.value)
       .subscribe(
         (res: UserModel) => {
-          localStorage.setItem('token', res.token)
-          localStorage.setItem('id', res.id)
-          console.log(res)
+          // localStorage.setItem('token', res.token)
+          // localStorage.setItem('id', res.id)
+          this.cookieService.set('token', res.token);
           this.store.dispatch(iniciarSesion({ datos: res }))
-          // this.route.navigate(['./escenarios'])
+          this.route.navigate(['./escenarios'])
 
         },
         error => {

@@ -1,7 +1,10 @@
+
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';                // Formularios reactivos
 import { AutenticacionGuard } from './autenticacion.guard'
 
@@ -35,7 +38,7 @@ import { StoreModule, ActionReducer, MetaReducer, Action } from '@ngrx/store';
 export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
   return function (state, action) {
     const nextState = reducer(state, action);
-    console.log('Estado después de la acción', action, nextState);
+    // console.log('Estado después de la acción', action, nextState);
     return nextState;
   };
 }
@@ -71,6 +74,7 @@ export const metaReducers: MetaReducer<any, Action>[] = [debug, localStorageSync
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,

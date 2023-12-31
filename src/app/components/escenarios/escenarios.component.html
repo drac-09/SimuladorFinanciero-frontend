@@ -1,34 +1,73 @@
-<div class="contaider d-flex">
-  <div class="card" style="width: 14rem;" *ngFor="let e of escenarios;" (click)="seleccionar(e)">
-    <img src="../../../assets/images/iconos/escenario.png" class="card-img-top" alt="...">
+<div class="contaider">
+  <div class="escenario" *ngFor="let e of escenarios;" data-bs-toggle="modal" data-bs-target="#modal-editar-escenario"
+    (click)="seleccionar(e)">
+    <div class="add">
+      <img src="../../../assets/images/iconos/escenario.png" class="card-img-top" alt="...">
+    </div>
     <div class="card-body">
-      <p class="card-text">{{e.nombre}}</p>
+      <p class="text">{{e.nombre}}</p>
     </div>
   </div>
 
-  <div class="card" data-bs-toggle="modal" data-bs-target="#modal-nuevo-escenario">
+  <div class="escenario" data-bs-toggle="modal" data-bs-target="#modal-nuevo-escenario" (click)="nuevo()">
     <div class="add">
       <i class="fa-solid fa-circle-plus"></i>
     </div>
     <div class="card-body">
-      <p class="card-text" style="text-align: center;">Añadir Escenario</p>
+      <p class="text" style="text-align: center;">Nuevo</p>
     </div>
   </div>
 </div>
 
-<!--Modal nueva aplicacion-->
+<!--Modal nuevo Escenario-->
 <div class="modal fade" id="modal-nuevo-escenario" data-bs-backdrop="static" tabindex="-1" role="dialog"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
     <div class="modal-content">
+      <div class="modal-header" style="height: 10px;">
+        <button type="button" class="btn-close btn-xs" data-bs-dismiss="modal" aria-label="Close"
+          (click)="cerrar()"></button>
+      </div>
       <div class="modal-body">
-        <img id="formImagenApp" class="img-fluid" src="../../../assets/images/iconos/escenario.png">
+        <img id="formImagenApp" style="width: 120px;" class="img-fluid"
+          src="../../../assets/images/iconos/escenario.png">
+        <br>
+        <input class="form-control" type="text" [(ngModel)]="nombre" name="nombre" id="nombre"
+          placeholder="Nombre del escenario">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success btn-sm" data-bs-dismiss="modal"
+          (click)="continuar()">Continuar</button>
+        <!-- <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal"
+          (click)="cerrar()">Cerrar</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal editar Escenario-->
+<div class="modal fade" id="modal-editar-escenario" data-bs-backdrop="static" tabindex="-1" role="dialog"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="height: 10px;">
+        <button type="button" class="btn-close btn-xs" data-bs-dismiss="modal" aria-label="Close"
+          (click)="cerrar()"></button>
+      </div>
+      <div class="modal-body">
+        <img id="formImagenApp" style="width: 120px;" class="img-fluid"
+          src="../../../assets/images/iconos/escenario.png">
+        <br>
         <input class="form-control" [(ngModel)]="nombre" type="text" name="nombre" id="nombre"
           placeholder="Nombre del escenario">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrar()">Cerrar</button>
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="continuar()">Continuar</button>
+        <button type="button" class="btn btn-outline-primary btn-sm" data-bs-dismiss="modal"
+          (click)="renombrar()">Renombrar</button>
+        <button type="button" class="btn btn-outline-success btn-sm" data-bs-dismiss="modal"
+          (click)="abrir()">Abrir</button>
+        <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal"
+          (click)="eliminar()">Eliminar</button>
       </div>
     </div>
   </div>

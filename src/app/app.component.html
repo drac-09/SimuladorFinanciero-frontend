@@ -14,23 +14,24 @@
         <a *ngIf="(inicioSesion$ | async)" class="nav-link" routerLinkActive="active-link"
           routerLink="/escenarios">Escenarios</a>
 
-        <i class="icon-user fa-solid fa-circle-user "></i>
-
-        <ng-container class="option" *ngIf="(inicioSesion$ | async) as sesionIniciada; else sesionNoIniciada">
-          <div class="Perfil">
-            <h1 style="font-size: larger;">{{ nombrePerfil$ | async }}</h1>
-            <h1>|</h1>
-            <button class="btn">
-              <a class="nav-link user" (click)="cerrar()">Cerrar Sesión</a>
-            </button>
-          </div>
-
-        </ng-container>
         <ng-template class="option" #sesionNoIniciada>
           <button class="btn">
-            <a class="nav-link user" href="/login">Iniciar Sesion</a>
+            <a class="nav-link" href="/login">
+              <i class="icon-user fa-solid fa-circle-user "></i>
+              Iniciar Sesion</a>
           </button>
         </ng-template>
+
+        <ng-container class="option" *ngIf="(inicioSesion$ | async) as sesionIniciada; else sesionNoIniciada">
+          <!-- <h1 style="font-size: larger;">{{ nombrePerfil$ | async }}</h1> -->
+          <!-- <h1>|</h1> -->
+          <button class="btn">
+            <a class="nav-link" (click)="cerrar()">
+              <i class="icon-user fa-solid fa-arrow-right-from-bracket"></i>
+              Cerrar Sesión</a>
+          </button>
+        </ng-container>
+
       </div>
     </div>
   </div>
