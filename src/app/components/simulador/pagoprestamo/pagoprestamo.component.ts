@@ -3,13 +3,20 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AutenticacionService } from '../../../services/autenticacion.service';
 import { Router } from '@angular/router'
 
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../state/app.state';
+import { selectorPerfil } from '../../../state/usuario.selector';
+import { map } from 'rxjs';
+
 @Component({
   selector: 'app-pagoprestamo',
   templateUrl: './pagoprestamo.component.html',
   styleUrls: ['./pagoprestamo.component.css']
 })
 export class PagoprestamoComponent implements OnInit {
-
+  mostrar: boolean = false
+  id_escenario: any
+  id_usuario: any
   tabla: any = []                                                    // Guardaremos la tabla con los datos obtenidos
   datos: any = {}                                                   // Guardaremos la tabla con los datos obtenidos
 
@@ -23,17 +30,22 @@ export class PagoprestamoComponent implements OnInit {
 
   constructor(
     public autenticacion: AutenticacionService,
+    private store: Store<AppState>,
     private route: Router,
   ) {
     if (localStorage.getItem('pp_datos') !== null) {
       let dat = JSON.parse(String(localStorage.getItem('pp_datos')));
-      this.formularioDatos.get('credito')?.setValue(dat[0].credito)
-      this.formularioDatos.get('tasa')?.setValue(dat[0].tasa)
-      this.formularioDatos.get('plazo')?.setValue(dat[0].plazo)
-      this.formularioDatos.get('cuota')?.setValue(dat[0].cuota)
+      this.formularioDatos.get('credito')?.setValue(dat.credito)
+      this.formularioDatos.get('tasa')?.setValue(dat.tasa)
+      this.formularioDatos.get('plazo')?.setValue(dat.plazo)
+      this.formularioDatos.get('cuota')?.setValue(dat.cuota)
 
       let tb = JSON.parse(String(localStorage.getItem('pp_tabla')));
       this.tabla = tb
+    }
+
+    if (localStorage.getItem("id") !== null) {
+      this.mostrar = true
     }
   }
 
@@ -85,8 +97,6 @@ export class PagoprestamoComponent implements OnInit {
     }
   }
 
-
-
   limpiar() {
     this.formularioDatos.get('credito')?.reset()
     this.formularioDatos.get('tasa')?.reset()
@@ -94,7 +104,45 @@ export class PagoprestamoComponent implements OnInit {
   }
 
   guardar() {
-    let id = localStorage.getItem("id")
+    this.obtenerdatos()
+    this.autenticacion.guardar(this.datos)
+      .subscribe(
+        res => {
+          this.route.navigate(['./escenarios'])
+          localStorage.clear()
+        },
+        error => {
+          console.log(error.error)
+        }
+
+      )
+
+
+  }
+
+  actualizar() {
+    this.obtenerdatos()
+    // console.log(this.id_usuario)
+    this.autenticacion.actualizar(this.id_escenario, this.datos)
+      .subscribe(
+        res => {
+          this.route.navigate(['./escenarios'])
+          localStorage.clear()
+        },
+        error => {
+          console.log(error.error)
+        }
+
+      )
+  }
+
+  salir() {
+    this.route.navigate(['./escenarios'])
+    localStorage.clear()
+  }
+
+  obtenerdatos() {
+    this.id_escenario = localStorage.getItem("id")
     this.datos = {
       "nombre": JSON.parse(String(localStorage.getItem("nombre"))),
       "fe_datos": JSON.parse(String(localStorage.getItem("fe_datos"))),
@@ -107,44 +155,6 @@ export class PagoprestamoComponent implements OnInit {
       "pp_tabla": JSON.parse(String(localStorage.getItem("pp_tabla"))),
       "pp_datos": JSON.parse(String(localStorage.getItem("pp_datos"))),
     }
-
-    console.log(this.datos)
-    this.autenticacion.guardar(id, this.datos)
-      .subscribe(
-        res => {
-          this.route.navigate(['./escenarios'])
-          localStorage.removeItem("nombre");
-          localStorage.removeItem("fe_datos"),
-            localStorage.removeItem("fe_flujos"),
-            localStorage.removeItem("fe_depreciacion"),
-            localStorage.removeItem("rcb_datos"),
-            localStorage.removeItem("pr_flujo"),
-            localStorage.removeItem("pr_acumulado"),
-            localStorage.removeItem("pr_Recuperacion"),
-            localStorage.removeItem("pp_tabla"),
-            localStorage.removeItem("pp_datos")
-        },
-        error => {
-          console.log(error.error)
-        }
-
-      )
-
-
-  }
-
-  salir() {
-    this.route.navigate(['./escenarios'])
-    localStorage.removeItem("nombre");
-    localStorage.removeItem("fe_datos");
-    localStorage.removeItem("fe_flujos");
-    localStorage.removeItem("fe_depreciacion");
-    localStorage.removeItem("rcb_datos");
-    localStorage.removeItem("pr_flujo");
-    localStorage.removeItem("pr_acumulado");
-    localStorage.removeItem("pr_Recuperacion");
-    localStorage.removeItem("pp_tabla");
-    localStorage.removeItem("pp_datos");
   }
 
 }

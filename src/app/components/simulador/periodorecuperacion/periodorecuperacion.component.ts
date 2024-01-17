@@ -72,16 +72,7 @@ export class PeriodorecuperacionComponent implements OnInit {
 
   cancelar() {
     this.route.navigate(['./escenarios'])
-    localStorage.removeItem("nombre");
-    localStorage.removeItem("fe_datos");
-    localStorage.removeItem("fe_flujos");
-    localStorage.removeItem("fe_depreciacion");
-    localStorage.removeItem("rcb_datos");
-    localStorage.removeItem("pr_flujo");
-    localStorage.removeItem("pr_acumulado");
-    localStorage.removeItem("pr_Recuperacion");
-    localStorage.removeItem("pp_tabla");
-    localStorage.removeItem("pp_datos");
+    localStorage.clear()
   }
 
 

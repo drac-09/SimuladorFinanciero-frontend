@@ -13,82 +13,81 @@
       </div>
       <form [formGroup]="formularioDatos">
         <div class="flex">
-              <h1>Credito</h1>
-              <h2>L.</h2>
-              <input formControlName="credito" type="number" id="credito" oninput="this.value = Math.max(this.value)" required>
+          <h1>Credito</h1>
+          <h2>L.</h2>
+          <input formControlName="credito" type="number" id="credito" oninput="this.value = Math.max(this.value)"
+            required>
         </div>
 
         <div class="flex">
-              <h1>Tasa (mensual):</h1>
-              <h2>%</h2>
-              <input formControlName="tasa" type="number" value="" id="tasa" oninput="this.value = Math.max(this.value)" required>
+          <h1>Tasa (mensual):</h1>
+          <h2>%</h2>
+          <input formControlName="tasa" type="number" value="" id="tasa" oninput="this.value = Math.max(this.value)"
+            required>
         </div>
 
         <div class="flex">
-              <h1>Plazo:</h1>
-              <h2>Meses</h2>
-              <input formControlName="plazo" type="number" value="" id="plazo" oninput="this.value = Math.max(this.value)" required>
+          <h1>Plazo:</h1>
+          <h2>Meses</h2>
+          <input formControlName="plazo" type="number" value="" id="plazo" oninput="this.value = Math.max(this.value)"
+            required>
         </div>
 
         <div>
-              <div class="columna div-boton"><br>
-                  <button class=" btn btn-datos" (click)="limpiar()">Limpiar</button>
-                  <button id="calcular" class=" btn btn-datos" (click)="calcular()">Calcular</button>
-              </div>
+          <div class="columna div-boton"><br>
+            <button class=" btn btn-datos" (click)="limpiar()">Limpiar</button>
+            <button id="calcular" class=" btn btn-datos" (click)="calcular()">Calcular</button>
+          </div>
         </div>
       </form><br><br>
-      <!-- <div class="div-observaciones">
-          <p>Observaciones:</p>
-          <p>• Credito: </p>
-          <p>• TMAR (tasa mínima aceptable de rendimiento)</p><br>
-          <p>• UAI (utilidad antes del impuesto)</p>
-          <p>• UDI (utilidad después del impuesto)</p>
-          <p>• FNE (flujo neto de efectivo)</p>
-      </div> -->
     </div>
 
     <div *ngIf="tabla.length != 0" class="div-contenido" [formGroup]="formularioDatos">
-      <div class="div-cuota">
 
-          <p>Cuota Mensual: L.</p><div>{{this.formularioDatos.get('cuota')?.value}}</div>
+      <div class="div-cuota">
+        <p>Cuota Mensual: L.</p>
+        <p>{{this.formularioDatos.get('cuota')?.value}}</p>
       </div><br>
 
-        <div class="tabla">
-            <div>
+      <div class="tabla">
+        <div>
 
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Periodo</th>
-                    <th scope="col">Cuotas</th>
-                    <th scope="col">Intereses</th>
-                    <th scope="col">Amortizacion</th>
-                    <th scope="col">Saldo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let t of tabla">
-                    <td>{{t.periodo}}</td>
-                    <td>{{t.cuotas}}</td>
-                    <td>{{t.interes}}</td>
-                    <td>{{t.amortizacion}}</td>
-                    <td>{{t.saldo}}</td>
-                  </tr>
-                </tbody>
-              </table>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 25px;">Periodo</th>
+                <th scope="col" style="width: auto;">Cuotas</th>
+                <th scope="col" style="width: auto">Intereses</th>
+                <th scope="col" style="width: auto;">Amortizacion</th>
+                <th scope="col" style="width: auto">Saldo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let t of tabla">
+                <td>{{t.periodo}}</td>
+                <td>{{t.cuotas}}</td>
+                <td>{{t.interes}}</td>
+                <td>{{t.amortizacion}}</td>
+                <td>{{t.saldo}}</td>
+              </tr>
+            </tbody>
+          </table>
 
-            </div>
-          </div>
         </div>
       </div>
-      <div class="botones">
-        <div class="contenedor">
-          <button class="btn btn-opciones" routerLink="/periodo-recuperacion"><< Anterior</button>
-          <button *ngIf="autenticacion.logeado()" class="btn btn-opciones" (click)="guardar()">Guardar</button>
-          <button class="btn btn-opciones" routerLink="/home" (click)="salir()">Salir</button>
-        </div>
-      </div>
+    </div>
+  </div>
 </div>
 
 
-
+<footer class="footer">
+  <div class="contenedor">
+    <button class="btn btn-opciones" routerLink="/periodo-recuperacion">
+      << Anterior</button>
+        <div *ngIf="autenticacion.logeado()">
+          <button *ngIf="!mostrar" class="btn btn-opciones" (click)="guardar()">Guardar</button>
+          <button *ngIf="mostrar" class="btn btn-opciones" (click)="actualizar()">Actualizar</button>
+        </div>
+        <button class="btn btn-opciones" routerLink="/home" (click)="salir()">Cancelar</button>
+  </div>
+</footer>

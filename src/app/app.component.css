@@ -87,8 +87,14 @@ h1 {
 
 .Flex-container {
   display: flex;
-  width: 100vw;
   justify-content: center;
+  align-items: start;
+  height: 80vh;
+  width: 1250px;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* background-color: aquamarine; */
 }
 
 @media (max-width: 992px) {
@@ -98,7 +104,6 @@ h1 {
 
   .icon {
     width: 30px;
-    /* margin-right: 10px; */
   }
 
   .container-fluid {
@@ -107,5 +112,9 @@ h1 {
 
   .btn {
     margin: 0 !important;
+  }
+
+  .Flex-container {
+    width: auto;
   }
 }

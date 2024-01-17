@@ -18,6 +18,13 @@
             <input formControlName="contrasenia" type="password" name="contrasenia" class="form-control"
               placeholder="contraseña" required>
           </div><br>
+          <div class="form-group">
+            <input formControlName="confirmarcontrasenia" type="password" name="confirmarcontrasenia"
+              class="form-control" placeholder="confirmar contraseña" required>
+          </div>
+          <h6 *ngIf="confirmar">
+            Las contraseñas no coinciden. Por favor, verifícalas.
+          </h6><br>
           <button type="submit" class="btn btn-outline-info">
             Registrar
           </button>

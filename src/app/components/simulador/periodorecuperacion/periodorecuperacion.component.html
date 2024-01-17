@@ -14,8 +14,8 @@
         <p>Datos Obtenidos del Inciso 1</p>
       </div>
 
-      <p>■ Años</p>
-      <p>■ Flujo Neto de Efectivo</p>
+      <h1>■ Años</h1>
+      <h1>■ Flujo Neto de Efectivo</h1>
 
       <div class="columna div-boton">
         <br />
@@ -53,19 +53,23 @@
           </tbody>
         </table>
       </div>
-  </div>
-</div>
-  <br><hr><br><br>
-  <div class="div-resultado">
-    <i class="fa-solid fa-clock"></i><p>Periodo de recuperación = {{aRecuperacion}} Años</p>
-  </div>
-
-  <div class="botones">
-    <div class="contenedor">
-      <button class="btn btn-opciones" routerLink="/costo-beneficio"><< Anterior</button>
-      <button *ngIf="siguiente" class="btn btn-opciones" routerLink="/pago-prestamo">Siguiente >></button>
-      <button class="btn btn-opciones" routerLink="/home" (click)="cancelar()">Cancelar</button>
     </div>
   </div>
+  <br>
+  <hr><br><br>
+  <div class="div-resultado">
+    <i class="fa-solid fa-clock"></i>
+    <p>Periodo de recuperación = {{aRecuperacion}} Años</p>
+  </div>
+
+
 </div>
 
+<footer class="footer">
+  <div class="contenedor">
+    <button class="btn btn-opciones" routerLink="/costo-beneficio">
+      << Anterior</button>
+        <button *ngIf="siguiente" class="btn btn-opciones" routerLink="/pago-prestamo">Siguiente >></button>
+        <button class="btn btn-opciones" routerLink="/home" (click)="cancelar()">Cancelar</button>
+  </div>
+</footer>

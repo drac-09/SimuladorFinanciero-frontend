@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { CookieService } from 'ngx-cookie-service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../state/app.state';
 import { selectorPerfil } from '../state/usuario.selector';
@@ -13,14 +14,11 @@ import { map } from 'rxjs';
 export class AutenticacionService {
 
   URL = 'http://localhost:5000/api'
-  // private token: String | null = localStorage.getItem("token")
-
-  // token = localStorage.getItem('token');
-  // headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
 
   constructor(
     private http: HttpClient,
     private router: Router,
+    private cookieService: CookieService,
     private store: Store<AppState>,
   ) { }
 
@@ -28,9 +26,7 @@ export class AutenticacionService {
 
   private getHeaders(): HttpHeaders {
     // const token = localStorage.getItem('token');
-    const token = this.store.select(selectorPerfil).pipe(
-      map(perfil => perfil!.token)
-    );
+    const token = this.cookieService.get('token');
     return new HttpHeaders().set('Authorization', `Bearer ${token}`);
   }
 
@@ -42,19 +38,21 @@ export class AutenticacionService {
     return this.http.post<any>(this.URL + '/acceso', user)
   }
 
-  obtener(id: any) {
+  obtener() {
     return this.http.get<any>(this.URL + '/escenarios', { headers: this.getHeaders(), withCredentials: true })
   }
 
-  guardar(id: any, datos: any) {
+  guardar(datos: any) {
     return this.http.post<any>(this.URL + '/escenario', datos, { headers: this.getHeaders(), withCredentials: true })
+  }
+
+  actualizar(id: any, datos: any) {
+    return this.http.put<any>(this.URL + `/escenarios/${id}`, datos, { headers: this.getHeaders(), withCredentials: true })
   }
 
   logeado() {
     // return !!localStorage.getItem('token')
-    return !!this.store.select(selectorPerfil).pipe(
-      map(perfil => perfil?.token)
-    );
+    return !!this.cookieService.get('token');
   }
 
   cerrar() {

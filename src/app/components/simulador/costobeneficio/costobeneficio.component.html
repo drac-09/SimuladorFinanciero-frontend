@@ -7,54 +7,87 @@
 
 <div class="contenedor-t">
   <div class="d-flex body">
-
     <div class="formulario">
-      <div class="div-titulo">
-        <p>Ingresar Datos</p>
-      </div>
-      <form [formGroup]="formularioDatos">
-        <div class="flex-datos">
-          <h1>CCPP:</h1>
-          <div class="d-flex">
-            <h2>%</h2>
-            <input formControlName="ccpp" type="number" id="ccpp" oninput="this.value = Math.max(this.value)" required/>
-          </div>
+      <div>
+        <div class="div-titulo">
+          <p>Ingresar Datos</p>
         </div>
+        <form [formGroup]="formularioDatos">
+          <div class="flex-datos">
+            <h1>CCPP:</h1>
+            <div class="d-flex">
+              <h2>%</h2>
+              <input formControlName="ccpp" type="number" id="ccpp" oninput="this.value = Math.max(this.value)"
+                required />
+            </div>
+          </div>
           <div class="columna div-boton">
             <br />
             <button class="btn btn-datos" (click)="limpiar()">Limpiar</button>
             <button id="calcular" class="btn btn-datos" (click)="calcular()">Calcular</button>
           </div>
-      </form>
-      <br/><br/>
+        </form>
+        <br /><br />
 
-    <div class="div-observaciones">
-      <p>Observaciones:</p>
-      <p>• CCPP (costo capital promedio ponderado o Tasa de Descuento)</p>
-      <p>• VPI (valor presente de ingresos)</p>
-      <p>• VPE (valor presente de egresos)</p>
-      <p>• RCB (relación costo-beneficio)</p>
+        <div class="div-observaciones">
+          <p>Observaciones:</p>
+          <p>• CCPP (costo capital promedio ponderado o Tasa de Descuento)</p>
+          <p>• VPI (valor presente de ingresos)</p>
+          <p>• VPE (valor presente de egresos)</p>
+          <p>• RCB (relación costo-beneficio)</p>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="tabla">
-    <div>
-      <table class="table" *ngIf="flujo.length != 0">
-        <thead>
-          <tr>
-            <td></td>
-            <td *ngFor="let a of flujo" style="text-align: center;">Año {{ a.anio }}</td>
-          </tr>
-        </thead>
+    <div class="div-contenido">
+      <table>
         <tbody>
-          <tr>
-            <td>FNE</td>
-            <td *ngFor="let a of flujo">{{ a.fne }}</td>
-          </tr>
+          <td>
+            <tr>
+              <div class="tabla1">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td></td>
+                      <td>FNE</td>
+                    </tr>
+                  </tbody>
+                  <br />
+                </table>
+              </div>
+            </tr>
+          </td>
+          <td>
+            <tr>
+              <div class="tabla2">
+                <table class="table" *ngIf="flujo.length != 0">
+                  <thead>
+                    <tr>
+                      <td></td>
+                      <td *ngFor="let a of flujo" style="text-align: center; font-weight: bold;">Año {{ a.anio }}</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td></td>
+                      <td *ngFor="let a of flujo">{{ a.fne }}</td>
+                    </tr>
+                  </tbody>
+                  <br />
+                </table>
+              </div>
+            </tr>
+          </td>
         </tbody>
-        <br />
       </table>
 
+      <br>
       <form [formGroup]="formularioDatos">
         <div class="div-resultado">
           <h5>VPE:</h5>
@@ -69,30 +102,32 @@
           <h5>{{ formularioDatos.value.rcb }}</h5>
         </div>
         <br /><br />
-
       </form>
     </div>
+  </div>
 
-    </div>
-    </div>
 
-    <br><hr><br><br>
-    <div class="respuesta">
-      <div *ngIf="aprobado" class="msj aprobado">
-        <i class="fa-solid fa-circle-check"></i>
-        <p>Propuesta Aprobada</p>
-      </div>
-      <div *ngIf="rechazado" class="msj rechazado">
-        <i class="fa-solid fa-circle-xmark"></i>
-        <p>Propuesta Rechazada</p>
-      </div>
-    </div>
-</div>
 
-<div class="botones">
-  <div class="contenedor">
-    <button class="btn btn-opciones" routerLink="/flujo-efectivo"><< Anterior</button>
-    <button *ngIf="siguiente" class="btn btn-opciones" routerLink="/periodo-recuperacion">Siguiente >></button>
-    <button class="btn btn-opciones" routerLink="/home" (click)="cancelar()">Cancelar</button>
+  <br>
+  <hr><br><br>
+  <div class="respuesta">
+    <div *ngIf="aprobado" class="msj aprobado">
+      <i class="fa-solid fa-circle-check"></i>
+      <p>Propuesta Aprobada</p>
+    </div>
+    <div *ngIf="rechazado" class="msj rechazado">
+      <i class="fa-solid fa-circle-xmark"></i>
+      <p>Propuesta Rechazada</p>
+    </div>
   </div>
 </div>
+
+
+<footer class="footer">
+  <div class="contenedor">
+    <button class="btn btn-opciones" routerLink="/flujo-efectivo">
+      << Anterior</button>
+        <button *ngIf="siguiente" class="btn btn-opciones" routerLink="/periodo-recuperacion">Siguiente >></button>
+        <button class="btn btn-opciones" routerLink="/home" (click)="cancelar()">Cancelar</button>
+  </div>
+</footer>

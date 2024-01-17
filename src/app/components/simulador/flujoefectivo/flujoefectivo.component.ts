@@ -30,13 +30,13 @@ export class FlujoefectivoComponent implements OnInit {
 
     if (localStorage.getItem('fe_datos') !== null) {
       let form = JSON.parse(String(localStorage.getItem('fe_datos')));
-      this.formularioDatos.get('inversion')?.setValue(form[0].inversion)
-      this.formularioDatos.get('ingresos')?.setValue(form[0].ingresos)
-      this.formularioDatos.get('costo')?.setValue(form[0].costo)
-      this.formularioDatos.get('anios')?.setValue(form[0].anios)
-      this.formularioDatos.get('valorsalvamento')?.setValue(form[0].valorsalvamento)
-      this.formularioDatos.get('impuestos')?.setValue(form[0].impuestos)
-      this.formularioDatos.get('tmar')?.setValue(form[0].tmar)
+      this.formularioDatos.get('inversion')?.setValue(form.inversion)
+      this.formularioDatos.get('ingresos')?.setValue(form.ingresos)
+      this.formularioDatos.get('costo')?.setValue(form.costo)
+      this.formularioDatos.get('anios')?.setValue(form.anios)
+      this.formularioDatos.get('valorsalvamento')?.setValue(form.valorsalvamento)
+      this.formularioDatos.get('impuestos')?.setValue(form.impuestos)
+      this.formularioDatos.get('tmar')?.setValue(form.tmar)
       this.siguiente = true
 
       this.depreciacion = JSON.parse(String(localStorage.getItem('fe_depreciacion')))
@@ -140,16 +140,7 @@ export class FlujoefectivoComponent implements OnInit {
 
   cancelar() {
     this.route.navigate(['./escenarios'])
-    localStorage.removeItem("nombre");
-    localStorage.removeItem("fe_datos");
-    localStorage.removeItem("fe_flujos");
-    localStorage.removeItem("fe_depreciacion");
-    localStorage.removeItem("rcb_datos");
-    localStorage.removeItem("pr_flujo");
-    localStorage.removeItem("pr_acumulado");
-    localStorage.removeItem("pr_Recuperacion");
-    localStorage.removeItem("pp_tabla");
-    localStorage.removeItem("pp_datos");
+    localStorage.clear()
   }
 
   // formatoConComasAutomaticas(input: HTMLInputElement) {
@@ -159,5 +150,9 @@ export class FlujoefectivoComponent implements OnInit {
   //   partes[0] = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, ','); // Formatea la parte entera con comas
   //   input.value = partes.join(','); // Vuelve a unir las partes y asigna al input
   // }
+
+  formatearConComas(numero: number): string {
+    return numero.toLocaleString();
+  }
 
 }

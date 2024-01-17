@@ -1,6 +1,7 @@
 .contaider {
   display: flex;
   flex-wrap: wrap;
+  /* background-color: #009c86; */
 }
 
 .text {

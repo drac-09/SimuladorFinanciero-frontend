@@ -49,10 +49,10 @@ export class CostobeneficioComponent implements OnInit {
       this.siguiente = true
 
       // Obtenemos los datos del formulario y los cargamos
-      this.formularioDatos.get('ccpp')?.setValue(RCB[0].ccpp)
-      this.formularioDatos.get('vpi')?.setValue(RCB[0].vpi)
-      this.formularioDatos.get('vpe')?.setValue(RCB[0].vpe)
-      this.formularioDatos.get('rcb')?.setValue(RCB[0].rcb)
+      this.formularioDatos.get('ccpp')?.setValue(RCB.ccpp)
+      this.formularioDatos.get('vpi')?.setValue(RCB.vpi)
+      this.formularioDatos.get('vpe')?.setValue(RCB.vpe)
+      this.formularioDatos.get('rcb')?.setValue(RCB.rcb)
 
       if (this.formularioDatos.get('rcb')?.value >= 1) {
         this.aprobado = true
@@ -120,7 +120,7 @@ export class CostobeneficioComponent implements OnInit {
       }
 
       this.siguiente = true
-      localStorage.removeItem("rcb_datos")
+      // localStorage.removeItem("rcb_datos")
       localStorage.setItem("rcb_datos", JSON.stringify(this.formularioDatos.value))
     }
   }
@@ -133,16 +133,7 @@ export class CostobeneficioComponent implements OnInit {
 
   cancelar() {
     this.route.navigate(['./escenarios'])
-    localStorage.removeItem("nombre");
-    localStorage.removeItem("fe_datos");
-    localStorage.removeItem("fe_flujos");
-    localStorage.removeItem("fe_depreciacion");
-    localStorage.removeItem("rcb_datos");
-    localStorage.removeItem("pr_flujo");
-    localStorage.removeItem("pr_acumulado");
-    localStorage.removeItem("pr_Recuperacion");
-    localStorage.removeItem("pp_tabla");
-    localStorage.removeItem("pp_datos");
+    localStorage.clear()
   }
 
 }
