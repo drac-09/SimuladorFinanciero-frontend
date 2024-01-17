@@ -88,7 +88,7 @@ h1 {
 .Flex-container {
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   height: 80vh;
   width: 1250px;
   margin: auto;
