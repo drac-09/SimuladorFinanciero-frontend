@@ -42,6 +42,7 @@ export class IniciarsesionComponent implements OnInit {
           this.cookieService.set('token', res.token);
           this.store.dispatch(iniciarSesion({ datos: res }))
           this.route.navigate(['./escenarios'])
+          console.log(res)
 
         },
         error => {

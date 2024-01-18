@@ -86,8 +86,8 @@
 .div-contenido {
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: end;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 
 .tabla1 table thead tr td {
@@ -153,7 +153,7 @@ label {
 
 .contenedor {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   width: 1250px;
 }
 

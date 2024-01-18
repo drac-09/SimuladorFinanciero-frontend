@@ -14,6 +14,7 @@ import { map } from 'rxjs';
 export class AutenticacionService {
 
   URL = 'https://simulador-financiero-backend.vercel.app/api'
+  // URL = 'http://localhost:5000/api'
 
   constructor(
     private http: HttpClient,
@@ -33,6 +34,10 @@ export class AutenticacionService {
   registro(user: any) {
     return this.http.post<any>(this.URL + '/registro', user)
   }
+
+  // login(user: any) {
+  //   return this.http.post<any>(this.URL + '/prueba', user)
+  // }
 
   login(user: any) {
     return this.http.post<any>(this.URL + '/acceso', user)
