@@ -35,13 +35,13 @@ export class AutenticacionService {
     return this.http.post<any>(this.URL + '/registro', user)
   }
 
-  login(user: any) {
-    return this.http.get<any>(this.URL + '/prueba')
-  }
-
   // login(user: any) {
-  //   return this.http.post<any>(this.URL + '/acceso', user)
+  //   return this.http.get<any>(this.URL + '/prueba')
   // }
+
+  login(user: any) {
+    return this.http.post<any>(this.URL + '/acceso', user)
+  }
 
   obtener() {
     return this.http.get<any>(this.URL + '/escenarios', { headers: this.getHeaders(), withCredentials: true })
