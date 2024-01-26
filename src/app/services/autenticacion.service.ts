@@ -28,7 +28,7 @@ export class AutenticacionService {
   private getHeaders(): HttpHeaders {
     // const token = localStorage.getItem('token');
     const token = this.cookieService.get('token');
-    return new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return new HttpHeaders().set('token', token);
   }
 
   registro(user: any) {
