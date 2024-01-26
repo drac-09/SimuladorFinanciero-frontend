@@ -114,7 +114,7 @@
 
 .div-cuota {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   width: 100%;
   font-size: 15px;
   font-weight: bold;
@@ -154,7 +154,7 @@ label {
 
 .contenedor {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   width: 1250px;
 }
 
