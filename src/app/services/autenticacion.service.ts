@@ -50,6 +50,10 @@ export class AutenticacionService {
     return this.http.put<any>(this.URL + `/escenarios/${id}`, datos, { headers: this.getHeaders(), withCredentials: true })
   }
 
+  eliminar(id: any) {
+    return this.http.delete<any>(this.URL + `/escenarios/${id}`, { headers: this.getHeaders(), withCredentials: true })
+  }
+
   logeado() {
     return !!this.cookieService.get('token');
   }

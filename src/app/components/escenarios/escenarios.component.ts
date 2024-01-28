@@ -65,13 +65,24 @@ export class EscenariosComponent implements OnInit {
       )
   }
 
+  eliminar() {
+    const id = localStorage.getItem("id")
+    this.autenticacion.eliminar(id)
+      .subscribe(
+        res => {
+          // console.log(res)
+          this.obtenerescenarios()
+        },
+        error => {
+          console.log(error.error)
+        }
+      )
+  }
+
   abrir() {
     this.route.navigate(['./flujo-efectivo'])
   }
 
-  eliminar() {
-
-  }
 
   nuevo() {
     localStorage.clear()
