@@ -1,15 +1,46 @@
-# SimuladorFinancieroFrontend
+# SimuladorFinanciero-Frontend
 
 Frontend - Proyecto de la clase Teoría de la Simulación.
 
-# Tecnologías y Herramientas.
+</br>
 
-![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
-![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+## Requisitos (Instalar)
+
+<li> Node.Js
+<li> Angular
+
+</br>
+
+## Comandos
+
+<table>
+  </tr>
+    <td>
+      npm install
+    </td>
+    <td>
+      Instalar dependencias de Node.
+    </td>
+  <tr>
+  <tr>
+    <td>
+    npm run dev
+    </td>
+    <td>
+    Inicia el servidor de desarrollo de angular.
+    </td>
+  </tr>
+</table>
+</br>
+
+## Tecnologías y Herramientas.
+
 ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
-![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 
-# Capturas de Pantalla.
+</br>
+
+## Capturas de Pantalla.
 
 ![](src/assets/screen/Home.png)
 
