@@ -36,13 +36,9 @@ export class IniciarsesionComponent implements OnInit {
     this.autenticacion.login(this.formularioDatos.value)
       .subscribe(
         (res) => {
-          // localStorage.setItem('token', res.token)
-          // localStorage.setItem('id', res.id)
-          // console.log({ "id": res.id, "correo": res.correo })
           this.cookieService.set('token', res.token);
           this.store.dispatch(iniciarSesion({ datos: res }))
           this.route.navigate(['./escenarios'])
-          console.log(res)
 
         },
         error => {

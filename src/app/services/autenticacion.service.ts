@@ -24,11 +24,8 @@ export class AutenticacionService {
   ) { }
 
 
-
   private getHeaders(): HttpHeaders {
-    // const token = localStorage.getItem('token');
     const token = this.cookieService.get('token');
-    // return new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return new HttpHeaders().set('token', token);
   }
 
@@ -36,15 +33,12 @@ export class AutenticacionService {
     return this.http.post<any>(this.URL + '/registro', user)
   }
 
-  // login(user: any) {
-  //   return this.http.get<any>(this.URL + '/prueba')
-  // }
-
   login(user: any) {
     return this.http.post<any>(this.URL + '/acceso', user)
   }
 
   obtener() {
+    const headers = this.getHeaders();
     return this.http.get<any>(this.URL + '/escenarios', { headers: this.getHeaders(), withCredentials: true })
   }
 
@@ -57,7 +51,6 @@ export class AutenticacionService {
   }
 
   logeado() {
-    // return !!localStorage.getItem('token')
     return !!this.cookieService.get('token');
   }
 
