@@ -1,4 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Cairo";
+  src: url("./assets/fonts/Cairo.ttf");
+}
+
+body {
+  font-family: "Cairo";
+}
 
 .Flex {
   display: flex;
@@ -6,76 +14,76 @@
   padding-top: 40px;
   padding-left: 100px;
   padding-right: 100px;
-  gap: 100px;
+  gap: 50px;
 }
 
 .Titulo {
   display: flex;
+  font-size: 20px;
   width: 100%;
   justify-content: center;
 }
 
-h2 {
-  font-size: 50px;
-}
-
 .Bloque {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: start;
+  gap: 50px;
 }
 
 .Contenido {
   display: flex;
-  align-items: center;
-  gap: 50px;
-  align-items: center;
+  flex-direction: column;
+  align-items: start;
+}
+
+.Contenido h1 {
+  font-size: 30px;
 }
 
 p {
-  font-size: 22px;
+  font-size: 18px;
 }
 
 img {
-  width: 400px;
+  width: 300px;
 }
 
 @media (max-width: 1200px) {
   .Flex {
     padding-left: 0px;
     padding-right: 0px;
+    gap: 100px;
   }
 
   .Bloque {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0px;
   }
 
   .Contenido {
     display: flex;
-    flex-direction: column-reverse;
     gap: 0px;
   }
 
   .Reverso {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse !important;
   }
 
   h2 {
     font-size: 30px;
   }
 
-  h1 {
+  .Contenido h1 {
+    width: 100%;
     text-align: center;
   }
 
   p {
     text-align: justify;
     font-size: 16px;
-    padding-left: 10px;
-    padding-right: 10px;
   }
 
   .Bloque img {
