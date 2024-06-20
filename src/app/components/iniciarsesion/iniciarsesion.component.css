@@ -1,13 +1,7 @@
 .row {
   width: 100vw;
-  height: 90vh;
+  height: calc(100vh - 60px);
   align-items: center;
-}
-
-.card-header {
-  font-size: 25px;
-  background-color: #009c86;
-  color: white;
 }
 
 .formulario {
@@ -15,6 +9,12 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+.card-header {
+  font-size: 20px;
+  background-color: #009c86;
+  color: white;
 }
 
 input {
@@ -26,8 +26,8 @@ input {
   justify-content: space-evenly;
 }
 
-button:hover {
-  background-color: #009c86;
-  border: #009c86;
-  color: white;
+@media (max-width: 992px) {
+  .card-header {
+    font-size: 18px;
+  }
 }
