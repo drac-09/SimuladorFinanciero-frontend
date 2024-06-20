@@ -48,6 +48,14 @@ img {
   width: 300px;
 }
 
+.btn-global {
+  background-color: #385a64;
+  color: white;
+  font-size: 25px;
+  padding: 0 30px 0 30px;
+  border: none;
+}
+
 @media (max-width: 1200px) {
   .Flex {
     padding-left: 0px;
