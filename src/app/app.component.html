@@ -6,25 +6,28 @@
       aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" [attr.data-bs-toggle]="isMobile ? 'collapse' : null"
+      [attr.data-bs-target]="isMobile ? '#navbarNavAltMarkup' : null">
       <div class="navbar-nav">
-        <a class="nav-link" routerLinkActive="active-link" active routerLink="/home">Inicio</a>
-        <a class="nav-link" routerLinkActive="active-link" routerLink="/documentacion">Documentación</a>
-        <a class="nav-link" routerLinkActive="active-link" routerLink="/acercade">Acerca de</a>
-        <a *ngIf="(inicioSesion$ | async)" class="nav-link" routerLinkActive="active-link"
-          routerLink="/escenarios">Escenarios</a>
+        <a class="nav-link" routerLinkActive="active-link" active routerLink="/home"><i
+            class=" icon-menu fa-solid fa-house" hidden></i>
+          Inicio</a>
+        <a class="nav-link" routerLinkActive="active-link" routerLink="/documentacion"><i
+            class=" icon-menu fa-solid fa-file" hidden></i> Documentación</a>
+        <a class="nav-link" routerLinkActive="active-link" routerLink="/acercade"><i
+            class=" icon-menu fa-solid fa-circle-info" hidden></i> Acerca de</a>
+        <a *ngIf="(inicioSesion$ | async)" class="nav-link" routerLinkActive="active-link" routerLink="/escenarios"><i
+            class=" icon-menu fa-solid fa-boxes-stacked" hidden></i> Escenarios</a>
 
         <ng-template class="option" #sesionNoIniciada>
           <button class="btn">
-            <a class="nav-link" href="/login">
+            <a class="nav-link" routerLink="/login">
               <i class="icon-user fa-solid fa-circle-user "></i>
               Iniciar Sesion</a>
           </button>
         </ng-template>
 
         <ng-container class="option" *ngIf="(inicioSesion$ | async) as sesionIniciada; else sesionNoIniciada">
-          <!-- <h1 style="font-size: larger;">{{ nombrePerfil$ | async }}</h1> -->
-          <!-- <h1>|</h1> -->
           <button class="btn">
             <a class="nav-link" (click)="cerrar()">
               <i class="icon-user fa-solid fa-arrow-right-from-bracket"></i>
