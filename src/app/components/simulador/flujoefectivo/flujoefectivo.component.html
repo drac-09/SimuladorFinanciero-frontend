@@ -15,50 +15,47 @@
         <div class="flex">
           <h1>Inversión</h1>
           <h2>L.</h2>
-          <input formControlName="inversion" type="number" id="inversion" oninput="this.value = Math.max(this.value)"
-            placeholder="12000000" required>
+          <input formControlName="inversion" type="text" id="inversion" placeholder="0.00" appInputCantidad required>
         </div>
 
         <div class="flex">
           <h1>Ingresos:</h1>
           <h2>L.</h2>
-          <input formControlName="ingresos" type="number" value="" id="ingresos"
-            oninput="this.value = Math.max(this.value)" placeholder="24000000" required>
+          <input formControlName="ingresos" type="text" value="" id="ingresos" appInputCantidad placeholder="0.00"
+            required>
         </div>
 
         <div class="flex">
           <h1>Costos:</h1>
           <h2>L.</h2>
-          <input formControlName="costo" type="number" value="" id="costo" oninput="this.value = Math.max(this.value)"
-            placeholder="18000000" required>
+          <input formControlName="costo" type="text" value="" id="costo" appInputCantidad placeholder="0.00" required>
         </div>
 
         <div class="flex">
           <h1>Años:</h1>
           <h2>N</h2>
-          <input formControlName="anios" type="number" value="" id="anios" oninput="this.value = Math.max(this.value)"
-            placeholder="5" required>
+          <input formControlName="anios" type="number" value="" id="anios" placeholder="5"
+            oninput="this.value = Math.max(this.value)" required>
         </div>
 
         <div class="flex">
           <h1>VS:</h1>
           <h2>L.</h2>
-          <input formControlName="valorsalvamento" type="number" value="" id="valorsalvamento"
-            oninput="this.value = Math.max(this.value)" placeholder="2000000" required>
+          <input formControlName="valorsalvamento" type="text" value="" id="valorsalvamento" appInputCantidad
+            placeholder="0.00" required>
         </div>
 
         <div class="flex">
           <h1>Impuestos:</h1>
           <h2>%</h2>
-          <input formControlName="impuestos" type="number" value="" id="impuestoss"
-            oninput="this.value = Math.max(this.value)" placeholder="30" required>
+          <input formControlName="impuestos" type="text" value="" id="impuestoss" appInputPorcentaje placeholder="0.00"
+            required>
         </div>
 
         <div class="flex">
           <h1>TMAR:</h1>
           <h2>%</h2>
-          <input formControlName="tmar" type="number" value="" id="tmar" oninput="this.value = Math.max(this.value)"
-            placeholder="25" required>
+          <input formControlName="tmar" type="text" value="" id="tmar" appInputPorcentaje placeholder="0.00" required>
         </div>
         <div>
           <div class="columna div-boton"><br>
@@ -82,7 +79,7 @@
     <div>
       <div class="div-depreciacion">
         <p>
-          Depreciación: L. {{mostrarDepreciacion}}.00
+          Depreciación: L. {{mostrarDepreciacion | number:'1.2-2'}}
         </p>
       </div><br>
 
@@ -107,19 +104,19 @@
                     <td class="rojo">- Depreciación</td>
                   </tr>
                   <tr>
-                    <td>= UAI</td>
+                    <td style="font-weight: bold;">= UAI</td>
                   </tr>
                   <tr>
                     <td class="rojo">- Impuestos</td>
                   </tr>
                   <tr>
-                    <td>= UDI</td>
+                    <td style="font-weight: bold;">= UDI</td>
                   </tr>
                   <tr>
                     <td class="verde">+ Depreciación</td>
                   </tr>
                   <tr>
-                    <td>= FNE </td>
+                    <td style="font-weight: bold;">= FNE </td>
                   </tr>
                 </tbody><br>
               </table>
@@ -136,28 +133,28 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td *ngFor="let a of flujo; ">{{a.ingresos}}</td>
+                      <td *ngFor="let a of flujo; ">{{a.ingresos | number:'1.2-2'}}</td>
                     </tr>
                     <tr>
-                      <td *ngFor="let a of flujo; ">{{a.costosTotales}}</td>
+                      <td *ngFor="let a of flujo; ">{{a.costosTotales | number:'1.2-2'}}</td>
                     </tr>
                     <tr>
-                      <td *ngFor="let a of flujo; ">{{a.depreciacion}}</td>
+                      <td *ngFor="let a of flujo; ">{{a.depreciacion | number:'1.2-2'}}</td>
                     </tr>
                     <tr>
-                      <td *ngFor="let a of flujo; ">{{a.uai}}</td>
+                      <td *ngFor="let a of flujo; " style="font-weight: bold;">{{a.uai | number:'1.2-2'}}</td>
                     </tr>
                     <tr>
-                      <td *ngFor="let a of flujo; ">{{a.impuestos}}</td>
+                      <td *ngFor="let a of flujo; ">{{a.impuestos | number:'1.2-2'}}</td>
                     </tr>
                     <tr>
-                      <td *ngFor="let a of flujo; ">{{a.udi}}</td>
+                      <td *ngFor="let a of flujo; " style="font-weight: bold;">{{a.udi | number:'1.2-2'}}</td>
                     </tr>
                     <tr>
-                      <td *ngFor="let a of flujo; ">{{a.depreciacion}}</td>
+                      <td *ngFor="let a of flujo; ">{{a.depreciacion | number:'1.2-2'}}</td>
                     </tr>
                     <tr>
-                      <td *ngFor="let a of flujo; ">{{a.fne}}</td>
+                      <td *ngFor="let a of flujo; " style="font-weight: bold;">{{a.fne | number:'1.2-2'}}</td>
                     </tr>
                   </tbody><br>
                 </table>
@@ -172,11 +169,11 @@
   </div>
 </div>
 
-<footer class="footer">
-  <div class="contenedor">
-    <div class="text-right">
-      <button *ngIf="siguiente" class="btn btn-opciones" routerLink="/costo-beneficio">Siguiente >> </button>
-      <button class="btn btn-opciones" routerLink="/home" (click)="cancelar()">Cancelar</button>
+<!-- <footer class="Footer">
+  <div class="Contenedor">
+    <div class="Botones">
+      <button *ngIf="siguiente" class="btn Btn-opciones" routerLink="/costo-beneficio">Siguiente >> </button>
+      <button class="btn Btn-opciones" routerLink="/home" (click)="cancelar()">Cancelar</button>
     </div>
   </div>
-</footer>
+</footer> -->

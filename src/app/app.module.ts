@@ -33,6 +33,10 @@ import { localStorageSync } from 'ngrx-store-localstorage';
 
 import { StoreModule, ActionReducer, MetaReducer, Action } from '@ngrx/store';
 
+// DIRECTIVAS
+import { InputCantidadDirective } from './directivas/input-cantidad.directive';
+import { InputPorcentajeDirective } from './directivas/input-porcentaje.directive';
+
 // Función para imprimir el estado
 export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
   return function (state, action) {
@@ -67,7 +71,9 @@ export const metaReducers: MetaReducer<any, Action>[] = [debug, localStorageSync
     PagoprestamoComponent,
     EscenariosComponent,
     IniciarsesionComponent,
-    RegistroComponent
+    RegistroComponent,
+    InputCantidadDirective,
+    InputPorcentajeDirective
   ],
   imports: [
     BrowserModule,

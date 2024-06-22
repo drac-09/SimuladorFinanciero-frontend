@@ -10,8 +10,8 @@ import { Router } from '@angular/router'
 export class FlujoefectivoComponent implements OnInit {
   siguiente = false                                                 // habilitar boton siguiente
   depreciacion: number = 0                                          // guarda valor del calculo de la depreciacion
-  mostrarDepreciacion: any                                         // servira para mostrar la depreciacion en el HTML
-  flujo: any = []                                                    // Arreglo de los flunos netos de efectivo
+  mostrarDepreciacion: any                                          // servira para mostrar la depreciacion en el HTML
+  flujo: any = []                                                   // Arreglo de los flujos netos de efectivo
 
   // Formulario para capturar los datos de los imput
   formularioDatos = new FormGroup({
@@ -21,7 +21,7 @@ export class FlujoefectivoComponent implements OnInit {
     anios: new FormControl('', [Validators.required]),
     valorsalvamento: new FormControl('', [Validators.required]),
     impuestos: new FormControl('', [Validators.required]),
-    tmar: new FormControl('', [Validators.required]),              // Tasa mminima aceptable de rendimiento
+    tmar: new FormControl('', [Validators.required]),               // Tasa minima aceptable de rendimiento
   });
 
 
@@ -45,56 +45,45 @@ export class FlujoefectivoComponent implements OnInit {
       this.flujo = JSON.parse(String(fneLS))
     }
 
-    // if (localStorage.getItem('fe_flujos') === null) {
-    //   this.formularioDatos.get('inversion')?.setValue(12000000)
-    //   this.formularioDatos.get('ingresos')?.setValue(24000000)
-    //   this.formularioDatos.get('costo')?.setValue(18000000)
-    //   this.formularioDatos.get('anios')?.setValue(5)
-    //   this.formularioDatos.get('valorsalvamento')?.setValue(2000000)
-    //   this.formularioDatos.get('impuestos')?.setValue(30)
-    //   this.formularioDatos.get('tmar')?.setValue(25)
-    //   this.siguiente = false
-    // }
   }
 
   ngOnInit(): void {
   }
 
   calcular() {
-    if (this.formularioDatos.valid == false) {                                              // Verifica el usuarios ingreso todos los datos
-
-      alert('Error, Ingresar todos los datos')                                              // Muestra una alerta
+    if (this.formularioDatos.valid == false) {      // Verifica el usuarios ingreso todos los datos
+      alert('Error, Ingresar todos los datos')      // Muestra una alerta
 
     } else {
 
       // Calculo de la Depreciacion
-      this.flujo = []                                                                         // Vaciamos/limpiamos el arreglo de flujos
-      let inversion = this.formularioDatos.get('inversion')?.value                          // Obtenemos el valor de la inversion
-      let valorsalvamento = this.formularioDatos.get('valorsalvamento')?.value              // Obtenemos el valor del valor de salvamento
-      let anios = this.formularioDatos.get('anios')?.value                                  // Obtenemos los años
-      this.depreciacion = ((inversion - valorsalvamento) / anios)                             // Depreciacion = (inversion - Valor Salvamento)/años
-      this.mostrarDepreciacion = this.depreciacion.toFixed(2)
+      this.flujo = []                                                                                     // Vaciamos/limpiamos el arreglo de flujos
+      let inversion = this.convertirNumero(this.formularioDatos.get('inversion')?.value)                  // Obtenemos el valor de la inversion
+      let valorsalvamento = this.convertirNumero(this.formularioDatos.get('valorsalvamento')?.value)      // Obtenemos el valor del valor de salvamento
+      let anios = this.formularioDatos.get('anios')?.value                                                // Obtenemos los años
+      this.depreciacion = ((inversion - valorsalvamento) / anios)                                         // Depreciacion = (inversion - Valor Salvamento)/años
+      this.mostrarDepreciacion = this.convertirNumero(this.depreciacion.toFixed(2))
 
       // Calculamos en Año=0
       this.flujo[0] = {
         "anio": 0,
-        "fne": -(this.formularioDatos.get('inversion')?.value).toFixed(2)
+        "fne": -(this.convertirNumero(this.formularioDatos.get('inversion')?.value)).toFixed(2)
       }
 
       // Obtenemos los sifuientes datos del formulario
-      let F_INGRESOS = this.formularioDatos.get('ingresos')?.value                          // Ingresos
-      let F_COSTOS = this.formularioDatos.get('costo')?.value                               // Costos
-      let F_ISV = this.formularioDatos.get('impuestos')?.value                              // Impuesto
-      let F_VS = this.formularioDatos.get('valorsalvamento')?.value                         // Valor   de salvamento
+      let F_INGRESOS = this.convertirNumero(this.formularioDatos.get('ingresos')?.value)     // Ingresos
+      let F_COSTOS = this.convertirNumero(this.formularioDatos.get('costo')?.value)          // Costos
+      let F_ISV = this.convertirNumero(this.formularioDatos.get('impuestos')?.value)         // Impuesto
+      let F_VS = this.convertirNumero(this.formularioDatos.get('valorsalvamento')?.value)    // Valor   de salvamento
 
       // Con los datos obtenidos calculamos
-      let f_uai = (F_INGRESOS - F_COSTOS - this.depreciacion)                               // Utilidad antes del Impuesto
-      let f_isv = f_uai * (F_ISV / 100)                                                         // Impuesto
-      let f_udi = (f_uai - f_isv)                                                           // Utilidad despues del impuesto
-      let f_fne = f_udi + this.depreciacion                                                 // Flujo neto de efectivo
+      let f_uai = (F_INGRESOS - F_COSTOS - this.depreciacion)  // Utilidad antes del Impuesto
+      let f_isv = f_uai * (F_ISV / 100)                        // Impuesto
+      let f_udi = (f_uai - f_isv)                              // Utilidad despues del impuesto
+      let f_fne = f_udi + this.depreciacion                    // Flujo neto de efectivo
 
 
-      let a = this.formularioDatos.get('anios')?.value                                      // Obtenemos los años del formulario
+      let a = this.formularioDatos.get('anios')?.value         // Obtenemos los años del formulario
 
       // Ingresamos los datos al arreglo "flujo"
       for (let i = 1; i <= a; i++) {
@@ -124,9 +113,9 @@ export class FlujoefectivoComponent implements OnInit {
 
       // Hacemos uns copia de los datos en el localStorange
       // this.cancelar();
-      localStorage.setItem("fe_datos", JSON.stringify(this.formularioDatos.value))           // Datos ingresados por el usuario
-      localStorage.setItem("fe_flujos", JSON.stringify(this.flujo))                          // Flujos de efectivo
-      localStorage.setItem("fe_depreciacion", JSON.stringify(this.depreciacion))            // La depreciacion
+      localStorage.setItem("fe_datos", JSON.stringify(this.formularioDatos.value))        // Datos ingresados por el usuario
+      localStorage.setItem("fe_flujos", JSON.stringify(this.flujo))                       // Flujos de efectivo
+      localStorage.setItem("fe_depreciacion", JSON.stringify(this.depreciacion.toFixed(2)))          // La depreciacion
       this.siguiente = true
     }
   }
@@ -143,16 +132,14 @@ export class FlujoefectivoComponent implements OnInit {
     localStorage.clear()
   }
 
-  // formatoConComasAutomaticas(input: HTMLInputElement) {
-  //   var valor = input.value; // Obtén el valor actual del input
-  //   valor = valor.replace(/[^\d]/g, ''); // Elimina cualquier caracter que no sea un número
-  //   var partes = valor.split(','); // Divide la cadena en parte entera y decimal (si hay)
-  //   partes[0] = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, ','); // Formatea la parte entera con comas
-  //   input.value = partes.join(','); // Vuelve a unir las partes y asigna al input
+  // formatearConComas(numero: number): string {
+  //   return numero.toLocaleString();
   // }
 
-  formatearConComas(numero: number): string {
-    return numero.toLocaleString();
+  convertirNumero(texto: string): number {
+    let valorSinComas = texto.replace(/,/g, '');    // Eliminar comas (si es que existen)
+    let numero = parseFloat(valorSinComas);         // Convertir a número
+    return numero;
   }
 
 }
