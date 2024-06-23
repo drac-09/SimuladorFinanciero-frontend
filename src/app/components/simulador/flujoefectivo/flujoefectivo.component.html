@@ -1,179 +1,179 @@
-<div class="etiquetas-flex">
-  <div class="form flujo">1. Flujo Neto de Efectivo</div>
-  <div class="disable">2. Relación Costo-Beneficio</div>
-  <div class="disable">3. Periodo de Recuperación</div>
-  <div class="disable">4. Tabla pago a Préstamo</div>
-</div>
-
-<div class="d-flex body">
-  <div class="formulario">
-    <div>
-      <div class="div-titulo">
-        <p>Ingresar Datos</p>
-      </div>
-      <form [formGroup]="formularioDatos">
-        <div class="flex">
-          <h1>Inversión</h1>
-          <h2>L.</h2>
-          <input formControlName="inversion" type="text" id="inversion" placeholder="0.00" appInputCantidad required>
-        </div>
-
-        <div class="flex">
-          <h1>Ingresos:</h1>
-          <h2>L.</h2>
-          <input formControlName="ingresos" type="text" value="" id="ingresos" appInputCantidad placeholder="0.00"
-            required>
-        </div>
-
-        <div class="flex">
-          <h1>Costos:</h1>
-          <h2>L.</h2>
-          <input formControlName="costo" type="text" value="" id="costo" appInputCantidad placeholder="0.00" required>
-        </div>
-
-        <div class="flex">
-          <h1>Años:</h1>
-          <h2>N</h2>
-          <input formControlName="anios" type="number" value="" id="anios" placeholder="5"
-            oninput="this.value = Math.max(this.value)" required>
-        </div>
-
-        <div class="flex">
-          <h1>VS:</h1>
-          <h2>L.</h2>
-          <input formControlName="valorsalvamento" type="text" value="" id="valorsalvamento" appInputCantidad
-            placeholder="0.00" required>
-        </div>
-
-        <div class="flex">
-          <h1>Impuestos:</h1>
-          <h2>%</h2>
-          <input formControlName="impuestos" type="text" value="" id="impuestoss" appInputPorcentaje placeholder="0.00"
-            required>
-        </div>
-
-        <div class="flex">
-          <h1>TMAR:</h1>
-          <h2>%</h2>
-          <input formControlName="tmar" type="text" value="" id="tmar" appInputPorcentaje placeholder="0.00" required>
-        </div>
-        <div>
-          <div class="columna div-boton"><br>
-            <button class=" btn btn-datos" (click)="limpiar()">Limpiar</button>
-            <button id="calcular" class=" btn btn-datos" (click)="calcular()">Calcular</button>
-          </div>
-        </div>
-      </form><br><br>
-      <div class="div-observaciones">
-        <p>Observaciones:</p>
-        <p>• VS (valor de salvamento o valor de rescate)</p>
-        <p>• TMAR (tasa mínima aceptable de rendimiento)</p><br>
-        <p>• UAI (utilidad antes del impuesto)</p>
-        <p>• UDI (utilidad después del impuesto)</p>
-        <p>• FNE (flujo neto de efectivo)</p>
-      </div>
-    </div>
+<div class="FNE">
+  <div class="Etiquetas-flex">
+    <div class="Form Flujo">1. Flujo Neto de Efectivo</div>
+    <div class="Form Disable">2. Relación Costo-Beneficio</div>
+    <div class="Form Disable">3. Periodo de Recuperación</div>
+    <div class="Form Disable">4. Tabla pago a Préstamo</div>
   </div>
 
-  <div class="div-contenido" *ngIf="flujo.length!=0">
-    <div>
-      <div class="div-depreciacion">
-        <p>
-          Depreciación: L. {{mostrarDepreciacion | number:'1.2-2'}}
-        </p>
-      </div><br>
+  <div class="d-flex body">
+    <div class="formulario">
+      <div>
+        <div class="div-titulo">
+          <p>Ingresar Datos</p>
+        </div>
+        <form [formGroup]="formularioDatos">
+          <div class="Campo">
+            <h1>Inversión</h1>
+            <h2>L.</h2>
+            <input formControlName="inversion" type="text" id="inversion" placeholder="0.00" appInputCantidad required>
+          </div>
 
-      <table>
-        <tbody>
-          <td>
-            <tr class="tabla1">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <td></td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="verde">+ Ingresos</td>
-                  </tr>
-                  <tr>
-                    <td class="rojo">- Costos</td>
-                  </tr>
-                  <tr>
-                    <td class="rojo">- Depreciación</td>
-                  </tr>
-                  <tr>
-                    <td style="font-weight: bold;">= UAI</td>
-                  </tr>
-                  <tr>
-                    <td class="rojo">- Impuestos</td>
-                  </tr>
-                  <tr>
-                    <td style="font-weight: bold;">= UDI</td>
-                  </tr>
-                  <tr>
-                    <td class="verde">+ Depreciación</td>
-                  </tr>
-                  <tr>
-                    <td style="font-weight: bold;">= FNE </td>
-                  </tr>
-                </tbody><br>
-              </table>
-            </tr>
-          </td>
-          <td>
-            <tr>
-              <div class="tabla2">
-                <table class="table" *ngIf="flujo.length!=0">
+          <div class="Campo">
+            <h1>Ingresos:</h1>
+            <h2>L.</h2>
+            <input formControlName="ingresos" type="text" value="" id="ingresos" appInputCantidad placeholder="0.00"
+              required>
+          </div>
+
+          <div class="Campo">
+            <h1>Costos:</h1>
+            <h2>L.</h2>
+            <input formControlName="costo" type="text" value="" id="costo" appInputCantidad placeholder="0.00" required>
+          </div>
+
+          <div class="Campo">
+            <h1>Años:</h1>
+            <h2>N</h2>
+            <input formControlName="anios" type="number" value="" id="anios" placeholder="5"
+              oninput="this.value = Math.max(this.value)" required>
+          </div>
+
+          <div class="Campo">
+            <h1>VS:</h1>
+            <h2>L.</h2>
+            <input formControlName="valorsalvamento" type="text" value="" id="valorsalvamento" appInputCantidad
+              placeholder="0.00" required>
+          </div>
+
+          <div class="Campo">
+            <h1>Impuestos:</h1>
+            <h2>%</h2>
+            <input formControlName="impuestos" type="text" value="" id="impuestoss" appInputPorcentaje
+              placeholder="0.00" required>
+          </div>
+
+          <div class="Campo">
+            <h1>TMAR:</h1>
+            <h2>%</h2>
+            <input formControlName="tmar" type="text" value="" id="tmar" appInputPorcentaje placeholder="0.00" required>
+          </div>
+          <div>
+            <div class="columna div-boton"><br>
+              <button class=" btn Btn-datos" (click)="limpiar()">Limpiar</button>
+              <button id="calcular" class=" btn Btn-datos" (click)="calcular()">Calcular</button>
+            </div>
+          </div>
+        </form><br><br>
+        <div class="div-observaciones">
+          <p>Observaciones:</p>
+          <p>• VS (valor de salvamento o valor de rescate)</p>
+          <p>• TMAR (tasa mínima aceptable de rendimiento)</p><br>
+          <p>• UAI (utilidad antes del impuesto)</p>
+          <p>• UDI (utilidad después del impuesto)</p>
+          <p>• FNE (flujo neto de efectivo)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="div-contenido" *ngIf="flujo.length!=0">
+      <div>
+        <div class="div-depreciacion">
+          Depreciación: L. {{mostrarDepreciacion | number:'1.2-2'}}
+        </div>
+
+        <table>
+          <tbody>
+            <td>
+              <tr class="tabla1">
+                <table class="table">
                   <thead>
                     <tr>
-                      <td *ngFor="let a of flujo;" style="text-align: center; font-weight: bold;">Año {{a.anio}}</td>
+                      <td class="Espacio-campo"></td>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td *ngFor="let a of flujo; ">{{a.ingresos | number:'1.2-2'}}</td>
+                      <td class="verde">+ Ingresos</td>
                     </tr>
                     <tr>
-                      <td *ngFor="let a of flujo; ">{{a.costosTotales | number:'1.2-2'}}</td>
+                      <td class="rojo">- Costos</td>
                     </tr>
                     <tr>
-                      <td *ngFor="let a of flujo; ">{{a.depreciacion | number:'1.2-2'}}</td>
+                      <td class="rojo">- Depreciación</td>
                     </tr>
                     <tr>
-                      <td *ngFor="let a of flujo; " style="font-weight: bold;">{{a.uai | number:'1.2-2'}}</td>
+                      <td style="font-weight: bold;">= UAI</td>
                     </tr>
                     <tr>
-                      <td *ngFor="let a of flujo; ">{{a.impuestos | number:'1.2-2'}}</td>
+                      <td class="rojo">- Impuestos</td>
                     </tr>
                     <tr>
-                      <td *ngFor="let a of flujo; " style="font-weight: bold;">{{a.udi | number:'1.2-2'}}</td>
+                      <td style="font-weight: bold;">= UDI</td>
                     </tr>
                     <tr>
-                      <td *ngFor="let a of flujo; ">{{a.depreciacion | number:'1.2-2'}}</td>
+                      <td class="verde">+ Depreciación</td>
                     </tr>
                     <tr>
-                      <td *ngFor="let a of flujo; " style="font-weight: bold;">{{a.fne | number:'1.2-2'}}</td>
+                      <td style="font-weight: bold;">= FNE </td>
                     </tr>
                   </tbody><br>
                 </table>
-              </div>
+              </tr>
+            </td>
+            <td>
+              <tr>
+                <div class="tabla2">
+                  <table class="table" *ngIf="flujo.length!=0">
+                    <thead>
+                      <tr>
+                        <td *ngFor="let a of flujo;" style="text-align: center; font-weight: bold;">Año {{a.anio}}</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td *ngFor="let a of flujo; ">{{a.ingresos | number:'1.2-2'}}</td>
+                      </tr>
+                      <tr>
+                        <td *ngFor="let a of flujo; ">{{a.costosTotales | number:'1.2-2'}}</td>
+                      </tr>
+                      <tr>
+                        <td *ngFor="let a of flujo; ">{{a.depreciacion | number:'1.2-2'}}</td>
+                      </tr>
+                      <tr>
+                        <td *ngFor="let a of flujo; " style="font-weight: bold;">{{a.uai | number:'1.2-2'}}</td>
+                      </tr>
+                      <tr>
+                        <td *ngFor="let a of flujo; ">{{a.impuestos | number:'1.2-2'}}</td>
+                      </tr>
+                      <tr>
+                        <td *ngFor="let a of flujo; " style="font-weight: bold;">{{a.udi | number:'1.2-2'}}</td>
+                      </tr>
+                      <tr>
+                        <td *ngFor="let a of flujo; ">{{a.depreciacion | number:'1.2-2'}}</td>
+                      </tr>
+                      <tr>
+                        <td *ngFor="let a of flujo; " style="font-weight: bold;">{{a.fne | number:'1.2-2'}}</td>
+                      </tr>
+                    </tbody><br>
+                  </table>
+                </div>
 
-            </tr>
-          </td>
+              </tr>
+            </td>
 
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
+
+  <footer class="Footer">
+    <div class="Contenedor">
+      <div class="Botones">
+        <button *ngIf="siguiente" class="Btn-opciones" routerLink="/costo-beneficio">Siguiente >> </button>
+        <button class="Btn-opciones" routerLink="/home" (click)="cancelar()">Cancelar</button>
+      </div>
+    </div>
+  </footer>
 </div>
-
-<!-- <footer class="Footer">
-  <div class="Contenedor">
-    <div class="Botones">
-      <button *ngIf="siguiente" class="btn Btn-opciones" routerLink="/costo-beneficio">Siguiente >> </button>
-      <button class="btn Btn-opciones" routerLink="/home" (click)="cancelar()">Cancelar</button>
-    </div>
-  </div>
-</footer> -->

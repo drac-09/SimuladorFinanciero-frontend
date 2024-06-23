@@ -1,3 +1,5 @@
+/* NAVBAR ======================================================= */
+
 .navbar {
   background-color: #009c86 !important;
   padding-top: 0px !important;
@@ -85,20 +87,20 @@ h1 {
 }
 
 .user {
-  /* background-color: blueviolet; */
   padding: 8px 0px 8px 0px !important;
 }
+
+/* BODY - SIMULADOR ======================================================= */
 
 .Flex-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  height: 80vh;
+  height: calc(100vh - 60px);
   width: 1250px;
   margin: auto;
   padding-left: 20px;
   padding-right: 20px;
-  /* background-color: aquamarine; */
 }
 
 @media (max-width: 992px) {
@@ -138,10 +140,6 @@ h1 {
     margin: 0 !important;
   }
 
-  .Flex-container {
-    width: auto;
-  }
-
   .navbar-toggler {
     border-color: white;
   }
@@ -149,5 +147,15 @@ h1 {
   .navbar-toggler-icon {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="white" d="M1.5 12.5a.5.5 0 0 1 0-1h13a.5.5 0 0 1 0 1h-13zm0-5a.5.5 0 0 1 0-1h13a.5.5 0 0 1 0 1h-13zm0-5a.5.5 0 0 1 0-1h13a.5.5 0 0 1 0 1h-13z"/></svg>');
     width: 20px;
+  }
+
+  .Flex-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: calc(100vh - 60px);
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
   }
 }
