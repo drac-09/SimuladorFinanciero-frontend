@@ -1,0 +1,49 @@
+.Etiquetas-flex {
+  display: flex;
+  padding-top: 20px;
+}
+
+.Form {
+  font-size: 15px;
+  margin-right: 20px;
+  padding: 3px 10px;
+  border: transparent 5px solid;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.Disable {
+  background-color: #eaeaea;
+}
+
+.Flujo {
+  background-color: #5dc460;
+  font-weight: bold;
+}
+
+.Costo {
+  background-color: #77dd77;
+  font-weight: bold;
+}
+
+@media (max-width: 992px) {
+  /* INDICADORES SUPERIORES ======================================================= */
+  .Etiquetas-flex {
+    justify-content: center;
+    padding-top: 0px;
+    padding: 10px;
+    width: 100vw;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .Form {
+    font-size: 13px;
+    margin-right: 0px;
+    width: fit-content;
+    padding: auto;
+    border: transparent 3px solid;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+}

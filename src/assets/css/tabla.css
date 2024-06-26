@@ -1,0 +1,65 @@
+.div-contenido {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-x: auto;
+}
+
+.tabla1 table thead tr td {
+  height: 25px;
+  width: 480px;
+}
+
+.tabla2 {
+  overflow-x: scroll;
+  width: 520px;
+}
+
+.tabla2 table tbody tr td {
+  text-align: right;
+}
+
+.t-fila {
+  width: 250px;
+}
+
+.rojo {
+  color: red;
+}
+
+.verde {
+  color: green;
+}
+
+@media (max-width: 992px) {
+  .div-contenido {
+    width: 100px;
+    padding-top: 25px;
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .Espacio-campo {
+    height: 40px !important;
+  }
+
+  .tabla1 table thead tr td {
+    height: 25px;
+    /* width: 590px !important; */
+  }
+
+  .tabla1 table {
+    width: 120px !important;
+    margin-left: 5px !important;
+  }
+
+  .tabla2 {
+    overflow-x: scroll;
+    width: 63vw;
+  }
+}

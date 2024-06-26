@@ -1,0 +1,22 @@
+.btn-global {
+  background-color: #385a64;
+  color: white;
+  font-size: 25px;
+  padding: 0 30px 0 30px;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-l-global {
+  border: 1px solid #009c86;
+  color: #009c86;
+  background-color: white;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+}
+
+.btn-l-global:hover {
+  border: 1px solid #009c86;
+  color: white;
+  background-color: #009c86;
+}
