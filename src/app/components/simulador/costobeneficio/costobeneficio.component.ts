@@ -32,7 +32,7 @@ export class CostobeneficioComponent implements OnInit {
     // Valor del valor presente de ingresos = -(inversion)
     this.formularioDatos.get('vpe')?.setValue(-(flujoResumen[0].fne))
 
-    // ingresamos al arreflo de flujo los flujos ontenidos en el inciso 1
+    // Ingresamos al arreglo de flujo los flujos ontenidos en el inciso 1
     if (localStorage.getItem('fe_flujos') !== null) {
       for (let f = 0; f < flujoResumen.length; f++) {
         const element = flujoResumen[f];
@@ -72,11 +72,9 @@ export class CostobeneficioComponent implements OnInit {
 
   calcular() {
     if (this.formularioDatos.valid == false) {
-
       alert('Error, Ingrese el Costo capital promedio ponderado o Tasa de Descuento')
 
     } else {
-
 
       // VPI = inversion - Flujo1 + Flujo2 + Flujo3 + .... FlujoN
       // Flujos =  (flujo neto de efectivo) / [(1 + ccpp)^Periodo]
@@ -84,18 +82,16 @@ export class CostobeneficioComponent implements OnInit {
       // CCPP ó Tasa de descuento
       // Perido ó Año
 
-
       let flujo                                                   // Almacenara cada flujo de cada periodo (año)
-      let flujos: number = 0                                         // Almacenara la sumatoria de los flujos
-      let td = (this.formularioDatos.get('ccpp')?.value / 100)      // Tasa de descuento
-
+      let flujos: number = 0                                      // Almacenara la sumatoria de los flujos
+      let td = (this.formularioDatos.get('ccpp')?.value / 100)    // Tasa de descuento
       // Suma de Periodos
       for (let f = 1; f < this.flujo.length; f++) {               // Recorremos el arreglo
         const element = this.flujo[f];                            // Obtenemos
         let fne = element.fne                                     // Obtenemos el flujo neto de efectivo de cada periodo
         let periodo = element.anio                                // Obtenermos el numero de año de cada periodo
 
-        flujo = fne / (Math.pow(1 + td, periodo))                    // Calculamos el flujo
+        flujo = fne / (Math.pow(1 + td, periodo))                 // Calculamos el flujo
         flujos += flujo                                           // Sumamos los flujos
       }
 
@@ -134,6 +130,12 @@ export class CostobeneficioComponent implements OnInit {
   cancelar() {
     this.route.navigate(['./escenarios'])
     localStorage.clear()
+  }
+
+  convertirNumero(texto: string): number {
+    let valorSinComas = texto.replace(/,/g, '');    // Eliminar comas (si es que existen)
+    let numero = parseFloat(valorSinComas);         // Convertir a número
+    return numero;
   }
 
 }

@@ -1,30 +1,31 @@
-<div class="etiquetas-flex">
-  <div class="form flujo">1. Flujo Neto de Efectivo</div>
-  <div class="form costo">2. Relación Costo-Beneficio</div>
-  <div class="disable">3. Periodo de Recuperación</div>
-  <div class="disable">4. Tabla pago a Préstamo</div>
-</div>
+<div class="Body-simulador">
+  <div class="Etiquetas-flex">
+    <div class="Form Flujo">1. Flujo Neto de Efectivo</div>
+    <div class="Form Costo">2. Relación Costo-Beneficio</div>
+    <div class="Form Disable">3. Periodo de Recuperación</div>
+    <div class="Form Disable">4. Tabla pago a Préstamo</div>
+  </div>
 
-<div class="contenedor-t">
-  <div class="d-flex body">
-    <div class="formulario">
+  <div class="d-flex Datos">
+
+    <div class="Formulario">
       <div>
         <div class="div-titulo">
           <p>Ingresar Datos</p>
         </div>
         <form [formGroup]="formularioDatos">
-          <div class="flex-datos">
+          <div class="Campo">
             <h1>CCPP:</h1>
             <div class="d-flex">
               <h2>%</h2>
-              <input formControlName="ccpp" type="number" id="ccpp" oninput="this.value = Math.max(this.value)"
+              <input formControlName="ccpp" type="text" id="ccpp" appInputPorcentaje placeholder="0.00" required
                 required />
             </div>
           </div>
           <div class="columna div-boton">
             <br />
-            <button class="btn btn-datos" (click)="limpiar()">Limpiar</button>
-            <button id="calcular" class="btn btn-datos" (click)="calcular()">Calcular</button>
+            <button class="btn Btn-datos" (click)="limpiar()">Limpiar</button>
+            <button id="calcular" class="btn Btn-datos" (click)="calcular()">Calcular</button>
           </div>
         </form>
         <br /><br />
@@ -39,7 +40,8 @@
       </div>
     </div>
 
-    <div class="div-contenido">
+    <div class="div-contenido" *ngIf="flujo.length != 0">
+
       <table>
         <tbody>
           <td>
@@ -48,14 +50,12 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <td></td>
-                      <td></td>
+                      <td class="Espacio-campo"></td>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td></td>
-                      <td>FNE</td>
+                      <td class="celdaFNE">FNE</td>
                     </tr>
                   </tbody>
                   <br />
@@ -66,7 +66,7 @@
           <td>
             <tr>
               <div class="tabla2">
-                <table class="table" *ngIf="flujo.length != 0">
+                <table class="table">
                   <thead>
                     <tr>
                       <td></td>
@@ -76,7 +76,7 @@
                   <tbody>
                     <tr>
                       <td></td>
-                      <td *ngFor="let a of flujo">{{ a.fne }}</td>
+                      <td *ngFor="let a of flujo">{{ a.fne | number:'1.2-2' }}</td>
                     </tr>
                   </tbody>
                   <br />
@@ -87,47 +87,45 @@
         </tbody>
       </table>
 
-      <br>
+      <br><br>
       <form [formGroup]="formularioDatos">
         <div class="div-resultado">
           <h5>VPE:</h5>
-          <h5>{{ formularioDatos.value.vpe }}</h5>
+          <h5>{{ formularioDatos.value.vpe | number:'1.2-2' }}</h5>
         </div>
         <div class="div-resultado">
           <h5>VPI:</h5>
-          <h5>{{ formularioDatos.value.vpi }}</h5>
+          <h5>{{ formularioDatos.value.vpi | number:'1.2-2' }}</h5>
         </div>
         <div class="div-resultado">
           <h5>RCB:</h5>
-          <h5>{{ formularioDatos.value.rcb }}</h5>
+          <h5>{{ formularioDatos.value.rcb | number:'1.2-2' }}</h5>
         </div>
         <br /><br />
       </form>
     </div>
+
   </div>
 
-
-
   <br>
-  <hr><br><br>
   <div class="respuesta">
-    <div *ngIf="aprobado" class="msj aprobado">
+    <div *ngIf="aprobado" class="msj verde">
       <i class="fa-solid fa-circle-check"></i>
       <p>Propuesta Aprobada</p>
     </div>
-    <div *ngIf="rechazado" class="msj rechazado">
+    <div *ngIf="rechazado" class="msj rojo">
       <i class="fa-solid fa-circle-xmark"></i>
       <p>Propuesta Rechazada</p>
     </div>
   </div>
+
+
+  <footer class="Footer">
+    <div class="Contenedor">
+      <button class="Btn-opciones" routerLink="/flujo-efectivo">
+        << Anterior</button>
+          <button *ngIf="siguiente" class="Btn-opciones" routerLink="/periodo-recuperacion">Siguiente >></button>
+          <button class="Btn-opciones" routerLink="/home" (click)="cancelar()">Cancelar</button>
+    </div>
+  </footer>
 </div>
-
-
-<footer class="footer">
-  <div class="contenedor">
-    <button class="btn btn-opciones" routerLink="/flujo-efectivo">
-      << Anterior</button>
-        <button *ngIf="siguiente" class="btn btn-opciones" routerLink="/periodo-recuperacion">Siguiente >></button>
-        <button class="btn btn-opciones" routerLink="/home" (click)="cancelar()">Cancelar</button>
-  </div>
-</footer>

@@ -1,132 +1,32 @@
-/* INDICADORES SUPERIORES ======================================================= */
-.etiquetas-flex {
-  display: flex;
-  padding-top: 20px;
-}
-
-.form {
-  font-size: 15px;
-  margin-right: 20px;
-  padding: 3px 10px;
-  border: transparent 5px solid;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-
-.disable {
-  font-size: 15px;
-  margin-right: 20px;
-  padding: 3px 10px;
-  border: transparent 5px solid;
-  background-color: #eaeaea;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-
-.flujo {
-  background-color: #5dc460;
-}
-
-.costo {
-  background-color: #77dd77;
-  font-weight: bold;
-}
-
-/* FORMULARIO ======================================================= */
-
-.body {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 70px;
-  width: 1100px;
-}
-
-.formulario {
-  width: 375px;
-}
-
-.flex-datos {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.flex-datos h1 {
-  width: 170px;
-  font-size: 16px;
-}
-
-.flex-datos h2 {
-  width: 25px;
-  font-size: 16px;
-}
-
-.flex-datos input {
-  width: 180px;
-  font-size: 16px;
-  border-radius: 50px;
-  border: 1px solid;
-  margin-bottom: 7px;
-  padding: 0px 10px 0px 10px;
-  text-align: right;
-}
-
-.div-titulo {
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.div-boton {
-  text-align: right;
-}
-
-.btn-datos {
-  background-color: #5dc460 !important;
-  margin-left: 10px;
-  padding: 0px 10px 0px 10px;
-}
-
-/* TABLA ======================================================= */
-
 .div-contenido {
-  padding-top: 47px;
-  margin-top: 27px;
+  padding-top: 56px;
 }
 
-.tabla1 {
-  padding-top: 8px;
-}
-
-.tabla2 {
-  overflow-x: scroll;
-  width: 525px;
-}
-
-.div-depreciacion {
-  text-align: right;
-  font-size: 15px;
+.celdaFNE {
   font-weight: bold;
 }
 
-.div-observaciones p {
-  margin: 0;
-  font-size: 15px;
-}
-
-.t-fila {
-  width: 250px;
-  /* display: flex; */
-  /* flex-direction: column; */
-}
+/* Respuesta de VPE, VPI, RCB =============== */
 
 .div-resultado {
   display: flex;
-  width: 500px;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .div-resultado h5 {
-  margin-right: 15px;
+  font-size: 18px;
+}
+
+/* Respuesta de Aprobación =============== */
+
+.respuesta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0px 30px 0px;
+  border-top: 1px dashed gray;
+  border-bottom: 1px dashed gray;
 }
 
 .msj {
@@ -135,54 +35,17 @@
   align-items: center;
   text-align: center;
   font-size: 35px;
+  gap: 10px;
 }
 
-.aprobado {
-  color: green;
-}
-
-.aprobado p {
+.msj p {
   margin: 0 0 0 10px;
 }
 
-.rechazado {
-  color: red;
-}
-
-.rechazado p {
-  margin: 0 0 0 10px;
-}
-
-.respuesta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background-color: #5dc460; */
-}
-
-/* BOTONES INFERIORES ======================================================= */
-
-.footer {
-  display: flex;
-  justify-content: center;
-  padding: 50px 0;
-  position: absolute;
-  bottom: 0;
-  width: 100vw;
-  left: 0;
-}
-
-.contenedor {
-  display: flex;
-  justify-content: flex-end;
-  width: 1250px;
-}
-
-.btn-opciones {
-  width: 200px;
-  background-color: #385a64;
-  color: white;
-  font-size: 20px;
-  margin: 0px 5px 0 5px;
-  /* padding: 1px 20px 1px 20px; */
+@media (max-width: 992px) {
+  .div-resultado {
+    display: flex;
+    width: 100vw;
+    padding: 0px 10px 0px 10px;
+  }
 }
