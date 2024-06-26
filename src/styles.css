@@ -50,68 +50,6 @@ img {
 
 /* ESTILOS GLOBALES ======================================================= */
 
-.btn-global {
-  background-color: #385a64;
-  color: white;
-  font-size: 25px;
-  padding: 0 30px 0 30px;
-  border: none;
-  border-radius: 5px;
-}
-
-.btn-l-global {
-  border: 1px solid #009c86;
-  color: #009c86;
-  background-color: white;
-  padding: 5px 10px 5px 10px;
-  border-radius: 5px;
-}
-
-.btn-l-global:hover {
-  border: 1px solid #009c86;
-  color: white;
-  background-color: #009c86;
-}
-
-.Btn-datos {
-  background-color: #5dc460 !important;
-  margin-left: 10px;
-  padding: 0px 10px 0px 10px;
-}
-
-/* FOOTER - SIMULADOR ======================================================= */
-
-.Footer {
-  display: flex;
-  align-items: flex-end;
-  flex-grow: 1;
-  color: #fff;
-  text-align: center;
-  margin-top: 30px;
-  padding-bottom: 10px;
-}
-
-.Contenedor {
-  display: flex;
-  justify-content: flex-end;
-  width: 1100px;
-}
-
-.Botones {
-  margin: 0;
-}
-
-.Btn-opciones {
-  width: 150px;
-  background-color: #385a64;
-  color: white;
-  font-size: 16px;
-  margin: 0px 5px 0 5px;
-  border-radius: 5px;
-  border: none;
-  padding: 5px;
-}
-
 /* RESPONSIVE ======================================================= */
 
 @media (max-width: 1200px) {
@@ -133,6 +71,11 @@ img {
     gap: 0px;
   }
 
+  .Contenido h1 {
+    width: 100%;
+    text-align: center;
+  }
+
   .Reverso {
     display: flex;
     flex-direction: column-reverse !important;
@@ -142,11 +85,6 @@ img {
     font-size: 30px;
   }
 
-  .Contenido h1 {
-    width: 100%;
-    text-align: center;
-  }
-
   p {
     text-align: justify;
     font-size: 16px;
@@ -154,26 +92,5 @@ img {
 
   .Bloque img {
     width: 250px;
-  }
-
-  .Btn-datos {
-    font-size: 13px;
-    background-color: #5dc460 !important;
-    margin-left: 10px;
-    padding: 0px 10px 0px 10px;
-  }
-
-  .Contenedor {
-    width: 100vw;
-    padding-right: 5px;
-  }
-
-  .Btn-opciones {
-    width: 100px;
-    background-color: #385a64;
-    color: white;
-    font-size: 13px;
-    margin: 0px 3px 0 3px;
-    padding: 3px;
   }
 }
