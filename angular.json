@@ -27,7 +27,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/etiqueta.css",
+              "src/assets/css/etiquetasHTML.css",
+              "src/assets/css/formulario.css",
+              "src/assets/css/tabla.css",
+              "src/assets/css/footer.css",
+              "src/assets/css/otros.css"
             ],
             "scripts": []
           },
