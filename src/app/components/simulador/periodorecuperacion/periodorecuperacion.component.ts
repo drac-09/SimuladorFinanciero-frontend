@@ -20,6 +20,8 @@ export class PeriodorecuperacionComponent implements OnInit {
       this.acumulado = JSON.parse(String(localStorage.getItem('pr_acumulado')));
       this.siguiente = true;
     }
+
+    this.calcular();
   }
 
   ngOnInit(): void {
@@ -37,7 +39,7 @@ export class PeriodorecuperacionComponent implements OnInit {
     }
 
     // Calculo "Acumulados" de los Flujos de Efectivo
-    this.acumulado[0] = '‎';
+    this.acumulado[0] = '0.00';
     this.acumulado[1] = flujoResumen[1].fne
     for (let i = 2; i < this.flujo.length; i++) {
       this.acumulado[i] = (parseInt(this.acumulado[i - 1]) + parseInt(this.flujo[i].fne)).toFixed(2)
@@ -75,5 +77,8 @@ export class PeriodorecuperacionComponent implements OnInit {
     localStorage.clear()
   }
 
+  isNumber(value: any): boolean {
+    return !isNaN(parseFloat(value)) && isFinite(value);
+  }
 
 }

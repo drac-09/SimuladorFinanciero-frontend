@@ -1,75 +1,105 @@
-<div class="etiquetas-flex">
-  <div class="form flujo">1. Flujo Neto de Efectivo</div>
-  <div class="form costo">2. Relación Costo-Beneficio</div>
-  <div class="form periodo">3. Periodo de Recuperación</div>
-  <div class="disable">4. Tabla pago a Préstamo</div>
-</div>
+<div class="Body-simulador">
+  <div class="Etiquetas-flex">
+    <div class="Form Flujo">1. Flujo Neto de Efectivo</div>
+    <div class="Form Costo">2. Relación Costo-Beneficio</div>
+    <div class="Form Periodo">3. Periodo de Recuperación</div>
+    <div class="Form Disable">4. Tabla pago a Préstamo</div>
+  </div>
 
+  <div class="d-flex Datos">
 
-<div>
-  <div class="d-flex body">
-    <div class="formulario">
-
+    <div class="Formulario">
       <div class="div-titulo">
-        <p>Datos Obtenidos del Inciso 1</p>
+        <p>Datos Utilizados</p>
       </div>
-
-      <h1>■ Años</h1>
-      <h1>■ Flujo Neto de Efectivo</h1>
-
-      <div class="columna div-boton">
+      <div class="Campo">
+        <h1>■ Años</h1>
+      </div>
+      <div class="Campo">
+        <h1>■ Flujo Neto de Efectivo</h1>
+      </div>
+      <!-- <div class="columna div-boton">
         <br />
-        <button id="calcular" class="btn btn-datos" (click)="calcular()">Calcular</button>
-      </div>
+        <button id="calcular" class="btn Btn-datos" (click)="calcular()">Calcular</button>
+      </div> -->
     </div>
 
 
-    <div class="tabla" *ngIf="flujo.length != 0">
-      <div class="d-flex">
-        <table class="table">
-          <thead>
+    <div class="div-contenido" *ngIf="flujo.length != 0">
+
+      <table>
+        <tbody>
+          <td>
             <tr>
-              <th id="anio" scope="col">Años</th>
-              <th scope="col">Flujo</th>
+              <div class="tabla1">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <td class="Espacio-campo"></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="celdaFNE">FNE</td>
+                    </tr>
+                    <tr>
+                      <td class="celdaFNE">Acumulado</td>
+                    </tr>
+                  </tbody>
+                  <br />
+                </table>
+              </div>
             </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let f of flujo">
-              <td>{{ f.anio }}</td>
-              <td>{{ f.fne }}</td>
-            </tr>
-          </tbody>
-        </table>
-        <table class="table" *ngIf="acumulado.length != 0">
-          <thead>
+          </td>
+          <td>
             <tr>
-              <th scope="col">Acumulado</th>
+              <div class="tabla2">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <td></td>
+                      <td *ngFor="let f of flujo" style="text-align: center; font-weight: bold;">Año {{ f.anio }}</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td></td>
+                      <td *ngFor="let f of flujo">{{ f.fne | number:'1.2-2' }}</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <!-- <td  *ngFor="let a of acumulado">{{ a | number:'1.2-2' }}</td> -->
+                      <td *ngFor="let a of acumulado">
+                        <div *ngIf="isNumber(a)">{{ a | number:'1.2-2' }}</div>
+                      </td>
+                    </tr>
+                  </tbody>
+                  <br />
+                </table>
+              </div>
             </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let a of acumulado">
-              <td>{{ a }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+          </td>
+        </tbody>
+      </table>
     </div>
   </div>
+
+
   <br>
-  <hr><br><br>
-  <div class="div-resultado">
-    <i class="fa-solid fa-clock"></i>
-    <p>Periodo de recuperación = {{aRecuperacion}} Años</p>
+  <div class="respuesta">
+    <div class="msj verde">
+      <i class="fa-solid fa-clock"></i>
+      <p>Periodo de recuperación = {{aRecuperacion}} Años</p>
+    </div>
   </div>
 
 
+  <footer class="Footer">
+    <div class="Contenedor">
+      <button class="Btn-opciones" routerLink="/costo-beneficio">
+        << Anterior</button>
+          <button *ngIf="siguiente" class="Btn-opciones" routerLink="/pago-prestamo">Siguiente >></button>
+          <button class="Btn-opciones" routerLink="/home" (click)="cancelar()">Cancelar</button>
+    </div>
+  </footer>
 </div>
-
-<footer class="footer">
-  <div class="contenedor">
-    <button class="btn btn-opciones" routerLink="/costo-beneficio">
-      << Anterior</button>
-        <button *ngIf="siguiente" class="btn btn-opciones" routerLink="/pago-prestamo">Siguiente >></button>
-        <button class="btn btn-opciones" routerLink="/home" (click)="cancelar()">Cancelar</button>
-  </div>
-</footer>
