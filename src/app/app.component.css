@@ -151,11 +151,11 @@ h1 {
 
   .Flex-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
-    height: calc(100vh - 60px);
+    /* height: calc(100vh - 60px); */
     width: 100vw;
     margin: 0px;
-    padding: 0px;
+    /* background-color: red; */
   }
 }

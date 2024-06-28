@@ -18,37 +18,38 @@
 
 .Flujo {
   background-color: #5dc460;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .Costo {
   background-color: #77dd77;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .Periodo {
   background-color: #a5eea0;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .Pago {
   background-color: #cfffca;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 @media (max-width: 992px) {
   .Etiquetas-flex {
     justify-content: center;
-    padding-top: 0px;
-    padding: 5px;
-    width: 100vw;
+    width: 95vw;
+    margin: 0px 10px 0px 10px;
+    padding-top: 5px;
+    padding-bottom: 20px;
     flex-wrap: wrap;
     gap: 5px;
   }
 
   .Form {
     /* verificar tamaño de fuente cambia segun este seleccionada*/
-    font-size: 0.8em;
+    font-size: 0.75em;
     margin-right: 0px;
     width: fit-content;
     padding: auto;

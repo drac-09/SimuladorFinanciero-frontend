@@ -1,6 +1,6 @@
 .div-cuota {
   text-align: right;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   margin-left: 5px;
   margin-bottom: 27px;
@@ -8,28 +8,52 @@
 }
 
 /* TABLA ======================================================= */
-.table {
+.div-tabla {
   width: 645px;
-  overflow-x: scroll;
 }
 
 .table thead tr {
+  width: 645px;
   text-align: center;
 }
 
+.table thead tr {
+  display: table;
+  width: 645px;
+  table-layout: fixed;
+}
+
+.table tbody {
+  display: block;
+  max-height: 400px; /* Ajusta esta altura según tus necesidades */
+  overflow-y: auto;
+}
+
 .table tbody tr {
+  display: table;
+  width: 645px;
+  table-layout: fixed;
   text-align: center;
+}
+
+.periodo {
+  width: 70px;
 }
 
 @media (max-width: 992px) {
   .div-cuota {
-    width: 100vw;
+    width: 95vw;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
     margin-left: 0px;
-    padding: 0px 10px 0px 10px;
+    margin-bottom: 25px;
   }
 
-  .table {
-    width: 100vw;
+  .div-tabla {
+    width: 97vw;
+    margin: 0px 5px 0px 5px;
     overflow-x: scroll;
+    /* background-color: aqua; */
   }
 }

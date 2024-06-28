@@ -1,4 +1,4 @@
-<div class="contaider">
+<div class="container">
   <div class="escenario" *ngFor="let e of escenarios;" data-bs-toggle="modal" data-bs-target="#modal-editar-escenario"
     (click)="seleccionar(e)">
     <div class="add">
@@ -24,10 +24,10 @@
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
     <div class="modal-content">
-      <!-- <div class="modal-header" style="height: 10px;">
+      <div class="modal-header" style="height: 10px;">
         <button type="button" class="btn-close btn-xs" data-bs-dismiss="modal" aria-label="Close"
           (click)="cerrar()"></button>
-      </div> -->
+      </div>
       <div class="modal-body">
         <img id="formImagenApp" style="width: 120px;" class="img-fluid"
           src="../../../assets/images/iconos/escenario.png">
@@ -38,8 +38,8 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-success btn-sm" data-bs-dismiss="modal"
           (click)="continuar()">Continuar</button>
-        <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal"
-          (click)="cerrar()">Cancelar</button>
+        <!-- <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal"
+          (click)="cerrar()">Cancelar</button> -->
       </div>
     </div>
   </div>

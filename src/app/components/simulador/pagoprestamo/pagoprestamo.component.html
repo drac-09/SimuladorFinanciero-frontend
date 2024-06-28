@@ -39,36 +39,37 @@
             <button id="calcular" class=" btn Btn-datos" (click)="calcular()">Calcular</button>
           </div>
         </div>
-      </form><br><br>
+      </form>
     </div>
 
     <div *ngIf="tabla.length != 0" class="div-contenido" [formGroup]="formularioDatos">
       <div class="div-cuota">
-        Cuota Mensual: L. {{this.formularioDatos.get('cuota')?.value | number:'1.2-2'}}
+        Cuota mensual: L. {{this.formularioDatos.get('cuota')?.value | number:'1.2-2'}}
       </div>
       <div>
 
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col" style="width: 25px;">Periodo</th>
-              <th scope="col">Cuotas</th>
-              <th scope="col">Intereses</th>
-              <th scope="col">Amortizacion</th>
-              <th scope="col">Saldo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let t of tabla">
-              <td class="periodo">{{t.periodo}}</td>
-              <td>{{t.cuotas | number:'1.2-2'}}</td>
-              <td>{{t.interes | number:'1.2-2'}}</td>
-              <td>{{t.amortizacion | number:'1.2-2'}}</td>
-              <td>{{t.saldo | number:'1.2-2'}}</td>
-            </tr>
-          </tbody>
-        </table>
-
+        <div class="div-tabla">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" class="periodo">Periodo</th>
+                <th scope="col">Cuotas</th>
+                <th scope="col">Intereses</th>
+                <th scope="col">Amortizacion</th>
+                <th scope="col">Saldo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let t of tabla">
+                <td class="periodo">{{t.periodo}}</td>
+                <td>{{t.cuotas | number:'1.2-2'}}</td>
+                <td>{{t.interes | number:'1.2-2'}}</td>
+                <td>{{t.amortizacion | number:'1.2-2'}}</td>
+                <td>{{t.saldo | number:'1.2-2'}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
     </div>

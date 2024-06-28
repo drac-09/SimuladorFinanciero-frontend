@@ -21,8 +21,10 @@ h1 {
   .Home {
     display: flex;
     height: calc(100vh - 60px);
+    width: 100vw;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
 
   img {

@@ -90,15 +90,15 @@
       <br><br>
       <form [formGroup]="formularioDatos">
         <div class="div-resultado">
-          <h5>VPE:</h5>
+          <h5 style="font-weight: bold;">VPE:</h5>
           <h5>{{ formularioDatos.value.vpe | number:'1.2-2' }}</h5>
         </div>
         <div class="div-resultado">
-          <h5>VPI:</h5>
+          <h5 style="font-weight: bold;">VPI:</h5>
           <h5>{{ formularioDatos.value.vpi | number:'1.2-2' }}</h5>
         </div>
         <div class="div-resultado">
-          <h5>RCB:</h5>
+          <h5 style="font-weight: bold;">RCB:</h5>
           <h5>{{ formularioDatos.value.rcb | number:'1.2-2' }}</h5>
         </div>
         <br /><br />
@@ -106,7 +106,6 @@
     </div>
   </div>
 
-  <br>
   <div class="respuesta">
     <div *ngIf="aprobado" class="msj verde">
       <i class="fa-solid fa-circle-check"></i>

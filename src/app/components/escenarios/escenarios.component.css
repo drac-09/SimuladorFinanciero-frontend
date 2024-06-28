@@ -1,7 +1,10 @@
-.contaider {
+.container {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
-  /* background-color: #009c86; */
+  padding-top: 50px;
+  gap: 30px;
 }
 
 .text {
@@ -21,7 +24,7 @@
   height: 200;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin: 20px 10px 20px 10px;
+  /* margin: 20px 10px 20px 10px; */
 }
 
 .add {
@@ -50,6 +53,8 @@
 }
 
 .modal-footer {
+  display: flex;
+  justify-content: center;
   flex-wrap: nowrap;
 }
 
@@ -59,4 +64,15 @@
 
 .modal-header {
   border: none;
+}
+
+@media (max-width: 992px) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 45px 0px 0px 0px;
+    gap: 10px;
+  }
 }

@@ -28,6 +28,7 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 50px;
+  padding: 0px 10px 0px 10px;
 }
 
 .Contenido {
