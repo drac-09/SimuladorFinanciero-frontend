@@ -31,19 +31,24 @@
   font-weight: bold;
 }
 
+.Pago {
+  background-color: #cfffca;
+  font-weight: bold;
+}
+
 @media (max-width: 992px) {
-  /* INDICADORES SUPERIORES ======================================================= */
   .Etiquetas-flex {
     justify-content: center;
     padding-top: 0px;
-    padding: 10px;
+    padding: 5px;
     width: 100vw;
     flex-wrap: wrap;
     gap: 5px;
   }
 
   .Form {
-    font-size: 13px;
+    /* verificar tamaño de fuente cambia segun este seleccionada*/
+    font-size: 0.8em;
     margin-right: 0px;
     width: fit-content;
     padding: auto;

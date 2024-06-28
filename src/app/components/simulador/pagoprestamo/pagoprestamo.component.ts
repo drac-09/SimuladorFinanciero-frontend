@@ -62,7 +62,7 @@ export class PagoprestamoComponent implements OnInit {
     } else {
 
       // Calcular Cuota
-      let credito = this.formularioDatos.get('credito')?.value
+      let credito = this.convertirNumero(this.formularioDatos.get('credito')?.value)
       let tasa = (this.formularioDatos.get('tasa')?.value / 100)
       let plazo = this.formularioDatos.get('plazo')?.value
 
@@ -157,4 +157,9 @@ export class PagoprestamoComponent implements OnInit {
     }
   }
 
+  convertirNumero(texto: string): number {
+    let valorSinComas = texto.replace(/,/g, '');    // Eliminar comas (si es que existen)
+    let numero = parseFloat(valorSinComas);         // Convertir a número
+    return numero;
+  }
 }

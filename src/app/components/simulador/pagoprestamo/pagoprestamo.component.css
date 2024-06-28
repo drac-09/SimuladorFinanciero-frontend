@@ -1,168 +1,35 @@
-/* INDICADORES SUPERIORES ======================================================= */
-.etiquetas-flex {
-  display: flex;
-  padding-top: 20px;
-}
-
-.form {
-  font-size: 15px;
-  margin-right: 20px;
-  padding: 3px 10px;
-  border: transparent 5px solid;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-
-.flujo {
-  background-color: #5dc460;
-}
-
-.costo {
-  background-color: #77dd77;
-}
-
-.periodo {
-  background-color: #a5eea0;
-}
-
-.pago {
-  background-color: #cfffca;
-  font-weight: bold;
-}
-
-.disable {
-  font-size: 15px;
-  margin-right: 20px;
-  padding: 3px 10px;
-  border: transparent 5px solid;
-  background-color: #eaeaea;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-
-#cuota {
-  border: none;
-}
-
-/* FORMULARIO ======================================================= */
-.body {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 70px;
-  width: 1100px;
-}
-
-.formulario {
-  width: 375px;
-}
-
-.flex {
-  display: flex;
-  /* padding-top: 0px; */
-  /* width: 160px; */
-}
-
-.flex h1 {
-  width: 150px;
-  font-size: 16px;
-}
-
-.flex h2 {
-  width: 50px;
-  font-size: 16px;
+.div-cuota {
   text-align: right;
-  margin-right: 10px;
-}
-
-.flex input {
-  width: 180px;
-  font-size: 16px;
-  border-radius: 50px;
-  border: 1px solid;
-  margin-bottom: 7px;
-  padding: 0px 10px 0px 10px;
-  text-align: right;
-}
-
-.div-titulo {
-  text-align: center;
   font-size: 20px;
   font-weight: bold;
-}
-
-.div-boton {
-  text-align: right;
-}
-
-.btn-datos {
-  background-color: #5dc460 !important;
-  margin-left: 10px;
-  padding: 0px 10px 0px 10px;
+  margin-left: 5px;
+  margin-bottom: 27px;
+  width: 640px;
 }
 
 /* TABLA ======================================================= */
-
-.tabla {
-  width: 600px;
-  height: 324px;
-  /* padding-left: 50px; */
-  /* background-color: aqua; */
-  padding-right: 20px;
-  overflow: scroll;
-  /* width:65%; */
+.table {
+  width: 645px;
+  overflow-x: scroll;
 }
 
-.div-cuota {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.div-observaciones p {
-  margin: 0;
-}
-
-.div-resultado p,
-label {
-  margin-right: 15px;
-}
-
-.div-contenido {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 100px;
-}
-
-.table tr {
+.table thead tr {
   text-align: center;
 }
 
-/* BOTONES INFERIORES ======================================================= */
-
-.footer {
-  display: flex;
-  justify-content: center;
-  padding: 50px 0;
-  position: absolute;
-  bottom: 0;
-  width: 100vw;
-  left: 0;
+.table tbody tr {
+  text-align: center;
 }
 
-.contenedor {
-  display: flex;
-  justify-content: flex-end;
-  width: 1250px;
-}
+@media (max-width: 992px) {
+  .div-cuota {
+    width: 100vw;
+    margin-left: 0px;
+    padding: 0px 10px 0px 10px;
+  }
 
-.btn-opciones {
-  width: 200px;
-  background-color: #385a64;
-  color: white;
-  font-size: 20px;
-  margin: 0px 5px 0 5px;
-  /* padding: 1px 20px 1px 20px; */
+  .table {
+    width: 100vw;
+    overflow-x: scroll;
+  }
 }
